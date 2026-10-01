@@ -1,0 +1,22 @@
+{
+  "name": "@goodheart/bkr-cli",
+  "version": "0.1.0",
+  "description": "CLI for BKR brand kit repositories",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "bkr": "./bin/bkr.js"
+  },
+  "dependencies": {
+    "@goodheart/bkr-rules-ght": "0.1.0",
+    "@goodheart/bkr-schema": "0.1.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "yaml": "^2.8.0"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "templates"
+  ]
+}

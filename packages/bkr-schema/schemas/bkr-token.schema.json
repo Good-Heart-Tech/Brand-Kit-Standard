@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://goodheart.tech/schemas/bkr-token/v1",
+  "title": "BKR token document",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["meta", "tokens"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["brandId", "layer"],
+      "properties": {
+        "brandId": { "type": "string", "minLength": 1 },
+        "layer": {
+          "enum": ["color", "typography", "theme"]
+        }
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "minProperties": 1,
+        "additionalProperties": {
+          "$ref": "#/$defs/token"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "token": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "type"],
+      "properties": {
+        "value": {
+          "oneOf": [
+            { "type": "string" },
+            { "type": "number" },
+            { "type": "object" }
+          ]
+        },
+        "type": {
+          "enum": [
+            "color",
+            "dimension",
+            "fontFamily",
+            "fontWeight",
+            "duration",
+            "string"
+          ]
+        },
+        "description": { "type": "string" },
+        "usage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "contexts": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "avoid": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "aliases": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["value"],
+            "properties": {
+              "value": { "type": "string" },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "inheritsFrom": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_.-]+\\.[a-zA-Z0-9_.-]+$"
+        }
+      }
+    }
+  }
+}

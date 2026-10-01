@@ -1,0 +1,30 @@
+schema: ght.brandkit/v1
+specVersion: 0.1.0
+brand:
+  id: acme-docs
+  displayName: Acme Docs
+  status: draft
+role: product
+profiles:
+  core: true
+  identity: true
+  voice: true
+  visual: true
+  copy: true
+  tokens: true
+  partnerPublic: false
+consumption:
+  cssVariables: tokens/exports/css/variables.css
+  agentDigest: digest/AGENT_CONTEXT.md
+  tailwindTheme: tokens/exports/tailwind/theme.cjs
+validation:
+  rulesPack: "@goodheart/bkr-rules-ght"
+  minContrastRatio: 4.5
+contacts:
+  brand: brand@example.org
+  legal: legal@example.org
+hierarchy:
+  parent:
+    repository: https://github.com/Good-Heart-Tech/Brand-Kit-Standard
+    ref: main
+    brandId: acme-labs

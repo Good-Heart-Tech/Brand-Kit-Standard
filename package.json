@@ -1,0 +1,19 @@
+{
+  "name": "brand-kit-standard",
+  "private": true,
+  "version": "0.1.0",
+  "description": "BKR — Brand Kit Repository specification and tooling (Good Heart Tech)",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "validate": "node packages/bkr-cli/bin/bkr.js validate examples/starter-org && node packages/bkr-cli/bin/bkr.js validate examples/starter-product-child",
+    "test": "npm run validate",
+    "digest": "node packages/bkr-cli/bin/bkr.js digest examples/starter-org",
+    "export:examples": "node packages/bkr-cli/bin/bkr.js export examples/starter-org --all"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

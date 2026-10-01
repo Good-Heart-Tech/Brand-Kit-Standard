@@ -1,0 +1,30 @@
+{
+  "$description": "DTCG export for acme-labs",
+  "palette": {
+    "primary": {
+      "$type": "color",
+      "$value": "#2563EB",
+      "$description": "Primary brand blue for CTAs and links."
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "#0F172A",
+      "$description": "Headings and high-contrast text."
+    },
+    "body": {
+      "$type": "color",
+      "$value": "#334155",
+      "$description": "Body copy on light backgrounds."
+    },
+    "surface": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Page background."
+    },
+    "accent": {
+      "$type": "color",
+      "$value": "#38BDF8",
+      "$description": "Secondary accent; not for body text on white."
+    }
+  }
+}

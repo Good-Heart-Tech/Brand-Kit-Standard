@@ -1,0 +1,25 @@
+{
+  "$description": "DTCG export for acme-docs",
+  "palette": {
+    "primary": {
+      "$type": "color",
+      "$value": "#2563EB",
+      "$description": "Locked to parent org primary — do not change without parent kit update."
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "#0F172A",
+      "$description": "Headings and high-contrast text."
+    },
+    "surface": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Page background."
+    },
+    "productAccent": {
+      "$type": "color",
+      "$value": "#7C3AED",
+      "$description": "Product-only accent for marketing hero bands — not for org-wide CTAs."
+    }
+  }
+}

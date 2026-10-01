@@ -1,0 +1,21 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - run: node packages/bkr-cli/bin/bkr.js export examples/starter-org --all
+      - run: node packages/bkr-cli/bin/bkr.js digest examples/starter-org
+      - run: git diff --exit-code examples/starter-org || (echo "Examples out of date — run export/digest locally" && exit 1)

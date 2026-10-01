@@ -1,0 +1,36 @@
+{
+  "$schema": "https://goodheart.tech/schemas/bkr-token/v1",
+  "meta": {
+    "brandId": "acme-labs",
+    "layer": "color"
+  },
+  "tokens": {
+    "palette": {
+      "primary": {
+        "value": "#2563EB",
+        "type": "color",
+        "description": "Primary brand blue for CTAs and links."
+      },
+      "ink": {
+        "value": "#0F172A",
+        "type": "color",
+        "description": "Headings and high-contrast text."
+      },
+      "body": {
+        "value": "#334155",
+        "type": "color",
+        "description": "Body copy on light backgrounds."
+      },
+      "surface": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Page background."
+      },
+      "accent": {
+        "value": "#38BDF8",
+        "type": "color",
+        "description": "Secondary accent; not for body text on white."
+      }
+    }
+  }
+}

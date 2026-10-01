@@ -1,0 +1,34 @@
+{
+  "$schema": "https://goodheart.tech/schemas/bkr-token/v1",
+  "meta": {
+    "brandId": "acme-docs",
+    "layer": "color"
+  },
+  "tokens": {
+    "palette": {
+      "primary": {
+        "value": "#2563EB",
+        "type": "color",
+        "inheritsFrom": "palette.primary",
+        "description": "Locked to parent org primary — do not change without parent kit update."
+      },
+      "ink": {
+        "value": "#0F172A",
+        "type": "color",
+        "inheritsFrom": "palette.ink",
+        "description": "Headings and high-contrast text."
+      },
+      "surface": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "inheritsFrom": "palette.surface",
+        "description": "Page background."
+      },
+      "productAccent": {
+        "value": "#7C3AED",
+        "type": "color",
+        "description": "Product-only accent for marketing hero bands — not for org-wide CTAs."
+      }
+    }
+  }
+}

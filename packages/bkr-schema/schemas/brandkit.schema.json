@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://goodheart.tech/schemas/brandkit/v1",
+  "title": "BKR brandkit manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "specVersion",
+    "brand",
+    "role",
+    "profiles",
+    "consumption"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ght.brandkit/v1"
+    },
+    "specVersion": {
+      "type": "string",
+      "pattern": "^0\\.[0-9]+\\.[0-9]+$"
+    },
+    "brand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "displayName", "status"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{1,62}[a-z0-9]$"
+        },
+        "displayName": { "type": "string", "minLength": 1 },
+        "status": {
+          "enum": ["draft", "active", "deprecated"]
+        }
+      }
+    },
+    "role": {
+      "enum": ["organization", "product", "campaign"]
+    },
+    "hierarchy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parent"],
+      "properties": {
+        "parent": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["repository", "ref", "brandId"],
+          "properties": {
+            "repository": {
+              "type": "string",
+              "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+            },
+            "ref": { "type": "string", "minLength": 1 },
+            "brandId": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "profiles": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "core": { "const": true },
+        "identity": { "type": "boolean" },
+        "voice": { "type": "boolean" },
+        "visual": { "type": "boolean" },
+        "copy": { "type": "boolean" },
+        "tokens": { "type": "boolean" },
+        "partnerPublic": { "type": "boolean" }
+      },
+      "required": ["core"]
+    },
+    "consumption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cssVariables", "agentDigest"],
+      "properties": {
+        "cssVariables": { "type": "string", "minLength": 1 },
+        "agentDigest": { "type": "string", "minLength": 1 },
+        "tailwindTheme": { "type": "string" }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allowExternalMirror": { "type": "boolean" },
+        "includedPaths": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rulesPack": { "type": "string" },
+        "minContrastRatio": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 21
+        }
+      }
+    },
+    "contacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "brand": { "type": "string", "format": "email" },
+        "legal": { "type": "string", "format": "email" }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "role": { "const": "product" } },
+        "required": ["role"]
+      },
+      "then": { "required": ["hierarchy"] }
+    }
+  ]
+}
