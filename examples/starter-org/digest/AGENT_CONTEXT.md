@@ -11,9 +11,7 @@
 - **Sharing:** Partner: only paths in `publication.includedPaths` may go to partners. Build them with `bkr publish`.
 - **Report impersonation:** security@acme-labs.example
 
-## Identity (excerpt)
-
-# About Acme Labs
+## About
 
 Acme Labs is a software company that makes workplace tools for small and
 mid-sized businesses. Our products help teams keep their docs, brand, and
@@ -38,9 +36,7 @@ customer messages consistent without hiring a design department.
 We are the dependable, easy-to-roll-out option. We do not compete on the
 longest feature list; we compete on being easy to trust and easy to maintain.
 
-## Voice (excerpt)
-
-# Voice and tone
+## Voice and tone
 
 Our voice stays the same everywhere: calm, clear, and helpful. Our tone shifts
 with the moment.
@@ -73,8 +69,6 @@ with the moment.
 
 ## Approved messaging (excerpt)
 
-# Approved messaging
-
 **Tagline:** Tools that stay on brand.
 
 **One sentence:** Acme Labs makes workplace software that keeps small and
@@ -91,8 +85,6 @@ a team uses.
 **Call to action:** Start a free trial.
 
 ## Logo rules (excerpt)
-
-# Logo
 
 | File | Use |
 |------|-----|

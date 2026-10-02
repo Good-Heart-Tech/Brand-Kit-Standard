@@ -1,7 +1,7 @@
 {
   "name": "brand-kit-standard",
   "private": true,
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "BKR: Brand Kit Repository specification and tooling (Good Heart Tech)",
   "license": "MIT",
   "type": "module",

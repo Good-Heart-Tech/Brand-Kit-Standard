@@ -107,6 +107,12 @@ export function upgradeKit(kitRoot) {
     changes.push(`${rel}: added a generated bkr:${kind} block`);
   }
 
+  // Organization context (0.5): suggest, do not add (new files would start with TODOs)
+  const optional = ["identity/mission.md", "identity/offerings.md", "identity/audiences.md", "identity/facts.md", "voice/terms.yaml", "voice/topics.md", "voice/style.md", "copy/claims.md"].filter((f) => !pathExists(path.join(kitRoot, f)));
+  if (optional.length) {
+    todo.push(`optional context files you can add (copy them from a new "bkr init" kit): ${optional.join(", ")}`);
+  }
+
   // .gitignore for publish output
   const gi = path.join(kitRoot, ".gitignore");
   const giText = pathExists(gi) ? fs.readFileSync(gi, "utf8") : "";

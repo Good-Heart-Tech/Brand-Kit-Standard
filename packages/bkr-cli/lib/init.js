@@ -36,6 +36,7 @@ export function initKit(targetDir, options = {}) {
     ? `report it here: ${options.securityContact}`
     : "tell us through the contact page on our website";
   copyTemplateTree(path.join(templatesDir(), role), targetDir, {
+    today: new Date().toISOString().slice(0, 10),
     brandId,
     reportImpersonation,
     displayName,
@@ -84,6 +85,11 @@ export function initKit(targetDir, options = {}) {
   };
   if (options.securityContact) {
     manifest.contacts = { security: options.securityContact };
+  }
+  if (options.orgType || options.industry) {
+    manifest.organization = {};
+    if (options.orgType) manifest.organization.type = options.orgType;
+    if (options.industry) manifest.organization.industry = options.industry;
   }
 
   if (role === "product") {

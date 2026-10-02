@@ -73,6 +73,7 @@ npx @goodheart/bkr-cli init ./my-brand --brand-id my-brand --display-name "My Br
 | `bkr export [dir] --all` | DTCG, CSS, Tailwind v3/v4, brand-at-a-glance page, agent UI brief |
 | `bkr digest [dir]` | Regenerate `AGENTS.md` and `digest/AGENT_CONTEXT.md` |
 | `bkr publish [dir] [--dry-run]` | Bundle only the files `publication` allows (refuses for private kits) |
+| `bkr check-copy <file...> [--kit dir]` | Flag words a draft should avoid, using the kit's `voice/terms.yaml` |
 | `bkr preview [dir]` | Screenshot the brand in use and the type specimen to PNG (needs Chrome or Edge) |
 | `bkr upgrade [dir]` | Bring an older kit up to the current spec |
 | `bkr import legacy-ght-colors <dir> <colors.json>` | Convert a legacy GHT colors file |
@@ -85,7 +86,9 @@ After editing a kit: `bkr export --all && bkr digest && bkr validate`.
 |------|------|
 | `brandkit.yaml` | Manifest: role, profiles, parent, sharing, contrast pairs, contacts |
 | `AGENTS.md`, `digest/` | Agent loading contract and summary (generated) |
-| `identity/`, `voice/`, `visual/`, `copy/` | Human narrative |
+| `identity/` | Who you are: about, naming, mission, offerings, audiences, approved facts |
+| `voice/` | How you sound: tone, vocabulary, word rules (`terms.yaml`), sensitive topics, style |
+| `copy/`, `visual/` | Approved wording, claims and disclaimers, logo and color rules |
 | `security/brand-protection.md` | Impersonation defenses checklist |
 | `tokens/*.bkr.json`, `tokens/themes/` | Normative values |
 | `tokens/exports/` | Generated; do not edit |
@@ -107,7 +110,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.4.3
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.5.0
         with:
           path: .
           strict: "true"

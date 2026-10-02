@@ -11,9 +11,7 @@
 - **Sharing:** Partner: only paths in `publication.includedPaths` may go to partners. Build them with `bkr publish`.
 - **Report impersonation:** https://juniperlane.example/contact
 
-## Voice (excerpt)
-
-# Voice and tone
+## Voice and tone
 
 Juniper Lane Studio is one person, so it sounds like one person: friendly,
 confident, and personal. I write "I" and "you", never "we" or "our team".
@@ -37,7 +35,7 @@ The voice stays the same everywhere; the tone shifts with the moment.
 
 ## Never
 
-- Pretend to be a bigg
+- Pretend to be a bigger agency ("our te
 …
 
 ## Vocabulary highlights
@@ -54,8 +52,6 @@ The voice stays the same everywhere; the tone shifts with the moment.
 - "Cheap" or "discount"; say "starter package" instead
 
 ## Approved messaging (excerpt)
-
-# Approved messaging
 
 This kit has no `identity/` layer, so the short "about me" lives here.
 
@@ -83,12 +79,11 @@ attention.
 |---------|--------------|
 | Brand photo session | A half-day shoot at your business and 25 or more edited photos for your website and social media |
 | Product photos | Clean, consistent photos of your products on white or styled backgrounds |
-| Logo and small brand kit | A logo, colors, and fonts, with files ready for p
+| Logo and small brand kit | A logo, colors, and fonts, with files ready for print and web |
+| Print
 …
 
 ## Logo rules (excerpt)
-
-# Logo
 
 This page is shared with printers, vendors, and clients.
 
@@ -120,7 +115,7 @@ width. Nothing else (text, edges, other logos) goes inside that space.
 
 - Match the hex values on the brand-at-a-glance page; ask for a proof on the
   chosen paper before a full run, because juniper green shifts on uncoated stock.
-- The
+- The SVG fil
 …
 
 ## Consumption

@@ -104,7 +104,7 @@ function walk(dir, onFile) {
 
 export function schemaPath(name) {
   // Resolve through the package so this works in the monorepo and when installed from npm.
-  const key = name === "brandkit.schema.json" ? "brandkit" : "token";
+  const key = { "brandkit.schema.json": "brandkit", "bkr-terms.schema.json": "terms" }[name] || "token";
   return require.resolve(`@goodheart/bkr-schema/${key}`);
 }
 

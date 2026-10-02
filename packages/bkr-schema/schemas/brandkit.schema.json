@@ -5,9 +5,18 @@
   "description": "brandkit.yaml for a Brand Kit Repository (ght.brandkit/v1). See spec/BKR-SPEC.md.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema", "specVersion", "brand", "role", "profiles", "consumption"],
+  "required": [
+    "schema",
+    "specVersion",
+    "brand",
+    "role",
+    "profiles",
+    "consumption"
+  ],
   "properties": {
-    "schema": { "const": "ght.brandkit/v1" },
+    "schema": {
+      "const": "ght.brandkit/v1"
+    },
     "specVersion": {
       "type": "string",
       "pattern": "^0\\.[0-9]+\\.[0-9]+$",
@@ -16,34 +25,108 @@
     "brand": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "displayName", "status"],
+      "required": [
+        "id",
+        "displayName",
+        "status"
+      ],
       "properties": {
         "id": {
           "type": "string",
           "pattern": "^[a-z0-9][a-z0-9-]{1,62}[a-z0-9]$",
           "description": "Lowercase, hyphenated id, for example good-heart-tech."
         },
-        "displayName": { "type": "string", "minLength": 1 },
-        "status": { "enum": ["draft", "active", "deprecated"] }
+        "displayName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "active",
+            "deprecated"
+          ]
+        }
       }
     },
-    "role": { "enum": ["organization", "product", "campaign"] },
+    "role": {
+      "enum": [
+        "organization",
+        "product",
+        "campaign"
+      ]
+    },
+    "organization": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Optional facts about the organization behind the brand. Gives people and AI tools context; rule packs may use type and industry.",
+      "properties": {
+        "type": {
+          "enum": [
+            "company",
+            "government",
+            "nonprofit",
+            "education",
+            "solo",
+            "other"
+          ],
+          "description": "What kind of organization this is."
+        },
+        "industry": {
+          "type": "string",
+          "minLength": 1,
+          "description": "In your own words, for example specialty coffee or managed IT services."
+        },
+        "location": {
+          "type": "string",
+          "description": "Where you are based."
+        },
+        "serviceArea": {
+          "type": "string",
+          "description": "Where you serve customers or residents."
+        },
+        "founded": {
+          "type": [
+            "integer",
+            "string"
+          ],
+          "description": "Year founded."
+        },
+        "website": {
+          "type": "string",
+          "pattern": "^https://",
+          "description": "Main public website."
+        }
+      }
+    },
     "hierarchy": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["parent"],
+      "required": [
+        "parent"
+      ],
       "properties": {
         "parent": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["repository", "ref", "brandId"],
+          "required": [
+            "repository",
+            "ref",
+            "brandId"
+          ],
           "properties": {
             "repository": {
               "type": "string",
               "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
             },
-            "ref": { "type": "string", "minLength": 1 },
-            "brandId": { "type": "string", "minLength": 1 },
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "brandId": {
+              "type": "string",
+              "minLength": 1
+            },
             "path": {
               "type": "string",
               "minLength": 1,
@@ -56,15 +139,31 @@
     "profiles": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["core"],
+      "required": [
+        "core"
+      ],
       "properties": {
-        "core": { "const": true },
-        "identity": { "type": "boolean" },
-        "voice": { "type": "boolean" },
-        "visual": { "type": "boolean" },
-        "copy": { "type": "boolean" },
-        "tokens": { "type": "boolean" },
-        "security": { "type": "boolean" },
+        "core": {
+          "const": true
+        },
+        "identity": {
+          "type": "boolean"
+        },
+        "voice": {
+          "type": "boolean"
+        },
+        "visual": {
+          "type": "boolean"
+        },
+        "copy": {
+          "type": "boolean"
+        },
+        "tokens": {
+          "type": "boolean"
+        },
+        "security": {
+          "type": "boolean"
+        },
         "partnerPublic": {
           "type": "boolean",
           "deprecated": true,
@@ -75,11 +174,22 @@
     "consumption": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["cssVariables", "agentDigest"],
+      "required": [
+        "cssVariables",
+        "agentDigest"
+      ],
       "properties": {
-        "cssVariables": { "type": "string", "minLength": 1 },
-        "agentDigest": { "type": "string", "minLength": 1 },
-        "tailwindTheme": { "type": "string" },
+        "cssVariables": {
+          "type": "string",
+          "minLength": 1
+        },
+        "agentDigest": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tailwindTheme": {
+          "type": "string"
+        },
         "cssPrefix": {
           "type": "string",
           "pattern": "^[a-z][a-z0-9-]*$",
@@ -92,14 +202,30 @@
       "additionalProperties": false,
       "description": "Optional. Which color token plays each part on the generated sample page. Inferred from contrastPairs and common names when left out.",
       "properties": {
-        "surface": { "type": "string" },
-        "text": { "type": "string" },
-        "heading": { "type": "string" },
-        "link": { "type": "string" },
-        "buttonBg": { "type": "string" },
-        "buttonText": { "type": "string" },
-        "card": { "type": "string" },
-        "accent": { "type": "string" }
+        "surface": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "heading": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string"
+        },
+        "buttonBg": {
+          "type": "string"
+        },
+        "buttonText": {
+          "type": "string"
+        },
+        "card": {
+          "type": "string"
+        },
+        "accent": {
+          "type": "string"
+        }
       }
     },
     "publication": {
@@ -107,13 +233,19 @@
       "additionalProperties": false,
       "properties": {
         "visibility": {
-          "enum": ["private", "partner", "public"],
+          "enum": [
+            "private",
+            "partner",
+            "public"
+          ],
           "default": "private",
           "description": "What may leave the organization. private: nothing. partner: includedPaths for approved partners. public: includedPaths for anyone."
         },
         "includedPaths": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "description": "Files or folders that bkr publish may bundle when visibility is partner or public."
         },
         "allowExternalMirror": {
@@ -131,18 +263,37 @@
           "type": "string",
           "description": "npm package name or local path (./rules/index.js) exporting validate()."
         },
-        "minContrastRatio": { "type": "number", "minimum": 1, "maximum": 21 },
+        "minContrastRatio": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 21
+        },
         "contrastPairs": {
           "type": "array",
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["foreground", "background"],
+            "required": [
+              "foreground",
+              "background"
+            ],
             "properties": {
-              "foreground": { "type": "string", "description": "Token path, for example palette.body" },
-              "background": { "type": "string", "description": "Token path, for example palette.surface" },
-              "use": { "type": "string" },
-              "min": { "type": "number", "minimum": 1, "maximum": 21 }
+              "foreground": {
+                "type": "string",
+                "description": "Token path, for example palette.body"
+              },
+              "background": {
+                "type": "string",
+                "description": "Token path, for example palette.surface"
+              },
+              "use": {
+                "type": "string"
+              },
+              "min": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 21
+              }
             }
           }
         },
@@ -152,11 +303,22 @@
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["foreground", "background", "reason"],
+            "required": [
+              "foreground",
+              "background",
+              "reason"
+            ],
             "properties": {
-              "foreground": { "type": "string" },
-              "background": { "type": "string" },
-              "reason": { "type": "string", "minLength": 1 }
+              "foreground": {
+                "type": "string"
+              },
+              "background": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
             }
           }
         }
@@ -166,11 +328,25 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "brand": { "type": "string", "format": "email" },
-        "legal": { "type": "string", "format": "email" },
+        "brand": {
+          "type": "string",
+          "format": "email"
+        },
+        "legal": {
+          "type": "string",
+          "format": "email"
+        },
         "security": {
           "type": "string",
-          "anyOf": [{ "format": "uri", "pattern": "^https://" }, { "format": "email" }],
+          "anyOf": [
+            {
+              "format": "uri",
+              "pattern": "^https://"
+            },
+            {
+              "format": "email"
+            }
+          ],
           "description": "Optional. Where people report impersonation. Prefer a URL (website contact page or /.well-known/security.txt) so no email address is stored in the kit."
         }
       }
@@ -178,8 +354,21 @@
   },
   "allOf": [
     {
-      "if": { "properties": { "role": { "const": "product" } }, "required": ["role"] },
-      "then": { "required": ["hierarchy"] }
+      "if": {
+        "properties": {
+          "role": {
+            "const": "product"
+          }
+        },
+        "required": [
+          "role"
+        ]
+      },
+      "then": {
+        "required": [
+          "hierarchy"
+        ]
+      }
     }
   ]
 }

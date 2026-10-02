@@ -13,6 +13,8 @@ const ALLOWED_HTML = new Set(["tokens/exports/html/brand-at-a-glance.html"]);
 // Each rule: [test(relPath) -> bool, reason]
 const RISKY_PATHS = [
   [(p) => p === "identity/naming.md", "internal naming and drafts help attackers write believable pretexts"],
+  [(p) => p === "identity/facts.md", "approved facts can include internal numbers (revenue, headcount, customers); share a press version instead"],
+  [(p) => p === "copy/claims.md" || p === "voice/topics.md", "claims rules and sensitive-topic positions are internal guidance"],
   [(p) => /(^|\/)(signatures?|email-?templates?|emails?|newsletters?)(\/|$)/i.test(p) || /signature/i.test(path.posix.basename(p)),
     "email and signature templates are ready-made parts for spoofed emails"],
   [(p) => /\.(eml|msg|oft|mjml)$/i.test(p), "email files are ready-made parts for spoofed emails"],

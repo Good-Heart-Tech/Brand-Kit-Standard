@@ -11,9 +11,7 @@
 - **Sharing:** Public: only paths in `publication.includedPaths` may be shared publicly. Build them with `bkr publish`.
 - **Report impersonation:** https://ridgelinecoffee.example/contact
 
-## Identity (excerpt)
-
-# About Ridgeline Coffee Roasters
+## About
 
 Ridgeline Coffee Roasters buys green coffee from farms we know by name, roasts
 it in small batches, and gets it to people while it is still fresh. We sell
@@ -38,9 +36,7 @@ We exist to make really good coffee feel easy and welcoming, not exclusive.
   who care about consistency, freshness, and support
 - **Press:** local food writers, coffee media, and business reporters
 
-## Voice (excerpt)
-
-# Voice and tone
+## Voice and tone
 
 We sound like a friendly barista who really knows coffee: warm, curious, and
 happy to help, never talking down to anyone. Our voice stays the same
@@ -63,7 +59,8 @@ everywhere. Our tone shifts with the moment.
   on the bean")
 - Lead with how it tastes and how to brew it, not with scores or jargon
 - Put the roast date and the practical details (size, grind, price) where
-  people can find the
+  people can find them fast
+- Say sorry
 …
 
 ## Vocabulary highlights
@@ -80,8 +77,6 @@ everywhere. Our tone shifts with the moment.
 - Health claims of any kind
 
 ## Approved messaging (excerpt)
-
-# Approved messaging (internal)
 
 This file is for staff only. It is **not** in the public press kit, because
 realistic pricing, wholesale terms, and order wording make fake shop sites and
@@ -114,12 +109,12 @@ and black tea. Best as pour-over. 12 oz bag, $19.
 roasted and shipped within 48 hours. Every two or four weeks. Skip or cancel
 any time online. From $16 a bag, free shipping.
 
-## 
+## Wholesale pitch
+
+> Your guests no
 …
 
 ## Logo rules (excerpt)
-
-# Logo
 
 Our mark is a mountain ridge over a coffee bean: where the name comes from and
 what we do, in one simple shape.
@@ -149,8 +144,7 @@ mark. Nothing else (text, other logos, photo edges) goes inside it.
 - Put the default mark on dark photos (use the reversed mark)
 - Place partner or grocer logos inside our clear space without approval
 
-## Logo 
-…
+## Logo files
 
 ## Consumption
 

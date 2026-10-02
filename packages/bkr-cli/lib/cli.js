@@ -1,7 +1,9 @@
+import fs from "node:fs";
 import path from "node:path";
 import { readManifest, resolveKitPath } from "./fs-kit.js";
 import { loadTokens } from "./tokens.js";
 import { takePreviews } from "./preview.js";
+import { findAvoided, formatHit, loadTerms } from "./terms.js";
 import { validateKit } from "./validate.js";
 import { ALL_TARGETS, exportKit, importLegacyGhtColors } from "./export.js";
 import { buildDigest } from "./digest.js";
@@ -15,11 +17,13 @@ Usage:
   bkr init <dir> [--role organization|product] [--brand-id id] [--display-name name]
                  [--security-contact url-or-email] [--parent-repo url] [--parent-ref ref]
                  [--parent-brand-id id] [--parent-path ../org-kit]
+                 [--org-type company|government|nonprofit|education|solo|other] [--industry text]
   bkr validate [dir] [--strict] [--parent <path-to-parent-kit>]
   bkr export [dir] [--all] [--dtcg] [--css] [--tailwind] [--html] [--agent]
   bkr digest [dir] [--max-bytes N]
   bkr publish [dir] [--dry-run] [--out <dir>]
   bkr preview [dir]            (screenshots to tokens/exports/png/, needs Chrome or Edge)
+  bkr check-copy <file...> [--kit dir] [--strict]   (flag avoided words from voice/terms.yaml)
   bkr upgrade [dir]
   bkr import legacy-ght-colors <dir> <path-to-colors.json>
 
@@ -61,6 +65,8 @@ export async function runCli(argv) {
       parentRef: getFlag(args, "--parent-ref"),
       parentBrandId: getFlag(args, "--parent-brand-id"),
       parentPath: getFlag(args, "--parent-path"),
+      orgType: getFlag(args, "--org-type"),
+      industry: getFlag(args, "--industry"),
     });
     console.log(`Initialized BKR kit at ${out}`);
     console.log("Next: fill in the TODO(bkr) sections, then run `bkr export --all && bkr digest && bkr validate`.");
@@ -104,6 +110,29 @@ export async function runCli(argv) {
     }
     printResult(dryRun ? "publish (dry run)" : "publish", result);
     if (!result.ok) process.exitCode = 1;
+    return;
+  }
+
+  if (cmd === "check-copy") {
+    // bkr check-copy <file...> [--kit <dir>] [--strict]
+    const kit = resolveKitPath(getFlag(args, "--kit") || ".");
+    const files = [];
+    for (let i = 1; i < args.length; i++) {
+      if (args[i] === "--kit") i++; // skip the flag's value
+      else if (!args[i].startsWith("--")) files.push(args[i]);
+    }
+    if (!files.length) throw new Error("usage: bkr check-copy <file...> [--kit <kit-dir>] [--strict]");
+    const terms = loadTerms(kit);
+    if (!terms) throw new Error(`No voice/terms.yaml in ${kit}. Pass --kit <path-to-brand-kit>.`);
+    if (terms.error) throw new Error(`voice/terms.yaml: ${terms.error}`);
+    let total = 0;
+    for (const f of files) {
+      const hits = findAvoided(fs.readFileSync(path.resolve(f), "utf8"), f, terms.doc.terms || []);
+      total += hits.length;
+      for (const h of hits) console.log(formatHit(f, h));
+    }
+    console.log(`check-copy: ${total} word(s) to review in ${files.length} file(s)`);
+    if (total && args.includes("--strict")) process.exitCode = 1;
     return;
   }
 

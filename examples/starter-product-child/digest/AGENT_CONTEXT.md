@@ -8,13 +8,11 @@
 - **Name:** Acme Docs
 - **Status:** active
 - **Role:** product
-- **Sharing:** Private: do not send files from this kit outside the organization.
 - **Parent kit:** https://github.com/Good-Heart-Tech/Brand-Kit-Standard @ main
+- **Sharing:** Private: do not send files from this kit outside the organization.
 - **Report impersonation:** security@acme-labs.example
 
-## Identity (excerpt)
-
-# About Acme Docs
+## About
 
 Acme Docs is the Acme Labs knowledge base product. It helps growing
 companies write down how things work, so knowledge does not walk out the
@@ -32,9 +30,7 @@ Same as Acme Labs, plus:
 - Operations managers and team leads
 - Executive directors handing off responsibilities
 
-## Voice (excerpt)
-
-# Voice and tone
+## Voice and tone
 
 Acme Docs uses the Acme Labs voice. In the product, lean encouraging: many
 people writing documentation are doing it for the first time.
@@ -60,8 +56,6 @@ people writing documentation are doing it for the first time.
 
 ## Approved messaging (excerpt)
 
-# Approved messaging
-
 **Tagline:** Write it down once.
 
 **One sentence:** Acme Docs from Acme Labs is a knowledge base that helps
@@ -70,8 +64,6 @@ growing teams keep their know-how in one place.
 **Call to action:** Create your first page.
 
 ## Logo rules (excerpt)
-
-# Logo
 
 Product mark: `assets/logo/mark.svg`. It reuses the Acme Labs ring with the
 Docs accent in the center.

@@ -11,9 +11,7 @@
 - **Sharing:** Partner: only paths in `publication.includedPaths` may go to partners. Build them with `bkr publish`.
 - **Report impersonation:** https://brightwatercounty.example/report-fraud
 
-## Identity (excerpt)
-
-# About Brightwater County
+## About
 
 Brightwater County is the local government for about 180,000 residents in the
 towns, farms, and river communities of the Brightwater Valley. We run the
@@ -46,9 +44,7 @@ County, and they should be able to read and use it easily.
 - Other agencies: cities, school districts, the state, and neighboring counties
 - Reporters and local media
 
-## Voice (excerpt)
-
-# Voice and tone
+## Voice and tone
 
 We write in plain language, following the federal plain language guidelines:
 readers should find what they need, understand it the first time, and know
@@ -72,7 +68,7 @@ Our tone changes with the moment.
 - Lead with the action or the answer, then the details
 - Use "you" for the reader and "we" for the County
 - Use short sentences, headings, and lists
-- Write dates and time
+- Write dates and times in full: "Tuesda
 …
 
 ## Vocabulary highlights
@@ -89,8 +85,6 @@ Our tone changes with the moment.
 - Short, simple sentences that translate well
 
 ## Approved messaging (excerpt)
-
-# Approved messaging
 
 **Tagline:** Serving every resident of the Brightwater Valley.
 
@@ -114,12 +108,11 @@ wire transfer. Pay only on brightwatercounty.example or at a county office.
 
 **Accessibility line (on public notices and event pages):**
 To ask for an accommodation, such as an interpreter, large print, or
-captions, visit brightwatercounty.example/accessibility at least 3
+captions, visit brightwatercounty.example/accessibility at least 3 business
+days before 
 …
 
 ## Logo rules (excerpt)
-
-# Logo
 
 The Brightwater County logo is a sun rising over the river. All county
 departments use the same logo with their name set in text next to it or below
@@ -156,7 +149,7 @@ the mark.
 ## Do not
 
 - Stretch, rotate, outline, or add shadows
-- Recolor the mark or change the sun to
+- Recolor the mark or change the sun to another
 …
 
 ## Consumption

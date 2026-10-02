@@ -13,3 +13,9 @@
 - Hype words like "revolutionary" or "best-in-class"
 
 > TODO(bkr): Add words your organization always uses, and words it never uses.
+
+## Word rules
+
+The exact rules live in `voice/terms.yaml`. This table is generated from it.
+
+<!-- bkr:terms -->

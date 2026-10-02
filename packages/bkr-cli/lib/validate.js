@@ -18,6 +18,7 @@ import { computeSourceHash, readStoredHash } from "./export.js";
 import { collectPublication } from "./publication.js";
 import { checkMarkdownBlocks, evaluateAvoid } from "./visuals.js";
 import { previewStatus } from "./preview.js";
+import { checkTerms, findAvoided, formatHit, loadTerms } from "./terms.js";
 
 const PROFILE_PATHS = {
   identity: ["identity/about.md", "identity/naming.md"],
@@ -54,6 +55,7 @@ export function createValidator() {
   return {
     validateManifest: ajv.compile(readJson(schemaPath("brandkit.schema.json"))),
     validateTokenDoc: ajv.compile(readJson(schemaPath("bkr-token.schema.json"))),
+    validateTermsDoc: ajv.compile(readJson(schemaPath("bkr-terms.schema.json"))),
   };
 }
 
@@ -75,7 +77,7 @@ export async function validateKit(kitRoot, options = {}) {
     return { ok: false, errors, warnings, notes, manifest: null };
   }
 
-  const { validateManifest, validateTokenDoc } = createValidator();
+  const { validateManifest, validateTokenDoc, validateTermsDoc } = createValidator();
   if (!validateManifest(manifest)) {
     for (const err of validateManifest.errors || []) {
       errors.push(`brandkit.yaml: ${err.instancePath || "/"} ${err.message}`);
@@ -155,6 +157,21 @@ export async function validateKit(kitRoot, options = {}) {
       warnings.push("tokens/exports/ is out of date with tokens/ or brandkit.yaml: run `bkr export --all`");
     }
   }
+
+  // --- Organization context and word rules
+  const terms = loadTerms(kitRoot);
+  const termCheck = checkTerms(terms, validateTermsDoc);
+  errors.push(...termCheck.errors);
+  warnings.push(...termCheck.warnings);
+  if (terms?.doc?.terms && !termCheck.errors.length) {
+    // The kit's own approved wording should follow its own word rules.
+    for (const f of listFiles(path.join(kitRoot, "copy"))) {
+      const rel = toPosix(path.relative(kitRoot, f));
+      if (!rel.endsWith(".md") || /^copy\/(legal|claims)\.md$/.test(rel)) continue;
+      for (const h of findAvoided(fs.readFileSync(f, "utf8"), rel, terms.doc.terms)) warnings.push(`check-copy: ${formatHit(rel, h)}`);
+    }
+  }
+  warnings.push(...checkFacts(kitRoot));
 
   // --- Sharing / publication
   const pub = collectPublication(kitRoot, manifest);
@@ -328,6 +345,19 @@ function checkParent(kitRoot, manifest, tokens, parentDir, errors, warnings) {
       errors.push(`${t.rel}: ${t.path} redefines a parent token; add "inheritsFrom": "${t.path}" or use a new name`);
     }
   }
+}
+
+// identity/facts.md must say when it was last reviewed, so stale numbers do not spread.
+const FACTS_MAX_AGE_DAYS = 365;
+function checkFacts(kitRoot) {
+  const p = path.join(kitRoot, "identity", "facts.md");
+  if (!pathExists(p)) return [];
+  const m = fs.readFileSync(p, "utf8").match(/Last reviewed:?\*{0,2}:?\s*(\d{4}-\d{2}-\d{2})/i);
+  if (!m) return ["identity/facts.md: add a line like \"Last reviewed: 2026-10-01\" so people know how current the facts are"];
+  const age = (Date.now() - Date.parse(`${m[1]}T00:00:00Z`)) / 86400000;
+  if (Number.isNaN(age)) return [`identity/facts.md: \"${m[1]}\" is not a valid date`];
+  if (age > FACTS_MAX_AGE_DAYS) return [`identity/facts.md: facts were last reviewed ${m[1]}, over a year ago; check them and update the date`];
+  return [];
 }
 
 const normalize = (v) => (typeof v === "string" ? v.toLowerCase() : v);

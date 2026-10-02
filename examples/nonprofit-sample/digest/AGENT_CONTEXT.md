@@ -11,9 +11,7 @@
 - **Sharing:** Public: only paths in `publication.includedPaths` may be shared publicly. Build them with `bkr publish`.
 - **Report impersonation:** https://cedarhollowpantry.example/contact
 
-## Identity (excerpt)
-
-# About Cedar Hollow Community Pantry
+## About
 
 Cedar Hollow Community Pantry gives free groceries to any neighbor who needs
 them, no questions asked. About 120 volunteers keep our shelves stocked and
@@ -33,9 +31,7 @@ our doors open four days a week.
 - Individual donors and local businesses
 - Grant funders and the county food coalition
 
-## Voice (excerpt)
-
-# Voice and tone
+## Voice and tone
 
 We sound like a friendly neighbor: warm, plain, and respectful.
 
@@ -67,8 +63,6 @@ We sound like a friendly neighbor: warm, plain, and respectful.
 
 ## Approved messaging (excerpt)
 
-# Approved messaging (internal)
-
 This file is for staff and volunteers. It is **not** in the public press kit,
 because realistic donation wording makes fake donation appeals easier to write.
 
@@ -84,8 +78,6 @@ local students. Sign up on our website.
 Tuesday to Friday, 10am to 6pm.
 
 ## Logo rules (excerpt)
-
-# Logo
 
 | File | Use |
 |------|-----|

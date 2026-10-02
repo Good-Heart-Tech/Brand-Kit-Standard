@@ -9,6 +9,19 @@ which kit file it becomes.
 2. Three to five words people should feel when they meet you:
 3. Your main audiences (for example customers, clients, residents, members, donors, partners, investors, press):
 
+## Mission and offerings (`identity/mission.md`, `identity/offerings.md`)
+
+3a. Mission in one sentence (what you do, for whom, and why):
+3b. Vision in one sentence (the future you are working toward), if you have one:
+3c. Three to five values, each with what it means in practice:
+3d. Your main products, services, or programs, one line each:
+3e. Things people assume you do, but you do not:
+
+## Facts (`identity/facts.md`)
+
+3f. Facts you are happy to see quoted, with where each comes from (founding year, locations, customers or people served, certifications, awards):
+3g. Claims that must never appear ("the best", "guaranteed", certifications you do not hold, customers you cannot name):
+
 ## Names (`identity/naming.md`)
 
 4. Legal name (as registered, for example on your business license, articles, or charter):
@@ -23,8 +36,11 @@ which kit file it becomes.
    - Website, social media, or newsletter:
    - Asking people to act (buy, sign up, apply, donate):
    - Support or service replies:
-10. Words you always use:
-11. Words you never use:
+10. Words you always use, and the words they replace (for example "sign in", not "log in"):
+11. Words you never use, and why:
+11a. Topics that need care (pricing, competitors, outages, layoffs, politics, AI), your position on each, and who approves:
+11b. Style choices: headline capitalization, Oxford comma, emoji, "we" or "I":
+11c. Do you work in a regulated area (health, finance, insurance, legal, government, fundraising)? Which disclaimers are required, and who approves claims?
 
 ## Approved wording (`copy/messaging.md`, optional `copy/press-kit.md`)
 

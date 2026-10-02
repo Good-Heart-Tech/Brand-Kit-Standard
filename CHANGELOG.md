@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.5.0 (2026-10)
+
+### Added
+
+- **Who you are:** optional `organization` section in `brandkit.yaml` (type, industry, location, service area, founded, website) and optional files `identity/mission.md`, `identity/offerings.md` (including what you do not offer), `identity/audiences.md`, and `identity/facts.md` (approved facts with sources, a never-claim list, and a review date).
+- **How you talk about things:** `voice/terms.yaml` (words to use and avoid, with topic and reason), `voice/topics.md` (sensitive topics, positions, approvers), `voice/style.md` (style checklist), and `copy/claims.md` (disclaimers, legally restricted words, approvers for regulated industries).
+- **`bkr check-copy <file...>`** flags avoided words in any draft, with the replacement and reason. It skips code, URLs, and HTML tags, and never blocks.
+- `<!-- bkr:terms -->` renders the word rules as a table on GitHub.
+- `bkr init --org-type --industry`.
+
+### Changed
+
+- The agent digest leads with organization details, mission, approved facts and never-claim list, and the full word rules; the default size cap is 20 KB. `AGENTS.md` tells agents to state only listed facts and ask instead of guessing.
+- `bkr validate` checks `voice/terms.yaml`, warns when the kit's own copy uses an avoided word, and warns when facts were not reviewed in the last year.
+- Sharing guardrails flag `identity/facts.md`, `copy/claims.md`, and `voice/topics.md`.
+- Templates include every new file with prompts for all organization types; the intake worksheet asks for them.
+
 ## 0.4.3 (2026-10)
 
 ### Changed

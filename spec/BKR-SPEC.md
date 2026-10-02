@@ -46,9 +46,14 @@ Required top-level keys:
 
 Optional:
 
+- `organization`: `{ type, industry, location, serviceArea, founded, website }`, all
+  optional. `type` is `company` | `government` | `nonprofit` | `education` | `solo` |
+  `other`; `industry` is free text in your own words. Shown to agents in the
+  digest; rule packs MAY use `type` and `industry` to apply sector rules.
 - `hierarchy.parent`: `{ repository, ref, brandId, path? }` (section 5)
 - `publication`: `{ visibility, includedPaths }` (section 11)
-- `validation`: `{ rulesPack, minContrastRatio, contrastPairs }` (section 9)
+- `validation`: `{ rulesPack, minContrastRatio, contrastPairs, avoidPairs }` (section 9)
+- `preview`: optional color roles for the generated sample page (section 7.2)
 - `contacts`: `{ brand, legal, security }`. All optional. `brand` and `legal`
   are emails; `security` is an `https://` URL (preferred: a website contact page
   or `security.txt`) or an email. Anything here is copied into generated files,
@@ -76,6 +81,25 @@ Profiles declare which files are **required** for validation.
 
 New kits enable all of these. `security` is new in 0.2; validation warns when it
 is off. The 0.1 `partnerPublic` profile is deprecated (see section 11).
+
+### Optional files (organization context)
+
+These add context that people and AI tools need to write accurately. Each is
+optional and is used whenever it exists; templates include all of them.
+
+| File | Holds | Why it matters |
+|------|-------|----------------|
+| `identity/mission.md` | Mission, vision, values | Why the organization exists, in its own words |
+| `identity/offerings.md` | Products, services, programs, and what you do **not** offer | Stops people and AI from promising things you do not do |
+| `identity/audiences.md` | Each audience, what it cares about, how to sound to it | Better first drafts for each reader |
+| `identity/facts.md` | Approved facts with sources, a **never claim** list, and a `Last reviewed: YYYY-MM-DD` line | The biggest defense against invented claims; validation warns when the review is over a year old |
+| `voice/terms.yaml` | Words to use and avoid, with topic and reason (section 6.1) | Exact word rules for agents and `bkr check-copy` |
+| `voice/topics.md` | Sensitive topics: position, what to say and not say, approver, or no comment | Pricing, competitors, incidents, layoffs, politics, AI |
+| `voice/style.md` | Short style checklist (capitalization, numbers, dates, person) | Consistent mechanics |
+| `copy/claims.md` | Required disclaimers, legally restricted words, approvers | Regulated industries (health, finance, insurance, legal, government, fundraising) |
+
+Brand word choices belong in `voice/terms.yaml`; legal and regulatory limits
+belong in `copy/claims.md`. They have different owners.
 
 Template sections that still need writing are marked with a line starting
 `> TODO(bkr):`. Validation warns about them, and fails when `brand.status` is
@@ -140,6 +164,34 @@ the same type. A theme named `dark` follows the system dark-mode setting unless
 the page sets `data-theme="light"`; any theme can be forced with
 `data-theme="<name>"`.
 
+### 6.1 Word rules (`voice/terms.yaml`)
+
+```yaml
+terms:
+  - use: sign in
+    avoid: [log in]
+    topic: product and support
+    reason: Matches the words in our app
+  - avoid: [cheap]
+    use: affordable
+    topic: pricing
+  - use: WOSP
+    avoid: [Wosp, wosp]
+    caseSensitive: true
+  - avoid: [world-class, revolutionary]
+    reason: Hype words people do not trust
+```
+
+Each entry needs `use`, `avoid`, or both. Matching is whole-word and ignores
+case unless `caseSensitive` is true. Schema:
+[`bkr-terms.schema.json`](https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/bkr-terms.schema.json).
+
+`bkr check-copy <file...> [--kit <dir>] [--strict]` checks any draft (markdown,
+HTML, or text) and prints each avoided word with its line, column, replacement,
+and reason. It skips code, URLs, and HTML tags. It never blocks: `--strict` only
+sets a failing exit code for CI. A `<!-- bkr:terms -->` block renders the rules
+as a table (templates put it in `voice/vocabulary.md`).
+
 ## 7. Exports
 
 `bkr export --all` writes these files. They are **deterministic** (the same
@@ -189,6 +241,7 @@ current values, so the prose can never fall behind the tokens:
 | `<!-- bkr:contrast -->` | A table with an "Aa" sample image of each text and background pair, its ratio, the required ratio, and Pass or Fail |
 | `<!-- bkr:logos -->` | Every logo shown on the lightest and darkest brand colors side by side (markdown cannot set a background color, so reversed and white logos would otherwise be invisible). Logos over 200 KB are shown directly |
 | `<!-- bkr:previews -->` | The `bkr preview` screenshots (section 7.2), or a note to run it |
+| `<!-- bkr:terms -->` | The word rules from `voice/terms.yaml` as a table (section 6.1) |
 
 When `validation.avoidPairs` is set, the contrast block also shows a Do and
 Don't image (`tokens/exports/svg/do-dont.svg`) and an Avoid table:
@@ -250,9 +303,16 @@ changed since (run `bkr preview` again).
 `AGENTS.md` at the kit root (generated by `bkr digest`) describes load order:
 
 1. `brandkit.yaml`
-2. `digest/AGENT_CONTEXT.md` (generated, size-capped, default 12 KB)
+2. `digest/AGENT_CONTEXT.md` (generated, size-capped, default 20 KB)
 3. For UI work: `tokens/exports/agent/ui-brief.md` and `tokens/exports/css/variables.css`
-4. As needed: `voice/`, `visual/logo.md`, `copy/`
+4. As needed: `identity/`, `voice/`, `visual/logo.md`, `copy/`
+
+The digest puts what most changes an agent's output first, so a size trim never
+drops it: organization details, mission, approved facts and never-claim list,
+word rules (in full, from `voice/terms.yaml`), claims and disclaimers, then about,
+offerings, audiences, tone, sensitive topics, style, messaging, and logo rules.
+`AGENTS.md` tells agents to state only listed facts, follow the word rules, and
+ask rather than guess.
 
 The digest is a lossy summary for prompt budgets; the full repository remains
 authoritative. Both files state the kit's sharing rule (section 11) and the
@@ -274,7 +334,12 @@ security contact.
 9. Check sharing rules and guardrails (section 11)
 10. Check the parent kit when a local parent is available (section 5)
 11. Warn about (or, for active kits, fail on) unfinished `TODO(bkr)` sections
-12. Run the optional `rulesPack`
+12. Validate `voice/terms.yaml` (schema, a word both used and avoided, more
+    than 75 entries), and warn when the kit's own `copy/*.md` (except
+    `legal.md` and `claims.md`) uses an avoided word
+13. Warn when `identity/facts.md` has no `Last reviewed` date or it is over a
+    year old
+14. Run the optional `rulesPack`
 
 Exit code `1` on errors. Warnings fail only with `--strict`. Notes never fail.
 
@@ -354,6 +419,7 @@ contains:
 - design source files (`.ai`, `.psd`, `.fig`, `.sketch`, `.indd`, `.xd`)
 - font files (license check)
 - internal kit files (`security/`, `digest/`, `AGENTS.md`, `brandkit.yaml`)
+- `identity/facts.md` (can hold internal numbers; share a press version), `copy/claims.md`, and `voice/topics.md`
 - markdown with fundraising or payment wording
 - email addresses (other than `contacts.security`) or phone numbers
 
