@@ -147,7 +147,10 @@ export async function validateKit(kitRoot, options = {}) {
       ? path.resolve(kitRoot, manifest.hierarchy.parent.path)
       : null;
   if (manifest.role === "product" || manifest.hierarchy?.parent) {
-    if (parentDir) {
+    // A manifest path is a convenience for local sibling checkouts; CI may not have it.
+    if (parentDir && !options.parent && !pathExists(path.join(parentDir, "brandkit.yaml"))) {
+      notes.push(`parent tokens not checked: hierarchy.parent.path (${manifest.hierarchy.parent.path}) has no brandkit.yaml here`);
+    } else if (parentDir) {
       checkParent(kitRoot, manifest, tokens || loadTokens(kitRoot), parentDir, errors, warnings);
     } else {
       notes.push("parent tokens not checked: pass --parent <path-to-parent-kit> or set hierarchy.parent.path");
