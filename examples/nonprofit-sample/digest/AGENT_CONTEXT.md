@@ -9,7 +9,7 @@
 - **Status:** active
 - **Role:** organization
 - **Sharing:** Public: only paths in `publication.includedPaths` may be shared publicly. Build them with `bkr publish`.
-- **Report impersonation to:** security@cedarhollowpantry.example
+- **Report impersonation:** https://cedarhollowpantry.example/contact
 
 ## Identity (excerpt)
 

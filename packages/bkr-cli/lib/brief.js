@@ -24,13 +24,19 @@ function logoFiles(kitRoot) {
 
 const MIME = { svg: "image/svg+xml", png: "image/png", jpg: "image/jpeg", jpeg: "image/jpeg", webp: "image/webp", ico: "image/x-icon" };
 
+// Logos larger than this are linked from the brand page instead of embedded.
+export const MAX_EMBED_BYTES = 200 * 1024;
+
 // Embeds a logo so the page still works when emailed or moved. SVG line endings are
 // normalized so Windows and Linux checkouts produce the same page.
+function logoBuffer(kitRoot, rel) {
+  const buf = fs.readFileSync(path.join(kitRoot, rel));
+  return rel.toLowerCase().endsWith(".svg") ? Buffer.from(buf.toString("utf8").replace(/\r\n/g, "\n")) : buf;
+}
+
 export function logoDataUri(kitRoot, rel) {
   const ext = rel.split(".").pop().toLowerCase();
-  let buf = fs.readFileSync(path.join(kitRoot, rel));
-  if (ext === "svg") buf = Buffer.from(buf.toString("utf8").replace(/\r\n/g, "\n"));
-  return `data:${MIME[ext]};base64,${buf.toString("base64")}`;
+  return `data:${MIME[ext]};base64,${logoBuffer(kitRoot, rel).toString("base64")}`;
 }
 
 function themeColor(tokens, theme, p) {
@@ -106,11 +112,18 @@ export function buildBrandAtAGlance(kitRoot, manifest, tokens) {
     )
     .join("\n");
 
+  // Small logos are embedded so the page works on its own; large ones are linked so
+  // the page stays small (the link works when the page is opened inside the kit).
   const logoCells = logos
-    .map(
-      (f) =>
-        `<figure><div class="logo-bg${/reversed|white|dark/i.test(f) ? " dark" : ""}"><img src="${logoDataUri(kitRoot, f)}" alt="${esc(path.posix.basename(f))}"></div><figcaption>${esc(f)}</figcaption></figure>`
-    )
+    .map((f) => {
+      const bg = `logo-bg${/reversed|white|dark/i.test(f) ? " dark" : ""}`;
+      const bytes = logoBuffer(kitRoot, f).length;
+      const inner =
+        bytes <= MAX_EMBED_BYTES
+          ? `<img src="${logoDataUri(kitRoot, f)}" alt="${esc(path.posix.basename(f))}">`
+          : `<a href="../../../${esc(f)}">Open ${esc(path.posix.basename(f))} (${Math.round(bytes / 1024)} KB, too large to embed)</a>`;
+      return `<figure><div class="${bg}">${inner}</div><figcaption>${esc(f)}</figcaption></figure>`;
+    })
     .join("\n");
 
   const visibilityText = {
@@ -152,7 +165,7 @@ export function buildBrandAtAGlance(kitRoot, manifest, tokens) {
 <main>
   <h1>${esc(manifest.brand.displayName)}</h1>
   <p class="sub">Brand at a glance. Status: ${esc(manifest.brand.status)}. Role: ${esc(manifest.role)}.${parent ? ` Part of the ${esc(parent.brandId)} brand family.` : ""}</p>
-  <p class="note"><strong>Sharing:</strong> ${esc(visibilityText)}${manifest.contacts?.security ? ` Report look-alike sites or emails to ${esc(manifest.contacts.security)}.` : ""}</p>
+  <p class="note"><strong>Sharing:</strong> ${esc(visibilityText)}${manifest.contacts?.security ? ` Report look-alike sites or emails: ${esc(manifest.contacts.security)}` : ""}</p>
 
   <h2>Colors</h2>
   <div class="grid">

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.1 (2026-10)
+
+### Changed
+
+- **Contacts are optional and quiet.** A missing `contacts.security` no longer produces warnings or errors (it made strict CI fail for every kit). `contacts.security` may now be an `https://` URL (recommended: a website contact page or `security.txt`) or an email.
+- `bkr init` no longer writes placeholder `example.org` contacts. Templates tell people to use the website contact page unless `--security-contact` is given.
+- The brand-at-a-glance page embeds logos up to 200 KB and links larger ones, so pages stay small (one migrated kit went from 5.4 MB). Export format bumped, so run `bkr export --all` after upgrading.
+- The `nonprofit-sample` example now uses a contact page URL and no email addresses.
+
 ## 0.2.0 (2026-10)
 
 ### Added

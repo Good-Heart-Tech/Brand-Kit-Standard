@@ -26,7 +26,7 @@ early. Work through this list with your IT partner and check items off as you go
 
 - [ ] Staff know: we never ask for gift cards, wire transfers, or payment changes by email or text
 - [ ] Donors are told the same thing on our website and donation receipts
-- [ ] There is one address for reporting impersonation (`contacts.security` in `brandkit.yaml`)
+- [ ] There is one clear way to report impersonation: a contact page or a security.txt file on our website
 
 ## Optional, later
 

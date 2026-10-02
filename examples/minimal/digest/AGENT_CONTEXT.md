@@ -9,7 +9,7 @@
 - **Status:** active
 - **Role:** organization
 - **Sharing:** Private: do not send files from this kit outside the organization.
-- **Report impersonation to:** security@minimal.example
+- **Report impersonation:** security@minimal.example
 
 ## Logo rules (excerpt)
 

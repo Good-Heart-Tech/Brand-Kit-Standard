@@ -30,7 +30,7 @@ It prints a "still to do by hand" list. Work through it:
 
 ### 2. Finish by hand
 
-- [ ] Add `contacts.security` (who receives impersonation reports)
+- [ ] Optional: set `contacts.security` to your website contact page or security.txt URL
 - [ ] Add `validation.contrastPairs` for every text and background combination you use
 - [ ] Decide `publication.visibility` (default `private`) and, if sharing, list `includedPaths`
 - [ ] Delete `examples/swatches.html` (replaced by `tokens/exports/html/brand-at-a-glance.html`)
@@ -68,7 +68,7 @@ bkr validate --strict
 
 ```bash
 bkr init ../My-Kit --role organization --brand-id my-brand \
-  --display-name "My Brand" --security-contact security@mybrand.org
+  --display-name "My Brand"
 ```
 
 ### 2. Import legacy colors
@@ -117,7 +117,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.2.0
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.2.1
 ```
 
 ## Product (child) kits
@@ -135,7 +135,7 @@ In CI, check out the parent too so inherited values are verified:
           repository: Good-Heart-Tech/Good-Heart-Tech-Branding-Marketing
           path: .parent-kit
           token: ${{ secrets.PARENT_KIT_TOKEN }}   # only needed for private parents
-      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.2.0
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.2.1
         with:
           parent-path: .parent-kit
 ```

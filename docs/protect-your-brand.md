@@ -50,8 +50,13 @@ email or text."
 
 ### 5. One place to report fakes
 
-Set `contacts.security` in `brandkit.yaml` to an inbox someone reads. It shows
-up on the brand-at-a-glance page, in shared bundles, and in `copy/legal.md`.
+Give people one clear way to report a fake: a contact page on your website, or
+a `security.txt` file (an internet standard, at `/.well-known/security.txt`).
+This belongs on your website, not in the brand kit.
+
+If you want shared bundles and the brand-at-a-glance page to point there, set
+`contacts.security` in `brandkit.yaml` to that **URL**. It is optional, and we
+recommend a URL over an email address so no inbox is copied into kit files.
 
 ### Optional: BIMI
 

@@ -141,8 +141,8 @@
         "legal": { "type": "string", "format": "email" },
         "security": {
           "type": "string",
-          "format": "email",
-          "description": "Where people report websites or emails impersonating this brand."
+          "anyOf": [{ "format": "uri", "pattern": "^https://" }, { "format": "email" }],
+          "description": "Optional. Where people report impersonation. Prefer a URL (website contact page or /.well-known/security.txt) so no email address is stored in the kit."
         }
       }
     }

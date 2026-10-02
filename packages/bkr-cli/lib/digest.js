@@ -58,7 +58,7 @@ export function buildDigest(kitRoot, options = {}) {
     body += `- **Parent kit:** ${manifest.hierarchy.parent.repository} @ ${manifest.hierarchy.parent.ref}\n`;
   }
   if (manifest.contacts?.security) {
-    body += `- **Report impersonation to:** ${manifest.contacts.security}\n`;
+    body += `- **Report impersonation:** ${manifest.contacts.security}\n`;
   }
 
   const sections = [

@@ -25,14 +25,9 @@ export function validate({ manifest, tokens }) {
     }
   }
 
-  // Brand protection: client kits should name someone who receives impersonation reports.
+  // contacts.security is optional. Only catch template placeholders left on a live kit.
   const security = manifest.contacts?.security;
-  const visibility = manifest.publication?.visibility || "private";
-  if (!security) {
-    const msg = "GHT rule: add contacts.security so impersonation reports reach someone";
-    if (visibility === "public") errors.push(msg);
-    else warnings.push(msg);
-  } else if (/@example\.(org|com|net)$/i.test(security) && manifest.brand.status === "active") {
+  if (security && /example\.(org|com|net)(\/|$)/i.test(security) && manifest.brand.status === "active") {
     errors.push("GHT rule: contacts.security is still a placeholder (example.org) on an active kit");
   }
 

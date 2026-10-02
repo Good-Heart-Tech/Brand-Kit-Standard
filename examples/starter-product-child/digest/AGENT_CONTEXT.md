@@ -10,7 +10,7 @@
 - **Role:** product
 - **Sharing:** Private: do not send files from this kit outside the organization.
 - **Parent kit:** https://github.com/Good-Heart-Tech/Brand-Kit-Standard @ main
-- **Report impersonation to:** security@acme-labs.example
+- **Report impersonation:** security@acme-labs.example
 
 ## Identity (excerpt)
 

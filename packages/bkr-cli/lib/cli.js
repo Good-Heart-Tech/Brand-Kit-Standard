@@ -11,7 +11,7 @@ const HELP = `bkr: Brand Kit Repository CLI
 
 Usage:
   bkr init <dir> [--role organization|product] [--brand-id id] [--display-name name]
-                 [--security-contact email] [--parent-repo url] [--parent-ref ref]
+                 [--security-contact url-or-email] [--parent-repo url] [--parent-ref ref]
                  [--parent-brand-id id] [--parent-path ../org-kit]
   bkr validate [dir] [--strict] [--parent <path-to-parent-kit>]
   bkr export [dir] [--all] [--dtcg] [--css] [--tailwind] [--html] [--agent]

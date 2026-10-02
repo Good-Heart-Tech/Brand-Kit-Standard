@@ -22,7 +22,7 @@ import {
 import { buildBrandAtAGlance, buildUiBrief, logoDataUri } from "./brief.js";
 
 // Bump when export output changes shape so existing kits are flagged as stale.
-const EXPORT_FORMAT = "bkr-export-2";
+const EXPORT_FORMAT = "bkr-export-3";
 export const ALL_TARGETS = ["dtcg", "css", "tailwind", "html", "agent"];
 export const HASH_FILE = path.join("tokens", "exports", ".bkr-export-hash");
 

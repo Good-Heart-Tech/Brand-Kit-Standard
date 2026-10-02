@@ -49,7 +49,10 @@ Optional:
 - `hierarchy.parent`: `{ repository, ref, brandId, path? }` (section 5)
 - `publication`: `{ visibility, includedPaths }` (section 11)
 - `validation`: `{ rulesPack, minContrastRatio, contrastPairs }` (section 9)
-- `contacts`: `{ brand, legal, security }` email addresses
+- `contacts`: `{ brand, legal, security }`. All optional. `brand` and `legal`
+  are emails; `security` is an `https://` URL (preferred: a website contact page
+  or `security.txt`) or an email. Anything here is copied into generated files,
+  so kits SHOULD prefer URLs and leave out personal addresses.
 
 Kits SHOULD start with this line so editors can autocomplete the manifest:
 
@@ -147,7 +150,7 @@ input always gives byte-identical output) and MUST NOT be edited by hand.
 | `dtcg` | `tokens/exports/dtcg/<file>.tokens.json`, `dtcg/themes/<name>.tokens.json` | W3C Design Tokens 2025.10 value shapes (color objects with `colorSpace`, `components`, `hex`; dimension and duration objects) |
 | `css` | `tokens/exports/css/variables.css` | `:root` variables plus theme blocks |
 | `tailwind` | `tokens/exports/tailwind/theme.cjs` (v3), `theme.css` (v4 `@theme inline`) | v4 values point at the CSS variables, so themes switch automatically |
-| `html` | `tokens/exports/html/brand-at-a-glance.html` | Self-contained page (logos embedded) for non-technical staff |
+| `html` | `tokens/exports/html/brand-at-a-glance.html` | Page for non-technical staff; logos up to 200 KB are embedded, larger ones are linked |
 | `agent` | `tokens/exports/agent/ui-brief.md` | Compact design brief for AI agents |
 
 CSS variable names are `--<prefix>-<group>-<name>` in kebab-case. The prefix
@@ -275,7 +278,8 @@ contains:
 - email addresses (other than `contacts.security`) or phone numbers
 
 It is an error to list a path that does not exist or is outside the kit.
-Non-private kits SHOULD set `contacts.security`.
+`contacts.security` is optional. When set, it appears on the brand page, in the
+digest, and in `bkr publish` bundles; validation never requires it.
 
 ### Other rules
 

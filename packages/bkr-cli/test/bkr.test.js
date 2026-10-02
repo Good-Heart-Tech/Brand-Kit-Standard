@@ -233,6 +233,7 @@ test("publish builds a bundle with only the listed files", async () => {
   const dir = newKit();
   editManifest(dir, (m) => {
     m.publication = { visibility: "public", includedPaths: ["assets/logo/", "tokens/exports/css/variables.css"] };
+    m.contacts = { security: "https://testorg.example.org/contact" };
   });
   exportKit(dir, ["all"]);
   const r = await publishKit(dir);
@@ -241,7 +242,7 @@ test("publish builds a bundle with only the listed files", async () => {
   assert.ok(fs.existsSync(path.join(out, "assets/logo/mark.svg")));
   assert.ok(fs.existsSync(path.join(out, "tokens/exports/css/variables.css")));
   assert.ok(!fs.existsSync(path.join(out, "identity")));
-  assert.match(fs.readFileSync(path.join(out, "BUNDLE.md"), "utf8"), /security@example\.org/);
+  assert.match(fs.readFileSync(path.join(out, "BUNDLE.md"), "utf8"), /testorg\.example\.org\/contact/);
 
   // Never wipes a folder it did not create
   const foreign = path.join(tmp(), "foreign");
@@ -250,6 +251,32 @@ test("publish builds a bundle with only the listed files", async () => {
   const r2 = await publishKit(dir, { out: foreign });
   assert.equal(r2.ok, false);
   assert.ok(fs.existsSync(path.join(foreign, "keep.txt")));
+});
+
+test("contacts are optional, and the security contact may be a URL or an email", async () => {
+  const dir = newKit();
+  assert.equal(readManifest(dir).contacts, undefined);
+  let r = await validateKit(dir);
+  assert.ok(!hasMsg(r.warnings, /contacts\.security/));
+
+  editManifest(dir, (m) => (m.contacts = { security: "https://testorg.org/.well-known/security.txt" }));
+  r = await validateKit(dir);
+  assert.ok(!hasMsg(r.errors, /contacts/));
+
+  editManifest(dir, (m) => (m.contacts = { security: "not a contact" }));
+  r = await validateKit(dir);
+  assert.ok(hasMsg(r.errors, /contacts\/security/));
+});
+
+test("large logos are linked from the brand page instead of embedded", () => {
+  const dir = newKit();
+  const big = `<svg xmlns="http://www.w3.org/2000/svg"><!-- ${"x".repeat(250 * 1024)} --></svg>`;
+  fs.writeFileSync(path.join(dir, "assets/logo/big.svg"), big);
+  exportKit(dir, ["all"]);
+  const html = fs.readFileSync(path.join(dir, "tokens/exports/html/brand-at-a-glance.html"), "utf8");
+  assert.match(html, /href="\.\.\/\.\.\/\.\.\/assets\/logo\/big\.svg"/);
+  assert.match(html, /too large to embed/);
+  assert.ok(html.length < 100 * 1024);
 });
 
 // --- Upgrade --------------------------------------------------------------------------
