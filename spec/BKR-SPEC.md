@@ -90,7 +90,10 @@ Template sections that still need writing are marked with a line starting
 `hierarchy.parent.path` MAY point at a local checkout of the parent kit. When it
 is set, or when `bkr validate --parent <path>` is used, validation checks every
 `inheritsFrom` value against the parent and checks that `brandId` matches.
-Without a local parent, validation prints a note and skips the check.
+Without a local parent, validation prints a note and skips the check. A
+`hierarchy.parent.path` that does not exist (for example in CI, where only the
+child is checked out) is also a note; a `--parent` path that does not exist is
+an error.
 
 ## 6. Token files (`.bkr.json`)
 

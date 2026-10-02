@@ -179,6 +179,16 @@ test("a product kit without a parent path gets a note, not a failure", async () 
   assert.ok(hasMsg(r.notes, /parent tokens not checked/));
 });
 
+test("a missing manifest parent path is a note, but a missing --parent is an error", async () => {
+  const child = path.join(tmp(), "child");
+  initKit(child, { role: "product", brandId: "test-child", displayName: "Child", parentPath: "../not-checked-out" });
+  const r = await validateKit(child);
+  assert.deepEqual(r.errors, []);
+  assert.ok(hasMsg(r.notes, /not-checked-out/));
+  const r2 = await validateKit(child, { parent: path.join(tmp(), "nope") });
+  assert.ok(hasMsg(r2.errors, /parent kit/));
+});
+
 test("local rule packs are loaded from the kit", async () => {
   const dir = newKit();
   fs.writeFileSync(
