@@ -12,11 +12,14 @@ const require = createRequire(import.meta.url);
 export const CURRENT_SPEC_VERSION = "0.2.0";
 export const SUPPORTED_SPEC = /^0\.(1|2)\.\d+$/;
 
-// Public schema URLs (served by GitHub Pages from packages/bkr-schema/schemas).
-export const SCHEMA_BASE = "https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1";
+// Public schema URLs, served by the free jsDelivr CDN straight from this repo's main
+// branch (no hosting to set up). Only editors use them; bkr validate uses the bundled copies.
+export const SCHEMA_BASE = "https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas";
 export const MANIFEST_SCHEMA_URL = `${SCHEMA_BASE}/brandkit.schema.json`;
 export const TOKEN_SCHEMA_URL = `${SCHEMA_BASE}/bkr-token.schema.json`;
 export const LEGACY_TOKEN_SCHEMA_URL = "https://goodheart.tech/schemas/bkr-token/v1";
+// Earlier schema homes that `bkr upgrade` rewrites to SCHEMA_BASE.
+export const OLD_SCHEMA_BASES = ["https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1"];
 
 export function resolveKitPath(inputPath) {
   return path.resolve(process.cwd(), inputPath || ".");

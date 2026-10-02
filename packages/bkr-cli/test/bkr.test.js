@@ -381,7 +381,18 @@ test("upgrade moves a 0.1 kit to 0.2 and keeps manifest comments", async () => {
   assert.equal(m.profiles.security, true);
   assert.match(fs.readFileSync(yamlPath, "utf8"), /# keep this comment/);
   assert.ok(fs.existsSync(path.join(dir, "security/brand-protection.md")));
-  assert.match(fs.readFileSync(path.join(dir, "tokens/colors.bkr.json"), "utf8"), /good-heart-tech\.github\.io/);
+  assert.match(fs.readFileSync(path.join(dir, "tokens/colors.bkr.json"), "utf8"), /cdn\.jsdelivr\.net\/gh\/Good-Heart-Tech\/Brand-Kit-Standard@main/);
+});
+
+test("upgrade rewrites old GitHub Pages schema links to jsDelivr", () => {
+  const dir = newKit();
+  const old = "https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1";
+  const yamlPath = path.join(dir, "brandkit.yaml");
+  fs.writeFileSync(yamlPath, fs.readFileSync(yamlPath, "utf8").replace(/\$schema=\S+/, `$schema=${old}/brandkit.schema.json`));
+  editJson(path.join(dir, "tokens/colors.bkr.json"), (d) => (d.$schema = `${old}/bkr-token.schema.json`));
+  upgradeKit(dir);
+  assert.doesNotMatch(fs.readFileSync(yamlPath, "utf8"), /github\.io/);
+  assert.doesNotMatch(fs.readFileSync(path.join(dir, "tokens/colors.bkr.json"), "utf8"), /github\.io/);
 });
 
 // --- Examples in this repo -----------------------------------------------------------------

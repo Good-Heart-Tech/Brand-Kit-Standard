@@ -3,8 +3,8 @@
 **Contract id:** `ght.brandkit/v1`
 **Spec version:** 0.2.0
 **Status:** draft (Good Heart Tech steward)
-**Schemas:** [`brandkit.schema.json`](https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/brandkit.schema.json),
-[`bkr-token.schema.json`](https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/bkr-token.schema.json)
+**Schemas:** [`brandkit.schema.json`](https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/brandkit.schema.json),
+[`bkr-token.schema.json`](https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/bkr-token.schema.json)
 
 The key words MUST, SHOULD, and MAY are used as in RFC 2119.
 
@@ -57,7 +57,7 @@ Optional:
 Kits SHOULD start with this line so editors can autocomplete the manifest:
 
 ```yaml
-# yaml-language-server: $schema=https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/brandkit.schema.json
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/brandkit.schema.json
 ```
 
 ## 4. Profiles (layers)

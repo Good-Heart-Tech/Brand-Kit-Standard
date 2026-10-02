@@ -5,6 +5,8 @@ import YAML from "yaml";
 import {
   CURRENT_SPEC_VERSION,
   LEGACY_TOKEN_SCHEMA_URL,
+  OLD_SCHEMA_BASES,
+  SCHEMA_BASE,
   MANIFEST_SCHEMA_URL,
   TOKEN_SCHEMA_URL,
   fillTemplate,
@@ -118,12 +120,19 @@ export function upgradeKit(kitRoot) {
   if (!text.includes("yaml-language-server")) {
     text = `# yaml-language-server: $schema=${MANIFEST_SCHEMA_URL}\n${text}`;
   }
+  for (const old of OLD_SCHEMA_BASES) {
+    if (text.includes(old)) {
+      text = text.replaceAll(old, SCHEMA_BASE);
+      changes.push("brandkit.yaml: schema link now points at the jsDelivr copy");
+    }
+  }
   writeText(yamlPath, text);
 
   // Token $schema URLs
+  const oldTokenUrls = [LEGACY_TOKEN_SCHEMA_URL, ...OLD_SCHEMA_BASES.map((b) => `${b}/bkr-token.schema.json`)];
   for (const f of loadTokens(kitRoot).files) {
     if (!f.doc) continue;
-    if (!f.doc.$schema || f.doc.$schema === LEGACY_TOKEN_SCHEMA_URL) {
+    if (!f.doc.$schema || oldTokenUrls.includes(f.doc.$schema)) {
       const { $schema: _old, ...rest } = f.doc;
       writeJson(f.file, { $schema: TOKEN_SCHEMA_URL, ...rest });
       changes.push(`${f.rel}: $schema -> ${TOKEN_SCHEMA_URL}`);

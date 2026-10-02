@@ -41,9 +41,9 @@ generated from the nonprofit example's tokens:
 | [`examples/starter-product-child`](examples/starter-product-child/) | A program or product kit that inherits its parent's colors |
 | [`examples/minimal`](examples/minimal/) | The smallest useful kit: three colors and a logo |
 
-Each example has a generated `tokens/exports/html/brand-at-a-glance.html`.
-Once GitHub Pages is on, they are also at
-<https://good-heart-tech.github.io/Brand-Kit-Standard/>.
+Each example README shows its palette, screenshots, and contrast checks right on
+GitHub, and has a generated `tokens/exports/html/brand-at-a-glance.html` to open
+locally.
 
 ## For engineers
 
@@ -106,7 +106,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.4.1
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.4.2
         with:
           path: .
           strict: "true"

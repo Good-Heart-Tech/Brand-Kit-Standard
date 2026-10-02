@@ -117,7 +117,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.4.1
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.4.2
 ```
 
 ## Product (child) kits
@@ -135,7 +135,7 @@ In CI, check out the parent too so inherited values are verified:
           repository: Good-Heart-Tech/Good-Heart-Tech-Branding-Marketing
           path: .parent-kit
           token: ${{ secrets.PARENT_KIT_TOKEN }}   # only needed for private parents
-      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.4.1
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.4.2
         with:
           parent-path: .parent-kit
 ```

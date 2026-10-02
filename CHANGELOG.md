@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.2 (2026-10)
+
+### Changed
+
+- **No GitHub Pages needed.** Schema links now point at jsDelivr, a free CDN that serves files straight from this repo (`https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/`). The Pages workflow is removed. Validation never fetched schemas (it uses the bundled copies); the links only power editor autocomplete. `bkr upgrade` rewrites old links.
+
 ## 0.4.1 (2026-10)
 
 ### Fixed

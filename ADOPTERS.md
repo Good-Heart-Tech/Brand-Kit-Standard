@@ -5,8 +5,11 @@ by name; nothing in them is exposed by being listed here.
 
 | Organization | Kit | Role | Visibility | Spec | Status |
 |--------------|-----|------|------------|------|--------|
-| Good Heart Tech | Good-Heart-Tech-Branding-Marketing (private repo) | organization | to be decided | 0.2 | Migration planned |
-| Honey House | parent and child kits | organization + product | to be decided | 0.2 | Migration planned |
+| Good Heart Tech | Good-Heart-Tech-Branding-Marketing (private repo) | organization | private | 0.2 | Active |
+| Honey House | Honey-House-Branding-Marketing (private repo) | organization | private | 0.2 | Active |
+| LadybugDocs (Honey House) | Ladybug-Branding-Kit (private repo) | product | private | 0.2 | Draft |
+| Super PowerShell (Honey House) | Super-PowerShell-Branding-Kit (private repo) | product | private | 0.2 | Active |
+| WOSP (Honey House) | WOSP-Branding-Marketing (private repo) | product | private | 0.2 | Active |
 
 ## Add your kit
 

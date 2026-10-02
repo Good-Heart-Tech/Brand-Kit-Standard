@@ -7,7 +7,7 @@ JSON Schemas for [Brand Kit Repositories (BKR)](https://github.com/Good-Heart-Te
 
 Hosted copies (for `$schema` and editor autocomplete):
 
-- https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/brandkit.schema.json
-- https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/bkr-token.schema.json
+- https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/brandkit.schema.json
+- https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/bkr-token.schema.json
 
 Draft 2020-12. MIT licensed.

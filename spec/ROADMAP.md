@@ -12,17 +12,19 @@
 - Parent kit checks with a local path
 - Pluggable rule packs (npm or local path)
 - `bkr upgrade` for 0.1 kits
-- Hosted schemas (GitHub Pages), reusable GitHub Action, npm release workflow
+- Schemas served from jsDelivr (no hosting to set up), reusable GitHub Action, npm release workflow
 - Plain-language guide, intake worksheet, Canva guide, exports guide
 
-## Adoption (Good Heart Tech), next
+## Adoption (Good Heart Tech)
 
-1. Enable GitHub Pages (Source: GitHub Actions) so schema URLs resolve
-2. Create the `goodheart` npm organization, add `NPM_TOKEN`, and publish a `v0.2.0` release
-3. Migrate `Good-Heart-Tech-Branding-Marketing` using `spec/MIGRATION.md`
-4. Migrate Honey House parent and child kits with `bkr-rules-ght`
-5. Wire one app (website or email signatures) to `tokens/exports/css/variables.css`
-6. Add each migrated kit to `ADOPTERS.md`
+Done: Good Heart Tech, Honey House, LadybugDocs, Super PowerShell, and WOSP kits
+are on the current spec (see `ADOPTERS.md`).
+
+Next:
+
+1. Create the `goodheart` npm organization, add `NPM_TOKEN`, and publish a release
+2. Wire one app (website or email signatures) to `tokens/exports/css/variables.css`
+3. Move the roughly 20 apps that copy old variable names onto the kit exports, one repo at a time
 
 ## 0.3 candidates
 

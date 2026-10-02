@@ -18,7 +18,7 @@ npm run examples
 | `packages/bkr-cli/lib/` | One file per concern: `validate.js`, `export.js`, `brief.js` (HTML page and agent brief), `publication.js` (sharing rules), `publish.js`, `upgrade.js`, `digest.js`, `init.js`, `tokens.js` (token loading and color math), `fs-kit.js` |
 | `packages/bkr-cli/templates/` | What `bkr init` copies. `gitignore` becomes `.gitignore`. |
 | `packages/bkr-cli/test/` | `node:test` tests |
-| `packages/bkr-schema/schemas/` | JSON Schemas (also published to GitHub Pages) |
+| `packages/bkr-schema/schemas/` | JSON Schemas (editors fetch them from jsDelivr, which serves this repo directly) |
 | `examples/` | Kits validated in CI; regenerate with `npm run examples` |
 | `spec/` | The specification, migration guide, roadmap |
 | `docs/` | Plain-language guides |
