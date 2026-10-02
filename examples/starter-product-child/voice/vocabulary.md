@@ -2,16 +2,11 @@
 
 ## Prefer
 
-- “team” over “resource”
-- “sign in” over “log in” (unless OAuth provider copy differs)
-- “email” over “e-mail”
+- "page" over "article" or "document"
+- "space" for a group of pages
+- "sign in" over "log in"
 
 ## Avoid
 
-- “synergy”, “disrupt”, “best-in-class”
-- “users” when “people” or “admins” is clearer
-
-## Inclusive language
-
-- Gender-neutral defaults
-- Avoid idioms that do not translate
+- "wiki" (it sounds technical to many of our readers)
+- "Simply" or "just" in instructions

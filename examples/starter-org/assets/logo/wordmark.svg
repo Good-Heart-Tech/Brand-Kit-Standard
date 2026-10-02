@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="96" viewBox="0 0 360 96" role="img" aria-label="Acme Labs">
+  <rect x="8" y="8" width="80" height="80" rx="18" fill="#2563EB"/>
+  <circle cx="48" cy="48" r="21" fill="none" stroke="#FFFFFF" stroke-width="9"/>
+  <circle cx="48" cy="48" r="6" fill="#38BDF8"/>
+  <text x="108" y="62" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="40" font-weight="700" fill="#0F172A">Acme Labs</text>
+</svg>

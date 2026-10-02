@@ -1,5 +1,5 @@
 {
-  "$schema": "https://goodheart.tech/schemas/bkr-token/v1",
+  "$schema": "https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/bkr-token.schema.json",
   "meta": {
     "brandId": "acme-labs",
     "layer": "color"
@@ -9,7 +9,18 @@
       "primary": {
         "value": "#2563EB",
         "type": "color",
-        "description": "Primary brand blue for CTAs and links."
+        "description": "Acme blue. Buttons and key actions.",
+        "usage": { "contexts": ["buttons", "active states", "focus rings"], "avoid": ["large background fills"] }
+      },
+      "onPrimary": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Labels and icons on primary."
+      },
+      "link": {
+        "value": "#1D4ED8",
+        "type": "color",
+        "description": "Text links on the page background."
       },
       "ink": {
         "value": "#0F172A",
@@ -19,17 +30,23 @@
       "body": {
         "value": "#334155",
         "type": "color",
-        "description": "Body copy on light backgrounds."
+        "description": "Body text."
       },
       "surface": {
         "value": "#FFFFFF",
         "type": "color",
         "description": "Page background."
       },
+      "subtle": {
+        "value": "#EFF6FF",
+        "type": "color",
+        "description": "Callout panels and table stripes."
+      },
       "accent": {
         "value": "#38BDF8",
         "type": "color",
-        "description": "Secondary accent; not for body text on white."
+        "description": "Illustrations and highlights only.",
+        "usage": { "contexts": ["illustrations", "charts"], "avoid": ["text", "buttons"] }
       }
     }
   }

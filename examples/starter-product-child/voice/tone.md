@@ -1,14 +1,15 @@
 # Voice and tone
 
-| Context | Tone | Notes |
-|---------|------|-------|
-| Marketing | Warm, confident | Short sentences |
-| Product UI | Direct, helpful | Prefer verbs |
-| Support | Patient, precise | No blame language |
-| Legal | Formal | No jokes |
+Acme Docs uses the Acme Labs voice. In the product, lean encouraging: many
+people writing documentation are doing it for the first time.
 
-## Core attributes
+| Situation | Tone | Example |
+|-----------|------|---------|
+| Empty states | Encouraging | "Start with one page. You can organize later." |
+| Errors | Calm, specific | "We could not save this page. Check your connection and try again." |
+| Onboarding emails | Warm, brief | "Your first page is three clicks away." |
 
-- Professional but approachable
-- Confident without exaggeration
-- Inclusive by default
+## Always
+
+- Short sentences and active verbs
+- Name the button the person should press

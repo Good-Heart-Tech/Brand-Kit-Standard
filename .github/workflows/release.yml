@@ -1,0 +1,37 @@
+# Publishes the three packages to npm when a GitHub release is published.
+# One-time setup:
+#   1. Create the free "goodheart" organization on npmjs.com (public packages are free).
+#   2. Add an npm automation token as the repository secret NPM_TOKEN.
+name: release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: "https://registry.npmjs.org"
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run validate
+      # Order matters: the CLI depends on the schema and rules packages.
+      - run: npm publish --workspace packages/bkr-schema --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish --workspace packages/bkr-rules-ght --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish --workspace packages/bkr-cli --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

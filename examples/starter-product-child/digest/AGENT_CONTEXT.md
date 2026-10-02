@@ -1,84 +1,98 @@
 # Agent context (generated)
 
-> Regenerate: `bkr digest`. Normative colors live in `tokens/*.bkr.json` and exports.
+> Regenerate with `bkr digest`. Normative values live in `tokens/*.bkr.json` and `tokens/exports/`.
 
 ## Brand
 
 - **Id:** acme-docs
 - **Name:** Acme Docs
-- **Status:** draft
+- **Status:** active
 - **Role:** product
+- **Sharing:** Private: do not send files from this kit outside the organization.
 - **Parent kit:** https://github.com/Good-Heart-Tech/Brand-Kit-Standard @ main
+- **Report impersonation to:** security@acme-labs.example
 
 ## Identity (excerpt)
 
 # About Acme Docs
 
-Acme Docs builds dependable tools for teams who care about clarity and access.
+Acme Docs is the Acme Labs knowledge base tool. It helps community
+organizations write down how things work, so knowledge does not walk out the
+door when a volunteer moves on.
 
 ## Personality
 
-- Calm, competent, human
-- Plain language over buzzwords
-- Evidence before hype
+Same as Acme Labs, plus:
 
-## Positioning
+- Organized and patient
+- Encouraging to first-time writers
 
-We serve organizations that need brand-consistent product surfaces without a
-parallel “marketing palette” forked in every repo.
+## Who we talk to
 
+- Office managers and volunteer coordinators
+- Executive directors handing off responsibilities
 
 ## Voice (excerpt)
 
 # Voice and tone
 
-| Context | Tone | Notes |
-|---------|------|-------|
-| Marketing | Warm, confident | Short sentences |
-| Product UI | Direct, helpful | Prefer verbs |
-| Support | Patient, precise | No blame language |
-| Legal | Formal | No jokes |
+Acme Docs uses the Acme Labs voice. In the product, lean encouraging: many
+people writing documentation are doing it for the first time.
 
-## Core attributes
+| Situation | Tone | Example |
+|-----------|------|---------|
+| Empty states | Encouraging | "Start with one page. You can organize later." |
+| Errors | Calm, specific | "We could not save this page. Check your connection and try again." |
+| Onboarding emails | Warm, brief | "Your first page is three clicks away." |
 
-- Professional but approachable
-- Confident without exaggeration
-- Inclusive by default
+## Always
 
+- Short sentences and active verbs
+- Name the button the person should press
 
 ## Vocabulary highlights
 
-- “team” over “resource”
-- “sign in” over “log in” (unless OAuth provider copy differs)
-- “email” over “e-mail”
-- “synergy”, “disrupt”, “best-in-class”
-- “users” when “people” or “admins” is clearer
-- Gender-neutral defaults
-- Avoid idioms that do not translate
+- "page" over "article" or "document"
+- "space" for a group of pages
+- "sign in" over "log in"
+- "wiki" (it sounds technical to many of our readers)
+- "Simply" or "just" in instructions
+
+## Approved messaging (excerpt)
+
+# Approved messaging
+
+**Tagline:** Write it down once.
+
+**One sentence:** Acme Docs from Acme Labs is a free knowledge base that helps
+community organizations keep their know-how in one place.
+
+**Call to action:** Create your first page.
 
 ## Logo rules (excerpt)
 
 # Logo
 
-Primary mark: `assets/logo/mark.svg`
+Product mark: `assets/logo/mark.svg`. It reuses the Acme Labs ring with the
+Docs accent in the center.
 
 ## Clear space
 
-Maintain padding equal to 12% of mark width on all sides.
+Leave empty space around the mark equal to at least 12% of its width.
 
 ## Colorways
 
-- Default: full-color mark on white
-- Dark bar: mark on `ink` background with white core (use SVG as-is)
+- Default: full color on `surface`
+- Next to the Acme Labs logo: use the Acme Labs wordmark first, Docs mark second
 
 ## Do not
 
-- Stretch, rotate, or add drop shadows
-- Recolor the outer ring without brand approval
-
+- Stretch, rotate, or add shadows
+- Use the Docs mark for Acme Labs as a whole
 
 ## Consumption
 
 - CSS variables: `tokens/exports/css/variables.css`
-- Do not invent hex outside exported tokens.
+- UI brief (colors, type, approved contrast pairs): `tokens/exports/agent/ui-brief.md`
+- Do not invent hex values or fonts outside exported tokens.
 - Load full `copy/legal.md` before external publication.

@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/brandkit.schema.json
+# The smallest useful BKR kit: colors, logo, and brand protection. No rules pack.
+schema: ght.brandkit/v1
+specVersion: 0.2.0
+brand:
+  id: minimal-brand
+  displayName: Minimal Brand
+  status: active
+role: organization
+profiles:
+  core: true
+  visual: true
+  tokens: true
+  security: true
+consumption:
+  cssVariables: tokens/exports/css/variables.css
+  agentDigest: digest/AGENT_CONTEXT.md
+validation:
+  contrastPairs:
+    - foreground: palette.text
+      background: palette.background
+      use: all text
+    - foreground: palette.background
+      background: palette.primary
+      use: button labels
+contacts:
+  security: security@minimal.example

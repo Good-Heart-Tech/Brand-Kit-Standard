@@ -1,7 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://goodheart.tech/schemas/bkr-token/v1",
+  "$id": "https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/bkr-token.schema.json",
   "title": "BKR token document",
+  "description": "A tokens/*.bkr.json file. Value formats per type are checked by bkr validate.",
   "type": "object",
   "additionalProperties": false,
   "required": ["meta", "tokens"],
@@ -13,9 +14,14 @@
       "required": ["brandId", "layer"],
       "properties": {
         "brandId": { "type": "string", "minLength": 1 },
-        "layer": {
-          "enum": ["color", "typography", "theme"]
-        }
+        "layer": { "enum": ["color", "typography", "spacing", "motion", "theme"] }
+      }
+    },
+    "guidance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "doNotUse": { "type": "array", "items": { "type": "string" } }
       }
     },
     "tokens": {
@@ -24,9 +30,7 @@
       "additionalProperties": {
         "type": "object",
         "minProperties": 1,
-        "additionalProperties": {
-          "$ref": "#/$defs/token"
-        }
+        "additionalProperties": { "$ref": "#/$defs/token" }
       }
     }
   },
@@ -37,35 +41,23 @@
       "required": ["value", "type"],
       "properties": {
         "value": {
+          "description": "color: #RRGGBB. dimension: 16px or 1rem. duration: 200ms. fontFamily: string or list. fontWeight/number: number.",
           "oneOf": [
             { "type": "string" },
             { "type": "number" },
-            { "type": "object" }
+            { "type": "array", "items": { "type": "string" }, "minItems": 1 }
           ]
         },
         "type": {
-          "enum": [
-            "color",
-            "dimension",
-            "fontFamily",
-            "fontWeight",
-            "duration",
-            "string"
-          ]
+          "enum": ["color", "dimension", "fontFamily", "fontWeight", "duration", "number", "string"]
         },
         "description": { "type": "string" },
         "usage": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "contexts": {
-              "type": "array",
-              "items": { "type": "string" }
-            },
-            "avoid": {
-              "type": "array",
-              "items": { "type": "string" }
-            }
+            "contexts": { "type": "array", "items": { "type": "string" } },
+            "avoid": { "type": "array", "items": { "type": "string" } }
           }
         },
         "aliases": {
@@ -81,7 +73,8 @@
         },
         "inheritsFrom": {
           "type": "string",
-          "pattern": "^[a-zA-Z0-9_.-]+\\.[a-zA-Z0-9_.-]+$"
+          "pattern": "^[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]+$",
+          "description": "Product kits: the parent token path (group.name) this value is locked to."
         }
       }
     }

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/bkr-token.schema.json",
+  "meta": {
+    "brandId": "cedar-hollow-pantry",
+    "layer": "color"
+  },
+  "tokens": {
+    "palette": {
+      "primary": {
+        "value": "#2F6B3A",
+        "type": "color",
+        "description": "Cedar green. Buttons, banners, and the logo.",
+        "usage": { "contexts": ["donate and volunteer buttons", "page banners"], "avoid": ["body text blocks"] }
+      },
+      "onPrimary": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Text on cedar green."
+      },
+      "link": {
+        "value": "#2F6B3A",
+        "type": "color",
+        "description": "Text links."
+      },
+      "ink": {
+        "value": "#1F2A24",
+        "type": "color",
+        "description": "Headings."
+      },
+      "body": {
+        "value": "#3D4A42",
+        "type": "color",
+        "description": "Paragraph text."
+      },
+      "surface": {
+        "value": "#FFFDF8",
+        "type": "color",
+        "description": "Warm off-white page background."
+      },
+      "harvest": {
+        "value": "#E8902E",
+        "type": "color",
+        "description": "Harvest orange for highlight bands and illustrations. Large text only.",
+        "usage": { "contexts": ["highlight bands", "illustrations", "event flyers"], "avoid": ["small text", "text on white"] }
+      }
+    }
+  }
+}

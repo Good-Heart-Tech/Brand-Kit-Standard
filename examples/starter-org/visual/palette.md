@@ -1,16 +1,26 @@
-# Palette usage
+# Colors
 
-Normative hex values live in `tokens/colors.bkr.json`. Regenerate CSS with
-`bkr export --css`.
+Official values live in `tokens/colors.bkr.json` (light) and
+`tokens/themes/dark.bkr.json` (dark). See them all in
+`tokens/exports/html/brand-at-a-glance.html`.
 
 ## Defaults
 
-- Page: `surface`
+- Page background: `surface`
+- Callout panels: `subtle`
 - Headings: `ink`
-- Body: `body`
-- Primary actions: white label on `primary`
+- Body text: `body`
+- Buttons: `onPrimary` label on `primary`
+- Links: `link` on `surface`
+- Charts and illustrations: `accent`
+
+## Dark theme
+
+The dark theme swaps `surface`, `subtle`, `ink`, `body`, `primary`, and `link`.
+Use the CSS variables and it switches automatically.
 
 ## Do not
 
 - Fill large backgrounds with `primary`
-- Use `accent` for small text on white
+- Use `accent` for text or buttons (it is too light to read on white)
+- Add colors that are not in the tokens

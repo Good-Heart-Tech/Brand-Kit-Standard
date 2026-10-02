@@ -1,49 +1,141 @@
 # Migration guide
 
-Move an existing Good Heart Tech-style kit into BKR without losing history.
+Two paths:
 
-## 1. Scaffold
+- **A. Upgrade a BKR 0.1 kit to 0.2** (kits created with `bkr init` before October 2026)
+- **B. Move a legacy (pre-BKR) kit into BKR**, such as a Good Heart Tech style folder with `BRAND.md` and `tokens/colors.json`
 
-From this repo:
+Commands below use `bkr`. Until the CLI is on npm, replace `bkr` with
+`node <path-to>/Brand-Kit-Standard/packages/bkr-cli/bin/bkr.js`.
 
-```bash
-node packages/bkr-cli/bin/bkr.js init ../My-Kit --role organization \
-  --brand-id my-brand --display-name "My Brand"
-```
+## A. Upgrade 0.1 to 0.2
 
-## 2. Import legacy colors JSON
-
-If the kit uses `tokens/colors.json` (GHT shape):
+### 1. Run the upgrade
 
 ```bash
-node packages/bkr-cli/bin/bkr.js import legacy-ght-colors ../My-Kit ../My-Kit/tokens/colors.json
+cd my-brand-kit
+bkr upgrade .
 ```
 
-Then split narrative content:
+`bkr upgrade` keeps comments in `brandkit.yaml` and:
+
+- sets `specVersion: 0.2.0`
+- converts `profiles.partnerPublic` / `publication.allowExternalMirror` into `publication.visibility`
+- turns on the `security` profile and adds `security/brand-protection.md`
+- points token `$schema` URLs at the hosted schemas
+- adds `dist/` to `.gitignore`
+- regenerates `tokens/exports/`, the digest, and `AGENTS.md`
+
+It prints a "still to do by hand" list. Work through it:
+
+### 2. Finish by hand
+
+- [ ] Add `contacts.security` (who receives impersonation reports)
+- [ ] Add `validation.contrastPairs` for every text and background combination you use
+- [ ] Decide `publication.visibility` (default `private`) and, if sharing, list `includedPaths`
+- [ ] Delete `examples/swatches.html` (replaced by `tokens/exports/html/brand-at-a-glance.html`)
+- [ ] Delete `profiles/partner-public/` if it exists
+- [ ] Optional: add `tokens/typography.bkr.json` and `tokens/themes/dark.bkr.json`
+- [ ] Product kits: set `hierarchy.parent.path` or run `bkr validate --parent <path>`
+
+### 3. Update apps that use the CSS variables (breaking)
+
+CSS variable names are now kebab-case. `bkr upgrade` prints the exact renames,
+for example:
+
+```
+--acmedocs-palette-productAccent  ->  --acmedocs-palette-product-accent
+```
+
+Single-word names (`primary`, `ink`) do not change. Also:
+
+- `css/dark-theme.css` is gone; dark values are now inside `variables.css`.
+- DTCG color values are objects (`{ colorSpace, components, hex }`) instead of
+  hex strings. Tools that read DTCG 2025.10 expect this.
+- Tailwind v4 projects can import `tokens/exports/tailwind/theme.css`.
+
+### 4. Validate and commit
+
+```bash
+bkr export --all
+bkr digest
+bkr validate --strict
+```
+
+## B. Move a legacy kit into BKR
+
+### 1. Scaffold next to the old kit
+
+```bash
+bkr init ../My-Kit --role organization --brand-id my-brand \
+  --display-name "My Brand" --security-contact security@mybrand.org
+```
+
+### 2. Import legacy colors
+
+If the kit has `tokens/colors.json` in the Good Heart Tech shape
+(`{ "colors": { "name": { "hex": "#...", "role": "..." } }, "doNotUse": [...] }`):
+
+```bash
+bkr import legacy-ght-colors ../My-Kit ../Old-Kit/tokens/colors.json
+```
+
+Then rename tokens so the palette has at least `primary`, `onPrimary`, `ink`,
+`body`, and `surface`, or update `validation.contrastPairs` and `visual/palette.md`
+to match your names.
+
+### 3. Move the narrative
 
 | Legacy file | BKR destination |
 |-------------|-----------------|
-| `BRAND.md` | `visual/palette.md`, `visual/logo.md` |
-| `COPY.md` | `copy/messaging.md` |
+| `BRAND.md` | `visual/palette.md`, `visual/logo.md`, `visual/typography.md` |
+| `COPY.md` | `copy/messaging.md` (internal) and, if sharing, a separate `copy/press-kit.md` |
 | `ACCESSIBILITY.md` | `visual/accessibility.md` |
 | `LEGAL.md` | `copy/legal.md` |
+| `VOICE.md` | `voice/tone.md`, `voice/vocabulary.md` |
 | `logo/` | `assets/logo/` |
+| Email signature templates | Keep out of the kit, or keep private (never in `includedPaths`) |
 
-## 3. Export and validate
+Replace every `> TODO(bkr):` line as you go.
+
+### 4. Export, validate, and add CI
 
 ```bash
 cd ../My-Kit
-node ../Brand-Kit-Standard/packages/bkr-cli/bin/bkr.js export --all
-node ../Brand-Kit-Standard/packages/bkr-cli/bin/bkr.js digest
-node ../Brand-Kit-Standard/packages/bkr-cli/bin/bkr.js validate .
+bkr export --all
+bkr digest
+bkr validate --strict
 ```
 
-## 4. CI
+Add `.github/workflows/brand-kit.yml`:
 
-Add a workflow job that runs `bkr validate` on pull requests.
+```yaml
+name: brand-kit
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.2.0
+```
 
-## Product child kits
+## Product (child) kits
 
-Set `--role product` and `--parent-repo` / `--parent-brand-id` to the parent
-GitHub URL and `brand.id`. Map product-only accents under `tokens/colors.bkr.json`
-without redefining the org primary hex.
+Use `--role product --parent-repo <url> --parent-brand-id <id>`. Mark every
+color that comes from the parent with `inheritsFrom` and keep its value equal
+to the parent. Add product-only colors under new names.
+
+In CI, check out the parent too so inherited values are verified:
+
+```yaml
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: Good-Heart-Tech/Good-Heart-Tech-Branding-Marketing
+          path: .parent-kit
+          token: ${{ secrets.PARENT_KIT_TOKEN }}   # only needed for private parents
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.2.0
+        with:
+          parent-path: .parent-kit
+```

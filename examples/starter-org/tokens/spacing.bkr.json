@@ -1,0 +1,25 @@
+{
+  "$schema": "https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/bkr-token.schema.json",
+  "meta": {
+    "brandId": "acme-labs",
+    "layer": "spacing"
+  },
+  "tokens": {
+    "spacing": {
+      "xs": { "value": "4px", "type": "dimension" },
+      "sm": { "value": "8px", "type": "dimension" },
+      "md": { "value": "16px", "type": "dimension" },
+      "lg": { "value": "24px", "type": "dimension" },
+      "xl": { "value": "40px", "type": "dimension" }
+    },
+    "radius": {
+      "sm": { "value": "4px", "type": "dimension", "description": "Inputs and tags." },
+      "md": { "value": "8px", "type": "dimension", "description": "Buttons and cards." },
+      "lg": { "value": "16px", "type": "dimension", "description": "Panels and modals." }
+    },
+    "motion": {
+      "fast": { "value": "150ms", "type": "duration", "description": "Hover and focus." },
+      "base": { "value": "250ms", "type": "duration", "description": "Panels opening." }
+    }
+  }
+}

@@ -1,16 +1,17 @@
-# Palette usage
+# Colors
 
-Normative hex values live in `tokens/colors.bkr.json`. Regenerate CSS with
-`bkr export --css`.
+Most colors come from Acme Labs and are locked with `inheritsFrom` in
+`tokens/colors.bkr.json`. Change them in the parent kit, never here.
 
 ## Defaults
 
-- Page: `surface`
-- Headings: `ink`
-- Body: `body`
-- Primary actions: white label on `primary`
+- Page background: `surface`
+- Headings and text: `ink`
+- Buttons: `onPrimary` label on `primary`
+- Links: `link` on `surface`
+- Hero bands and diagrams: `productAccent`
 
 ## Do not
 
-- Fill large backgrounds with `primary`
-- Use `accent` for small text on white
+- Add a second primary color
+- Use `productAccent` for text or buttons

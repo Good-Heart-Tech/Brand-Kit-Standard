@@ -2,16 +2,18 @@
 
 ## Prefer
 
-- “team” over “resource”
-- “sign in” over “log in” (unless OAuth provider copy differs)
-- “email” over “e-mail”
+- "team" over "resource"
+- "sign in" over "log in"
+- "email" over "e-mail"
+- "people" or "staff" over "users" when talking to customers
 
 ## Avoid
 
-- “synergy”, “disrupt”, “best-in-class”
-- “users” when “people” or “admins” is clearer
+- "synergy", "disrupt", "best-in-class"
+- Acronyms without explanation (write "multi-factor authentication (MFA)" first)
+- "Simply" or "just" in instructions (it makes people feel bad when it is not simple)
 
 ## Inclusive language
 
-- Gender-neutral defaults
-- Avoid idioms that do not translate
+- Gender-neutral defaults ("they", "everyone", "folks")
+- Avoid idioms that do not translate well

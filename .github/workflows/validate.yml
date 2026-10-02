@@ -5,17 +5,52 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
-  validate:
-    runs-on: ubuntu-latest
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            node: "20"
+          - os: ubuntu-latest
+            node: "22"
+          - os: windows-latest
+            node: "22"
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: ${{ matrix.node }}
           cache: npm
       - run: npm ci
-      - run: npm run validate
-      - run: node packages/bkr-cli/bin/bkr.js export examples/starter-org --all
-      - run: node packages/bkr-cli/bin/bkr.js digest examples/starter-org
-      - run: git diff --exit-code examples/starter-org || (echo "Examples out of date — run export/digest locally" && exit 1)
+      - name: Unit and integration tests
+        run: npm test
+      - name: Regenerate and strictly validate every example
+        run: npm run examples
+      - name: Examples are committed with current exports
+        shell: bash
+        run: |
+          if ! git diff --exit-code -- examples; then
+            echo "::error::Example exports or digests are out of date. Run 'npm run examples' and commit the result."
+            exit 1
+          fi
+      - name: Scaffold a new kit and validate it
+        shell: bash
+        run: |
+          node packages/bkr-cli/bin/bkr.js init "$RUNNER_TEMP/new-kit" --brand-id ci-check --display-name "CI Check"
+          node packages/bkr-cli/bin/bkr.js validate "$RUNNER_TEMP/new-kit"
+
+  # Runs the reusable action from this repo against an example, so the action keeps working.
+  action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          path: examples/starter-product-child
+          strict: "true"

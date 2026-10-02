@@ -1,12 +1,34 @@
 {
   "name": "@goodheart/bkr-schema",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "JSON Schema for BKR brandkit manifests and token files",
   "license": "MIT",
+  "author": "Good Heart Tech",
+  "homepage": "https://github.com/Good-Heart-Tech/Brand-Kit-Standard#readme",
+  "bugs": {
+    "url": "https://github.com/Good-Heart-Tech/Brand-Kit-Standard/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Good-Heart-Tech/Brand-Kit-Standard.git",
+    "directory": "packages/bkr-schema"
+  },
+  "keywords": [
+    "brand-kit",
+    "json-schema",
+    "design-tokens"
+  ],
   "type": "module",
   "exports": {
     "./brandkit": "./schemas/brandkit.schema.json",
-    "./token": "./schemas/bkr-token.schema.json"
+    "./token": "./schemas/bkr-token.schema.json",
+    "./package.json": "./package.json"
   },
   "files": [
     "schemas"
