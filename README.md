@@ -45,7 +45,7 @@ From a clone of this repo (Node 20+):
 ```bash
 npm install
 npm test
-npm run bkr -- init ../my-brand --brand-id my-brand --display-name "My Brand" --security-contact security@mybrand.org
+npm run bkr -- init ../my-brand --brand-id my-brand --display-name "My Brand"
 ```
 
 Once the packages are on npm:
@@ -96,7 +96,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.2.0
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.2.1
         with:
           path: .
           strict: "true"

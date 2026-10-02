@@ -68,7 +68,7 @@ ${manifest.brand.displayName} brand kit with \`bkr publish\`.
 ${manifest.contacts?.security ? `## Report impersonation
 
 If you see a website, email, or social account pretending to be ${manifest.brand.displayName},
-report it to ${manifest.contacts.security}.
+report it: ${manifest.contacts.security}
 ` : ""}
 ## Files
 

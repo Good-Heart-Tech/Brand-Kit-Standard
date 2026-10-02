@@ -50,6 +50,4 @@ validation:
       use: large headings on harvest bands
       min: 3
 contacts:
-  brand: hello@cedarhollowpantry.example
-  legal: board@cedarhollowpantry.example
-  security: security@cedarhollowpantry.example
+  security: https://cedarhollowpantry.example/contact

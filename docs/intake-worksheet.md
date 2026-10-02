@@ -48,9 +48,9 @@ which kit file it becomes.
 
 ## Contacts (`brandkit.yaml` contacts)
 
-23. Who approves brand use? (email)
-24. Who handles legal questions? (email)
-25. Where should people report fake websites or emails using your name? (email)
+23. Who approves brand use? (name or role; an email is optional)
+24. Who handles legal questions? (name or role; an email is optional)
+25. Where should people report fake websites or emails using your name? (a contact page link is best; avoid personal emails)
 
 ## Protection (`security/brand-protection.md`)
 

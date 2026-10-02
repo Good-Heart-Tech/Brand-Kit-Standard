@@ -9,7 +9,7 @@
 - **Status:** active
 - **Role:** organization
 - **Sharing:** Partner: only paths in `publication.includedPaths` may go to partners. Build them with `bkr publish`.
-- **Report impersonation to:** security@acme-labs.example
+- **Report impersonation:** security@acme-labs.example
 
 ## Identity (excerpt)
 

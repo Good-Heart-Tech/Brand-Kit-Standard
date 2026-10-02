@@ -31,10 +31,13 @@ export function initKit(targetDir, options = {}) {
     brandId: options.parentBrandId || "good-heart-tech",
   };
 
-  const securityContact = options.securityContact || "security@example.org";
+  // Contacts are optional. Without one, templates point people to the website instead.
+  const reportImpersonation = options.securityContact
+    ? `report it here: ${options.securityContact}`
+    : "tell us through the contact page on our website";
   copyTemplateTree(path.join(templatesDir(), role), targetDir, {
     brandId,
-    securityContact,
+    reportImpersonation,
     displayName,
     parentRepository: parent.repository,
     parentRef: parent.ref,
@@ -74,12 +77,10 @@ export function initKit(targetDir, options = {}) {
         { foreground: "palette.link", background: "palette.surface", use: "links" },
       ],
     },
-    contacts: {
-      brand: options.brandContact || "brand@example.org",
-      legal: options.legalContact || "legal@example.org",
-      security: securityContact,
-    },
   };
+  if (options.securityContact) {
+    manifest.contacts = { security: options.securityContact };
+  }
 
   if (role === "product") {
     manifest.hierarchy = { parent };

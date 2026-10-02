@@ -8,4 +8,4 @@
 - Photos of neighbors are never shared without their written permission.
 
 If you see a website, email, or social account pretending to be the Pantry,
-report it to security@cedarhollowpantry.example.
+use the contact page on our website (https://cedarhollowpantry.example/contact).

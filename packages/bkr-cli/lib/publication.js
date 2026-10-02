@@ -106,9 +106,5 @@ export function collectPublication(kitRoot, manifest) {
     }
   }
 
-  if (!manifest.contacts?.security) {
-    warnings.push(`visibility is ${visibility}: add contacts.security so people can report impersonation`);
-  }
-
   return { visibility, files: [...files].sort(), errors, warnings };
 }

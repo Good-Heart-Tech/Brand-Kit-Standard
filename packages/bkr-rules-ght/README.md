@@ -13,8 +13,7 @@ Rules:
 - Product kits must declare `hierarchy.parent` (error)
 - Every color should have a description (warning)
 - `inheritsFrom` only in product kits (warning)
-- `contacts.security` is required for public kits and recommended for all (error / warning)
-- Active kits cannot use a placeholder `example.org` security contact (error)
+- Active kits cannot keep a placeholder `example.org` security contact (error); the contact itself is optional
 - `minContrastRatio` below 4.5 does not meet WCAG AA (warning)
 
 Write your own pack: export `validate({ kitRoot, manifest, tokens })` returning

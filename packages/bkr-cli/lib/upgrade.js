@@ -63,9 +63,6 @@ export function upgradeKit(kitRoot) {
     writeText(protection, fillTemplate(tpl, { displayName: manifest.brand.displayName, brandId: manifest.brand.id }));
     changes.push("added security/brand-protection.md checklist");
   }
-  if (!manifest.contacts?.security) {
-    todo.push("add contacts.security (an email that receives impersonation reports, for example security@yourorg.org)");
-  }
   if (!(manifest.validation?.contrastPairs || []).length) {
     todo.push("add validation.contrastPairs listing your text/background color pairs");
   }
