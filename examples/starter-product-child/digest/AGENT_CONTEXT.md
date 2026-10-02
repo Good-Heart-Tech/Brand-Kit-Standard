@@ -90,6 +90,8 @@ Leave empty space around the mark equal to at least 12% of its width.
 - Stretch, rotate, or add shadows
 - Use the Docs mark for Acme Labs as a whole
 
+## Logo files
+
 ## Consumption
 
 - CSS variables: `tokens/exports/css/variables.css`

@@ -103,6 +103,8 @@ Leave space around the logo at least as wide as the tree trunk in the mark.
 - Stretch or rotate it
 - Add other organizations' logos inside our clear space without approval
 
+## Logo files
+
 ## Consumption
 
 - CSS variables: `tokens/exports/css/variables.css`

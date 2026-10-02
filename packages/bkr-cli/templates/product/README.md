@@ -1,5 +1,7 @@
 # {{displayName}} brand kit (program or product)
 
+![Colors](tokens/exports/svg/palette.svg)
+
 Child brand kit for **{{displayName}}**, part of the **{{parentBrandId}}** brand
 family. It follows the [Brand Kit Repository (BKR)](https://github.com/Good-Heart-Tech/Brand-Kit-Standard)
 standard, spec 0.2.

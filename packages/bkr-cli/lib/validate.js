@@ -16,6 +16,7 @@ import {
 import { checkTokenValue, evaluateContrast, loadTokens, toPosix } from "./tokens.js";
 import { computeSourceHash, readStoredHash } from "./export.js";
 import { collectPublication } from "./publication.js";
+import { checkMarkdownBlocks } from "./visuals.js";
 
 const PROFILE_PATHS = {
   identity: ["identity/about.md", "identity/naming.md"],
@@ -126,6 +127,19 @@ export async function validateKit(kitRoot, options = {}) {
     }
 
     warnings.push(...checkNarrativeRefs(kitRoot, tokens, manifestKeys(manifest)));
+
+    // People cannot see a color from a hex code; READMEs must show the palette.
+    if (tokens.files.every((f) => f.doc)) {
+      const md = checkMarkdownBlocks(kitRoot, manifest, tokens);
+      if (profiles.visual && !md.readmeVisual) {
+        warnings.push(
+          "README.md does not show the colors: add ![Colors](tokens/exports/svg/palette.svg) or a <!-- bkr:palette --> block"
+        );
+      }
+      for (const rel of md.stale) {
+        warnings.push(`${rel}: bkr:palette/contrast/logos block is out of date: run \`bkr export --all\``);
+      }
+    }
 
     const stored = readStoredHash(kitRoot);
     if (!stored) {

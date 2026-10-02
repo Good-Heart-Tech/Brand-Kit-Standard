@@ -120,6 +120,8 @@ Leave empty space around the logo equal to at least 12% of its width.
 - Recolor the mark
 - Place it on busy photos without the reversed version
 
+## Logo files
+
 ## Consumption
 
 - CSS variables: `tokens/exports/css/variables.css`

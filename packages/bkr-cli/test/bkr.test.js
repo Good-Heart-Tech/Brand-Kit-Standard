@@ -279,6 +279,37 @@ test("large logos are linked from the brand page instead of embedded", () => {
   assert.ok(html.length < 100 * 1024);
 });
 
+test("export writes GitHub-visible SVGs and fills markdown blocks", async () => {
+  const dir = newKit();
+  const svg = path.join(dir, "tokens/exports/svg");
+  for (const f of ["palette.svg", "palette-dark.svg", "contrast.svg", "chips/palette-primary.svg", "chips/palette-primary-dark.svg", "pairs/palette-body-on-palette-surface.svg"]) {
+    assert.ok(fs.existsSync(path.join(svg, f)), f);
+  }
+  assert.match(fs.readFileSync(path.join(svg, "palette.svg"), "utf8"), /#2563EB/);
+
+  const palette = fs.readFileSync(path.join(dir, "visual/palette.md"), "utf8");
+  assert.match(palette, /\.\.\/tokens\/exports\/svg\/chips\/palette-primary\.svg/);
+  assert.match(palette, /`#2563EB`/);
+  assert.match(fs.readFileSync(path.join(dir, "visual/accessibility.md"), "utf8"), /pairs\/palette-body-on-palette-surface\.svg/);
+
+  // Blocks go stale when tokens change, and export fixes them.
+  editJson(path.join(dir, "tokens/colors.bkr.json"), (d) => (d.tokens.palette.accent.value = "#0EA5E9"));
+  let r = await validateKit(dir);
+  assert.ok(hasMsg(r.warnings, /visual\/palette\.md: bkr:palette/));
+  exportKit(dir, ["all"]);
+  r = await validateKit(dir);
+  assert.ok(!hasMsg(r.warnings, /bkr:palette/));
+  assert.match(fs.readFileSync(path.join(dir, "visual/palette.md"), "utf8"), /`#0EA5E9`/);
+});
+
+test("a README without a color visual is flagged", async () => {
+  const dir = newKit();
+  const readme = path.join(dir, "README.md");
+  fs.writeFileSync(readme, fs.readFileSync(readme, "utf8").replace("![Colors](tokens/exports/svg/palette.svg)", ""));
+  const r = await validateKit(dir);
+  assert.ok(hasMsg(r.warnings, /README\.md does not show the colors/));
+});
+
 // --- Upgrade --------------------------------------------------------------------------
 
 test("upgrade moves a 0.1 kit to 0.2 and keeps manifest comments", async () => {

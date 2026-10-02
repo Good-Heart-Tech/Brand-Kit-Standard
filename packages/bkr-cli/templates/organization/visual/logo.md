@@ -19,3 +19,7 @@ Leave empty space around the logo equal to at least 12% of its width.
 - Stretch, rotate, or add shadows
 - Change the logo colors
 - Place the logo on busy photos
+
+## Logo files
+
+<!-- bkr:logos -->

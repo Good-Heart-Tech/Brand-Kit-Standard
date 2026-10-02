@@ -1,5 +1,7 @@
 # Minimal Brand kit (smallest example)
 
+![Colors](tokens/exports/svg/palette.svg)
+
 **Fictional.** The smallest kit worth having: three colors, one logo, contrast
 checks, and a brand protection checklist. A volunteer can set this up in an
 afternoon, then add identity, voice, and copy later by turning on more

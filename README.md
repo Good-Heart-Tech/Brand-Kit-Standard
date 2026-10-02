@@ -25,6 +25,13 @@ the [intake worksheet](docs/intake-worksheet.md) with your volunteer, or see
 
 ## See it
 
+Every kit shows its colors right on GitHub. This palette and contrast sheet are
+generated from the nonprofit example's tokens:
+
+![Example palette](examples/nonprofit-sample/tokens/exports/svg/palette.svg)
+
+![Example contrast checks](examples/nonprofit-sample/tokens/exports/svg/contrast.svg)
+
 | Example | What it shows |
 |---------|---------------|
 | [`examples/nonprofit-sample`](examples/nonprofit-sample/) | A small food pantry (fictional) with a public press kit |
@@ -96,7 +103,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.2.2
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.3.0
         with:
           path: .
           strict: "true"

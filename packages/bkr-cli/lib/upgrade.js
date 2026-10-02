@@ -73,6 +73,30 @@ export function upgradeKit(kitRoot) {
     todo.push("examples/swatches.html is replaced by tokens/exports/html/brand-at-a-glance.html; delete the old file");
   }
 
+  // Human-visible colors (0.3): palette image in the README, generated blocks in visual/
+  const readme = path.join(kitRoot, "README.md");
+  if (pathExists(readme)) {
+    const text = fs.readFileSync(readme, "utf8");
+    if (!text.includes("tokens/exports/svg/palette.svg") && !/<!--\s*bkr:palette\s*-->/.test(text)) {
+      const nl = text.indexOf("\n");
+      const at = /^# /.test(text) && nl !== -1 ? nl + 1 : 0;
+      writeText(readme, `${text.slice(0, at)}\n![Colors](tokens/exports/svg/palette.svg)\n\n${text.slice(at).replace(/^\n+/, "")}`);
+      changes.push("README.md now shows the palette image");
+    }
+  }
+  for (const [rel, kind, heading] of [
+    ["visual/palette.md", "palette", "All colors"],
+    ["visual/accessibility.md", "contrast", "Checked text and background pairs"],
+    ["visual/logo.md", "logos", "Logo files"],
+  ]) {
+    const p = path.join(kitRoot, rel);
+    if (!pathExists(p)) continue;
+    const text = fs.readFileSync(p, "utf8");
+    if (new RegExp(`<!--\\s*bkr:${kind}\\s*-->`).test(text)) continue;
+    writeText(p, `${text.replace(/\s*$/, "")}\n\n## ${heading}\n\n<!-- bkr:${kind} -->\n`);
+    changes.push(`${rel}: added a generated bkr:${kind} block`);
+  }
+
   // .gitignore for publish output
   const gi = path.join(kitRoot, ".gitignore");
   const giText = pathExists(gi) ? fs.readFileSync(gi, "utf8") : "";
