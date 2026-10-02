@@ -6,7 +6,7 @@
 
 **One-sentence description:** {{displayName}} helps ...
 
-**Boilerplate (for press and partners):** {{displayName}} is a nonprofit
-organization that ...
+**Boilerplate (for press and partners):** {{displayName}} is a ... that ...
 
-**Call to action:** Volunteer, donate, or learn more at our website.
+**Call to action:** The one thing you most want people to do next (for example
+"Book a demo", "Shop now", "Apply online", or "Get involved").

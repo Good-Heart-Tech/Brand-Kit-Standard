@@ -16,9 +16,9 @@
 
 # About Acme Docs
 
-Acme Docs is the Acme Labs knowledge base tool. It helps community
-organizations write down how things work, so knowledge does not walk out the
-door when a volunteer moves on.
+Acme Docs is the Acme Labs knowledge base product. It helps growing
+companies write down how things work, so knowledge does not walk out the
+door when an employee moves on.
 
 ## Personality
 
@@ -29,7 +29,7 @@ Same as Acme Labs, plus:
 
 ## Who we talk to
 
-- Office managers and volunteer coordinators
+- Operations managers and team leads
 - Executive directors handing off responsibilities
 
 ## Voice (excerpt)
@@ -64,8 +64,8 @@ people writing documentation are doing it for the first time.
 
 **Tagline:** Write it down once.
 
-**One sentence:** Acme Docs from Acme Labs is a free knowledge base that helps
-community organizations keep their know-how in one place.
+**One sentence:** Acme Docs from Acme Labs is a knowledge base that helps
+growing teams keep their know-how in one place.
 
 **Call to action:** Create your first page.
 

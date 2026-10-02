@@ -1,18 +1,19 @@
 # About {{displayName}}
 
-> TODO(bkr): In two or three sentences, say what {{displayName}} is, who it
-> serves, and how it relates to {{parentBrandId}}.
+> TODO(bkr): In two or three sentences, say what {{displayName}} is (a product,
+> service line, sub-brand, department, or program), who it is for, and how it
+> relates to {{parentBrandId}}.
 
-{{displayName}} is a program of {{parentBrandId}} that ...
+{{displayName}} is part of {{parentBrandId}}. It ...
 
 ## Personality
 
 Same as the parent brand, plus:
 
-> TODO(bkr): List one or two traits that are special to this program, or delete
-> this section.
+> TODO(bkr): List one or two traits that are special to {{displayName}}, or
+> delete this section.
 
 ## Who we talk to
 
-- People this program serves
-- Program partners and funders
+- The people {{displayName}} is for (customers, users, residents, members)
+- Partners specific to {{displayName}}

@@ -226,7 +226,7 @@ test("sharing guardrails warn about risky files and staff contacts", async () =>
   assert.ok(hasMsg(r.warnings, /email-signature\.html/));
   assert.ok(hasMsg(r.warnings, /jane@testorg\.org/));
   assert.ok(hasMsg(r.warnings, /phone number/));
-  assert.ok(hasMsg(r.warnings, /donate\.md: contains fundraising/));
+  assert.ok(hasMsg(r.warnings, /donate\.md: contains payment, pricing, or fundraising/));
 });
 
 test("publish builds a bundle with only the listed files", async () => {

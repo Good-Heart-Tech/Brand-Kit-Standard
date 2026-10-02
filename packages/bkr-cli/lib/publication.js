@@ -18,7 +18,7 @@ const RISKY_PATHS = [
   [(p) => /\.(eml|msg|oft|mjml)$/i.test(p), "email files are ready-made parts for spoofed emails"],
   [(p) => /\.html?$/i.test(p) && !ALLOWED_HTML.has(p), "HTML pages can be reused as look-alike (phishing) pages"],
   [(p) => /(login|log-in|signin|sign-in|password|donat|payment|checkout|invoice)/i.test(p),
-    "login, donation, payment, and invoice designs are what phishing copies"],
+    "login, payment, checkout, invoice, and donation designs are what phishing copies"],
   [(p) => /\.(ai|psd|fig|sketch|indd|xd|afdesign|afphoto)$/i.test(p), "design source files make forged documents easier"],
   [(p) => /^(security|digest)\//.test(p) || p === "AGENTS.md" || p === "brandkit.yaml",
     "internal kit files (security checklist, agent context, manifest with contacts) are not meant for outside use"],
@@ -96,8 +96,8 @@ export function collectPublication(kitRoot, manifest) {
       if (emails.length) {
         warnings.push(`sharing ${rel}: contains email address(es) ${emails.join(", ")}; staff contacts fuel targeted phishing`);
       }
-      if (/\.md$/i.test(rel) && /\b(donat\w*|fundrais\w*|gift cards?|wire transfers?)\b/i.test(text)) {
-        warnings.push(`sharing ${rel}: contains fundraising or payment wording, which makes fake donation appeals easier; keep it internal or move press text to a separate file`);
+      if (/\.md$/i.test(rel) && /\b(donat\w*|fundrais\w*|gift cards?|wire transfers?|pricing|price lists?|payment terms|bank details|routing numbers?|remit to)\b/i.test(text)) {
+        warnings.push(`sharing ${rel}: contains payment, pricing, or fundraising wording, which makes fake payment or donation requests easier; keep it internal or move press text to a separate file`);
       }
       if (PHONE.test(text)) {
         warnings.push(`sharing ${rel}: contains what looks like a phone number`);

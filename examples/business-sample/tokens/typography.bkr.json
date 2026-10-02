@@ -1,0 +1,36 @@
+{
+  "$schema": "https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/bkr-token.schema.json",
+  "meta": {
+    "brandId": "ridgeline-coffee",
+    "layer": "typography"
+  },
+  "tokens": {
+    "fontFamily": {
+      "heading": {
+        "value": ["DM Serif Display", "Georgia", "Times New Roman", "serif"],
+        "type": "fontFamily",
+        "description": "Headings, menu boards, and bag labels. Free on Google Fonts (SIL Open Font License)."
+      },
+      "body": {
+        "value": ["DM Sans", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        "type": "fontFamily",
+        "description": "Paragraphs, product details, prices, and interface text. Free on Google Fonts (SIL Open Font License)."
+      }
+    },
+    "fontWeight": {
+      "regular": { "value": 400, "type": "fontWeight", "description": "Paragraphs, and DM Serif Display headings (it only comes in 400)." },
+      "bold": { "value": 700, "type": "fontWeight", "description": "DM Sans buttons, prices, and labels." }
+    },
+    "fontSize": {
+      "small": { "value": "0.875rem", "type": "dimension", "description": "Fine print, roast dates, and badges." },
+      "base": { "value": "1rem", "type": "dimension", "description": "Body text on screens." },
+      "large": { "value": "1.25rem", "type": "dimension", "description": "Lead paragraphs and tasting notes." },
+      "heading": { "value": "2rem", "type": "dimension", "description": "Section and product headings." },
+      "display": { "value": "3rem", "type": "dimension", "description": "Homepage hero and cafe signage." }
+    },
+    "lineHeight": {
+      "tight": { "value": 1.15, "type": "number", "description": "Headings." },
+      "normal": { "value": 1.6, "type": "number", "description": "Paragraphs." }
+    }
+  }
+}

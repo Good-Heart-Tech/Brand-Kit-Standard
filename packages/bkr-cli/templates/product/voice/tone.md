@@ -4,12 +4,14 @@ Our voice stays the same everywhere. Our tone shifts with the moment.
 
 | Situation | Tone | Example |
 |-----------|------|---------|
-| Social media and newsletters | Warm, hopeful | "Thanks to you, 200 families had dinner this week." |
-| Asking for donations | Direct, grateful | "Your gift of $25 stocks a family's pantry for a week." |
-| Talking with people we serve | Respectful, plain | "You are welcome here. No paperwork needed." |
-| Partners and funders | Professional, specific | Lead with outcomes and numbers. |
+| Website and social media | Warm, confident | "Here is what changes for you this month." |
+| Asking people to act (buy, sign up, apply, donate) | Direct, specific | "Start your free trial today." |
+| Support and service replies | Patient, plain | "Here is what happened, and here is the fix." |
+| Partners, investors, or funders | Professional, specific | Lead with outcomes and numbers. |
+| Legal and policy | Formal | No jokes or slang. |
 
-> TODO(bkr): Replace the examples with real sentences from your own writing.
+> TODO(bkr): Replace the examples with real sentences from your own writing,
+> and rename the situations to match how you actually communicate.
 
 ## Always
 

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" role="img" aria-label="Official Seal of Brightwater County">
+  <defs>
+    <path id="seal-top" d="M28 120a92 92 0 0 1 184 0"/>
+    <path id="seal-bottom" d="M16 120a104 104 0 0 0 208 0"/>
+    <clipPath id="seal-inner"><circle cx="120" cy="120" r="76"/></clipPath>
+  </defs>
+  <circle cx="120" cy="120" r="118" fill="#1B4F8A"/>
+  <circle cx="120" cy="120" r="111" fill="none" stroke="#F2B632" stroke-width="2"/>
+  <circle cx="120" cy="120" r="80" fill="#FFFFFF" stroke="#F2B632" stroke-width="3"/>
+  <g clip-path="url(#seal-inner)">
+    <circle cx="120" cy="112" r="28" fill="#F2B632"/>
+    <path d="M40 140c13-10 27-10 40 0s27 10 40 0s27-10 40 0s27 10 40 0v60H40Z" fill="#FFFFFF"/>
+    <path d="M40 140c13-10 27-10 40 0s27 10 40 0s27-10 40 0s27 10 40 0" fill="none" stroke="#1B4F8A" stroke-width="7" stroke-linecap="round"/>
+    <path d="M40 162c13-10 27-10 40 0s27 10 40 0s27-10 40 0s27 10 40 0" fill="none" stroke="#2E7D4F" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <text font-family="'Public Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="2" fill="#FFFFFF">
+    <textPath href="#seal-top" startOffset="50%" text-anchor="middle">BRIGHTWATER COUNTY</textPath>
+  </text>
+  <text font-family="'Public Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="600" letter-spacing="3" fill="#FFFFFF">
+    <textPath href="#seal-bottom" startOffset="50%" text-anchor="middle">EST. 1891</textPath>
+  </text>
+  <circle cx="24" cy="120" r="4" fill="#F2B632"/>
+  <circle cx="216" cy="120" r="4" fill="#F2B632"/>
+</svg>

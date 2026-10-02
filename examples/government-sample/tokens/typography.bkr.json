@@ -1,0 +1,37 @@
+{
+  "$schema": "https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/bkr-token.schema.json",
+  "meta": {
+    "brandId": "brightwater-county",
+    "layer": "typography"
+  },
+  "tokens": {
+    "fontFamily": {
+      "heading": {
+        "value": ["Public Sans", "system-ui", "-apple-system", "Segoe UI", "Arial", "sans-serif"],
+        "type": "fontFamily",
+        "description": "Headings. Public Sans is free (SIL Open Font License) on Google Fonts and is used by many government websites."
+      },
+      "body": {
+        "value": ["Public Sans", "system-ui", "-apple-system", "Segoe UI", "Arial", "sans-serif"],
+        "type": "fontFamily",
+        "description": "Paragraphs, forms, and interface text."
+      }
+    },
+    "fontWeight": {
+      "regular": { "value": 400, "type": "fontWeight", "description": "Paragraphs and form text." },
+      "semibold": { "value": 600, "type": "fontWeight", "description": "Buttons, labels, and table headers." },
+      "bold": { "value": 700, "type": "fontWeight", "description": "Headings and alert titles." }
+    },
+    "fontSize": {
+      "small": { "value": "1rem", "type": "dimension", "description": "Smallest text allowed: captions and footnotes (16px)." },
+      "base": { "value": "1.125rem", "type": "dimension", "description": "Body text (18px). Larger than usual for readers with low vision." },
+      "large": { "value": "1.375rem", "type": "dimension", "description": "Lead paragraphs and alert text." },
+      "heading": { "value": "2.25rem", "type": "dimension", "description": "Page and section headings." },
+      "display": { "value": "3rem", "type": "dimension", "description": "Home page and campaign headlines." }
+    },
+    "lineHeight": {
+      "tight": { "value": 1.25, "type": "number", "description": "Headings." },
+      "normal": { "value": 1.6, "type": "number", "description": "Paragraphs." }
+    }
+  }
+}

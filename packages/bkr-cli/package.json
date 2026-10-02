@@ -1,6 +1,6 @@
 {
   "name": "@goodheart/bkr-cli",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "CLI for BKR brand kit repositories: validate, export design tokens, build agent digests, and publish shareable bundles",
   "license": "MIT",
   "author": "Good Heart Tech",
@@ -25,7 +25,7 @@
     "design-tokens",
     "dtcg",
     "tailwind",
-    "nonprofit",
+    "brand-guidelines",
     "ai-agents"
   ],
   "type": "module",
@@ -41,8 +41,8 @@
     "test": "node --test test/bkr.test.js"
   },
   "dependencies": {
-    "@goodheart/bkr-rules-ght": "0.4.2",
-    "@goodheart/bkr-schema": "0.4.2",
+    "@goodheart/bkr-rules-ght": "0.4.3",
+    "@goodheart/bkr-schema": "0.4.3",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
     "yaml": "^2.8.0"

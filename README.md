@@ -4,46 +4,47 @@
 and AI assistants can all read, so nobody has to guess your colors, invent a
 second logo, or write in the wrong voice.
 
-Steward: [Good Heart Tech](https://github.com/Good-Heart-Tech), a Boise
-nonprofit providing free IT and cybersecurity to nonprofits.
+It works for any organization: companies and startups, government agencies,
+nonprofits, schools, and one-person businesses. A kit can be a whole
+organization, or a product, department, or sub-brand that inherits from one.
+
+Steward: [Good Heart Tech](https://github.com/Good-Heart-Tech).
 Spec: [`spec/BKR-SPEC.md`](spec/BKR-SPEC.md) (0.2, contract `ght.brandkit/v1`).
 
-## For nonprofit staff
+## For the people who own the brand
 
 A brand kit is one folder with your logo, colors, fonts, how you sound, and
 your approved wording. BKR keeps it organized so that:
 
-- your website, email signatures, flyers, and AI tools all use the **same** colors and words
-- anyone can open **one page** to see the whole brand (`brand-at-a-glance.html`)
+- your website, apps, email signatures, slides, and AI tools all use the **same** colors and words
+- anyone browsing the kit on GitHub **sees** the palette, the brand in use, and do and don't examples
 - colors are **checked for readability** automatically
 - the kit stays **private** unless you choose to share parts of it, and it warns
   you before you share anything that would help scammers impersonate you
 
 Start here: **[Start your brand kit](docs/start-your-brand-kit.md)**. Fill in
-the [intake worksheet](docs/intake-worksheet.md) with your volunteer, or see
-[how to load it into Canva](docs/canva.md).
+the [intake worksheet](docs/intake-worksheet.md), or see
+[how to load a kit into Canva](docs/canva.md).
 
 ## See it
 
-Every kit shows its colors right on GitHub. This palette and contrast sheet are
-generated from the nonprofit example's tokens:
+Every example below is fictional. Each one shows its palette, the brand in use
+(light and dark), and its do and don't pairs right on GitHub.
 
-![Example palette](examples/nonprofit-sample/tokens/exports/svg/palette.svg)
+| Company | Government | Solo business |
+|---|---|---|
+| ![Ridgeline Coffee Roasters](examples/business-sample/tokens/exports/png/ui.png) | ![Brightwater County](examples/government-sample/tokens/exports/png/ui.png) | ![Juniper Lane Studio](examples/solo-sample/tokens/exports/png/ui.png) |
+| ![Ridgeline palette](examples/business-sample/tokens/exports/svg/palette.svg) | ![Brightwater palette](examples/government-sample/tokens/exports/svg/palette.svg) | ![Juniper Lane palette](examples/solo-sample/tokens/exports/svg/palette.svg) |
 
-![Example: the brand in use](examples/nonprofit-sample/tokens/exports/png/ui.png)
-
-![Example do and don't](examples/nonprofit-sample/tokens/exports/svg/do-dont.svg)
-
-| Example | What it shows |
-|---------|---------------|
-| [`examples/nonprofit-sample`](examples/nonprofit-sample/) | A small food pantry (fictional) with a public press kit |
-| [`examples/starter-org`](examples/starter-org/) | Every feature: dark theme, typography, spacing, full logo set, partner sharing |
-| [`examples/starter-product-child`](examples/starter-product-child/) | A program or product kit that inherits its parent's colors |
-| [`examples/minimal`](examples/minimal/) | The smallest useful kit: three colors and a logo |
-
-Each example README shows its palette, screenshots, and contrast checks right on
-GitHub, and has a generated `tokens/exports/html/brand-at-a-glance.html` to open
-locally.
+| Example | Type | What it shows |
+|---------|------|---------------|
+| [`examples/business-sample`](examples/business-sample/) | Company (retail and wholesale) | Public press kit, internal pricing kept private, dark theme |
+| [`examples/government-sample`](examples/government-sample/) | Government agency | Accessibility as a legal requirement, plain language, protected seal kept out of the partner bundle |
+| [`examples/solo-sample`](examples/solo-sample/) | One-person business | A lighter kit with optional layers turned off, shared with printers and clients |
+| [`examples/nonprofit-sample`](examples/nonprofit-sample/) | Nonprofit | Plain-language voice, donation wording kept internal, public press kit |
+| [`examples/starter-org`](examples/starter-org/) | Company (software) | Every feature: dark theme, typography, spacing, full logo set, partner sharing |
+| [`examples/starter-product-child`](examples/starter-product-child/) | Product or sub-brand | A child kit that inherits its parent's colors, checked automatically |
+| [`examples/minimal`](examples/minimal/) | Any | The smallest useful kit: three colors and a logo |
 
 ## For engineers
 
@@ -106,7 +107,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.4.2
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.4.3
         with:
           path: .
           strict: "true"

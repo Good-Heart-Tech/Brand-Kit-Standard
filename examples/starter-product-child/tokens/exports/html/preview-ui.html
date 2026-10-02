@@ -6,6 +6,8 @@
 
 <style>
   html, body { margin: 0; }
+  /* Show fonts only at weights that really exist; never let the browser fake bold or italic. */
+  * { font-synthesis: none; }
   body { display: flex; width: 640px; height: 480px; overflow: hidden; }
   section { box-sizing: border-box; width: 640px; height: 480px; padding: 24px 32px; position: relative; }
   .tag { position: absolute; top: 6px; right: 12px; font: 600 11px system-ui, sans-serif; opacity: .6; text-transform: uppercase; letter-spacing: .08em; }
@@ -27,7 +29,7 @@
   <header style="border-bottom:3px solid #2563EB">
     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMTI4IDEyOCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJBY21lIERvY3MiPgogIDxyZWN0IHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiByeD0iMjgiIGZpbGw9IiMyNTYzRUIiLz4KICA8Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiByPSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjE0Ii8+CiAgPHJlY3QgeD0iNTIiIHk9IjUyIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI0IiBmaWxsPSIjN0MzQUVEIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMyIvPgo8L3N2Zz4K" alt="" style="height:44px">
     <strong style="font-family:system-ui, sans-serif;color:#0F172A">Acme Docs</strong>
-    <nav><a style="color:#1D4ED8">About</a><a style="color:#1D4ED8">Programs</a><a style="color:#1D4ED8">Contact</a></nav>
+    <nav><a style="color:#1D4ED8">About</a><a style="color:#1D4ED8">Services</a><a style="color:#1D4ED8">Contact</a></nav>
   </header>
   <h1 style="font-family:system-ui, sans-serif;color:#0F172A">Write it down once.</h1>
   <p>This is body text in the brand's paragraph style. It shows how long-form copy reads on the page background. <a style="color:#1D4ED8">This is a text link.</a></p>

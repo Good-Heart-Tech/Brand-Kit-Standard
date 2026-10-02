@@ -1,0 +1,17 @@
+{
+  "$schema": "https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/bkr-token.schema.json",
+  "meta": {
+    "brandId": "brightwater-county",
+    "layer": "theme"
+  },
+  "tokens": {
+    "palette": {
+      "surface": { "value": "#0E1A27", "type": "color", "description": "Dark page background (deep navy, not pure black)." },
+      "subtle": { "value": "#16283B", "type": "color", "description": "Cards and service tiles on dark." },
+      "ink": { "value": "#F4F7FA", "type": "color", "description": "Headings on dark." },
+      "body": { "value": "#D3DCE6", "type": "color", "description": "Paragraph text on dark." },
+      "primary": { "value": "#2A64A8", "type": "color", "description": "Civic blue on dark; lighter so buttons stand out and white labels stay readable." },
+      "link": { "value": "#8EC1F5", "type": "color", "description": "Links on dark." }
+    }
+  }
+}

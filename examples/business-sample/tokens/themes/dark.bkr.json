@@ -1,0 +1,16 @@
+{
+  "$schema": "https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/bkr-token.schema.json",
+  "meta": {
+    "brandId": "ridgeline-coffee",
+    "layer": "theme"
+  },
+  "tokens": {
+    "palette": {
+      "surface": { "value": "#1C1310", "type": "color", "description": "Dark roast. Page background in dark mode." },
+      "ink": { "value": "#F6EBDD", "type": "color", "description": "Steamed milk. Headings on dark roast." },
+      "body": { "value": "#D9CBBB", "type": "color", "description": "Oat. Body text on dark roast." },
+      "link": { "value": "#E7A27A", "type": "color", "description": "Bright copper. Links on dark roast." },
+      "card": { "value": "#2A1E18", "type": "color", "description": "Mocha. Cards and panels on dark roast." }
+    }
+  }
+}

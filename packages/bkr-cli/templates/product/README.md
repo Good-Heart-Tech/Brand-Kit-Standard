@@ -1,4 +1,4 @@
-# {{displayName}} brand kit (program or product)
+# {{displayName}} brand kit (product or sub-brand)
 
 ![Colors](tokens/exports/svg/palette.svg)
 
@@ -7,7 +7,7 @@ family. It follows the [Brand Kit Repository (BKR)](https://github.com/Good-Hear
 standard, spec 0.2.
 
 The parent kit owns the main colors and logo. This kit only adds what is
-different about {{displayName}}, such as a program name, tagline, or one accent
+different about {{displayName}}, such as its name, tagline, or one accent
 color.
 
 ## Start here

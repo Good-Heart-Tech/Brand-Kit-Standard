@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/brandkit.schema.json
+# Solo business example (fictional). A small, practical kit for one person.
+# The identity layer is turned off and there is no dark theme: both are optional.
+schema: ght.brandkit/v1
+specVersion: 0.2.0
+brand:
+  id: juniper-lane-studio
+  displayName: Juniper Lane Studio
+  status: active
+role: organization
+profiles:
+  core: true
+  identity: false
+  voice: true
+  visual: true
+  copy: true
+  tokens: true
+  security: true
+consumption:
+  cssVariables: tokens/exports/css/variables.css
+  agentDigest: digest/AGENT_CONTEXT.md
+  tailwindTheme: tokens/exports/tailwind/theme.cjs
+# Partner sharing: printers, vendors, and clients get the logos, colors, and logo rules.
+# Proposals, invoice designs, and pricing stay private on purpose.
+publication:
+  visibility: partner
+  includedPaths:
+    - assets/logo/
+    - tokens/exports/html/brand-at-a-glance.html
+    - tokens/exports/css/variables.css
+    - visual/logo.md
+validation:
+  rulesPack: "@goodheart/bkr-rules-ght"
+  minContrastRatio: 4.5
+  contrastPairs:
+    - foreground: palette.charcoal
+      background: palette.paper
+      use: body text
+    - foreground: palette.charcoal
+      background: palette.paper
+      use: headings
+    - foreground: palette.link
+      background: palette.paper
+      use: links
+    - foreground: palette.onPrimary
+      background: palette.primary
+      use: white label on a juniper button
+    - foreground: palette.charcoal
+      background: palette.wash
+      use: text on a card
+    - foreground: palette.link
+      background: palette.wash
+      use: links on a card
+    - foreground: palette.charcoal
+      background: palette.white
+      use: body text on white (print and forms)
+  avoidPairs:
+    - foreground: palette.blush
+      background: palette.paper
+      reason: Blush is a decoration color and is far too light to read as text
+    - foreground: palette.onPrimary
+      background: palette.blush
+      reason: White labels vanish on blush, so blush is never a button color
+    - foreground: palette.primary
+      background: palette.charcoal
+      reason: Juniper on charcoal is two dark colors and is hard to read
+# The sample screenshots infer most roles from the contrast pairs above.
+# Blush has no common role name, so point the header rule at it here.
+preview:
+  accent: palette.blush
+contacts:
+  security: https://juniperlane.example/contact

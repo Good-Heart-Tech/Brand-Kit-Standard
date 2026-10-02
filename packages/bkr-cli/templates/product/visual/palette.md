@@ -8,7 +8,7 @@ Most colors come from the parent kit and are marked `inheritsFrom` in
 - Page background: `surface`
 - Headings and body text: `ink`
 - Buttons: `onPrimary` label on `primary`
-- Program highlight bands and illustrations: `productAccent`
+- Highlight bands and illustrations: `productAccent`
 
 ## Do not
 

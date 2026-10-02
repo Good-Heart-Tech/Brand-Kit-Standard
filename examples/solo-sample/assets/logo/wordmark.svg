@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="96" viewBox="0 0 400 96" role="img" aria-label="Juniper Lane Studio">
+  <circle cx="48" cy="48" r="40" fill="#2F5D50"/>
+  <circle cx="48" cy="48" r="34" fill="none" stroke="#E8B4A8" stroke-width="1.5"/>
+  <text x="48" y="59" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-size="32" font-weight="700" fill="#FFFFFF">JL</text>
+  <text x="104" y="52" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-size="40" font-weight="700" fill="#2B2B2B">Juniper Lane</text>
+  <text x="106" y="76" font-family="Karla, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" font-weight="700" letter-spacing="6" fill="#2F5D50">STUDIO</text>
+</svg>

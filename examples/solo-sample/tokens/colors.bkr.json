@@ -1,0 +1,53 @@
+{
+  "$schema": "https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/bkr-token.schema.json",
+  "meta": {
+    "brandId": "juniper-lane-studio",
+    "layer": "color"
+  },
+  "tokens": {
+    "palette": {
+      "primary": {
+        "value": "#2F5D50",
+        "type": "color",
+        "description": "Juniper green. The studio color: buttons, the logo, and section bands.",
+        "usage": { "contexts": ["buttons", "logo", "section bands", "focus rings"], "avoid": ["small text on blush"] }
+      },
+      "onPrimary": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Labels and icons on juniper green (button text, reversed logo)."
+      },
+      "link": {
+        "value": "#2E6B58",
+        "type": "color",
+        "description": "Text links on paper, white, and the card wash. A touch brighter than juniper so links stand out from text."
+      },
+      "charcoal": {
+        "value": "#2B2B2B",
+        "type": "color",
+        "description": "Body text and headings. Softer than pure black on warm paper."
+      },
+      "paper": {
+        "value": "#FAF6F0",
+        "type": "color",
+        "description": "Warm paper. The default page background for the website, proposals, and invoices."
+      },
+      "white": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Pure white. Photo mats, print margins, and forms where paper would look off-white."
+      },
+      "blush": {
+        "value": "#E8B4A8",
+        "type": "color",
+        "description": "Blush accent. Thin rules, small shapes, and photo frames. Never use for text or behind white text.",
+        "usage": { "contexts": ["dividers", "small shapes", "photo frames", "social graphics"], "avoid": ["text", "button fills", "behind white text"] }
+      },
+      "wash": {
+        "value": "#E6EFEA",
+        "type": "color",
+        "description": "Soft sage wash. Card and callout backgrounds, like pricing boxes in a proposal."
+      }
+    }
+  }
+}

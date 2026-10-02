@@ -196,9 +196,9 @@ Don't image (`tokens/exports/svg/do-dont.svg`) and an Avoid table:
 ```yaml
 validation:
   avoidPairs:
-    - foreground: palette.harvest
+    - foreground: palette.accent
       background: palette.surface
-      reason: Harvest orange is too light for text on the page
+      reason: The accent color is too light for text on the page
 ```
 
 Every avoid pair needs a `reason`. Its tokens must exist; it does not have to
@@ -288,7 +288,7 @@ validation:
       background: palette.surface
       use: body text
     - foreground: palette.ink
-      background: palette.harvest
+      background: palette.accent
       use: large headings
       min: 3                     # WCAG large text
 ```
@@ -364,6 +364,10 @@ digest, and in `bkr publish` bundles; validation never requires it.
 ### Other rules
 
 - Never commit licensed font binaries without documenting redistribution rights in `copy/legal.md`.
+- `assets/logo/` holds marks that may appear in generated pages (the brand page,
+  `bkr:logos` blocks, previews). Restricted marks, such as an official seal,
+  a certification mark, or an unreleased logo, go in their own folder (for
+  example `assets/seal/`) with their rules in a file that is not shared.
 - The `security` profile's `security/brand-protection.md` tracks the defenses
   that actually stop impersonation: DMARC at `p=reject`, look-alike domain
   monitoring, MFA, and a clear "we never ask for gift cards" message.

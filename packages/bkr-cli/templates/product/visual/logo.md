@@ -1,9 +1,9 @@
 # Logo
 
-Program mark: `assets/logo/mark.svg`
+Mark: `assets/logo/mark.svg`
 
-> TODO(bkr): Replace the placeholder. Many programs use the parent logo with the
-> program name next to it (a "lockup") instead of a separate logo.
+> TODO(bkr): Replace the placeholder. Many products and sub-brands use the parent logo with the
+> product name next to it (a "lockup") instead of a separate logo.
 
 ## Clear space
 
@@ -17,7 +17,7 @@ Leave empty space around the logo equal to at least 12% of its width.
 ## Do not
 
 - Stretch, rotate, or add shadows
-- Combine the program mark with partner logos without approval
+- Combine this mark with partner logos without approval
 
 ## Logo files
 

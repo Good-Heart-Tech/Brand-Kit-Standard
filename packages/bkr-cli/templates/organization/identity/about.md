@@ -1,23 +1,23 @@
 # About {{displayName}}
 
-> TODO(bkr): In two or three sentences, say who you serve, what you do, and why
-> it matters. Write it the way you would explain it to a new volunteer.
+> TODO(bkr): In two or three sentences, say who you serve, what you offer, and
+> why it matters. Write it the way you would explain it to a new hire.
 
-{{displayName}} helps our community by ...
+{{displayName}} helps ...
 
 ## Personality
 
 > TODO(bkr): Pick three to five words people should feel when they meet us.
 
-- Warm and welcoming
-- Practical and clear
+- Clear
 - Trustworthy
+- Helpful
 
 ## Who we talk to
 
-> TODO(bkr): List your main audiences, for example clients, donors, volunteers,
-> and partner organizations.
+> TODO(bkr): List your main audiences. For example: customers and prospects,
+> clients, residents, members, donors, partners, investors, or the press.
 
-- People we serve
-- Donors and funders
-- Volunteers
+- Our customers or the people we serve
+- Partners
+- Press and the public

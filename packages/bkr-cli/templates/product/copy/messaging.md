@@ -2,9 +2,9 @@
 
 > TODO(bkr): Replace these with approved wording for {{displayName}}.
 
-**Tagline:** Your program's short, memorable line.
+**Tagline:** A short, memorable line for {{displayName}}.
 
-**One-sentence description:** {{displayName}}, a program of {{parentBrandId}},
-helps ...
+**One-sentence description:** {{displayName}}, from {{parentBrandId}}, helps ...
 
-**Call to action:** Sign up, volunteer, or donate to {{displayName}}.
+**Call to action:** The one thing you most want people to do next (for example
+"Try it free", "Sign up", or "Learn more").

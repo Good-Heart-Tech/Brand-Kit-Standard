@@ -2,15 +2,15 @@
 
 **Tagline:** Tools that stay on brand.
 
-**One sentence:** Acme Labs builds free, accessible software for community
-organizations.
+**One sentence:** Acme Labs makes workplace software that keeps small and
+mid-sized teams consistent.
 
-**Boilerplate (short):** Acme Labs helps community organizations run
-dependable, consistent technology at no cost.
+**Boilerplate (short):** Acme Labs helps growing companies run dependable,
+consistent tools without a design department.
 
-**Boilerplate (long):** Acme Labs builds and maintains free software for
-community organizations. Our tools share one brand kit, so colors, wording,
+**Boilerplate (long):** Acme Labs builds workplace software for small and
+mid-sized businesses. Our products share one brand kit, so colors, wording,
 and accessibility stay consistent across every website, app, and AI assistant
 a team uses.
 
-**Call to action:** Start free at our website.
+**Call to action:** Start a free trial.

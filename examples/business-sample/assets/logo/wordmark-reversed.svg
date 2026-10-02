@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="112" viewBox="0 0 460 112" role="img" aria-label="Ridgeline Coffee Roasters">
+  <circle cx="56" cy="56" r="48" fill="#FAF4EA"/>
+  <path d="M20 59 L41 36 L51 46 L67 27 L94 59 Z" fill="#2B1A12"/>
+  <ellipse cx="57" cy="78" rx="20" ry="13" fill="#B4501E"/>
+  <path d="M39 81 C49 70 65 86 75 75" fill="none" stroke="#FAF4EA" stroke-width="3" stroke-linecap="round"/>
+  <text x="124" y="60" font-family="'DM Serif Display', Georgia, serif" font-size="46" fill="#FAF4EA">Ridgeline</text>
+  <text x="126" y="88" font-family="'DM Sans', Verdana, sans-serif" font-size="16" font-weight="700" letter-spacing="3.5" fill="#E7A27A">COFFEE ROASTERS</text>
+</svg>

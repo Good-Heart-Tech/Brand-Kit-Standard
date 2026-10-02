@@ -6,6 +6,8 @@
 
 <style>
   html, body { margin: 0; }
+  /* Show fonts only at weights that really exist; never let the browser fake bold or italic. */
+  * { font-synthesis: none; }
   body { display: flex; width: 640px; height: 480px; overflow: hidden; }
   section { box-sizing: border-box; width: 640px; height: 480px; padding: 24px 32px; position: relative; }
   .tag { position: absolute; top: 6px; right: 12px; font: 600 11px system-ui, sans-serif; opacity: .6; text-transform: uppercase; letter-spacing: .08em; }
@@ -27,7 +29,7 @@
   <header style="border-bottom:3px solid #B4232A">
     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMTI4IDEyOCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJNaW5pbWFsIEJyYW5kIj4KICA8cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgcng9IjY0IiBmaWxsPSIjQjQyMzJBIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjQwIiB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHJ4PSI2IiBmaWxsPSIjRkZGRkZGIi8+Cjwvc3ZnPgo=" alt="" style="height:44px">
     <strong style="font-family:system-ui, sans-serif;color:#1C1917">Minimal Brand</strong>
-    <nav><a style="color:#B4232A">About</a><a style="color:#B4232A">Programs</a><a style="color:#B4232A">Contact</a></nav>
+    <nav><a style="color:#B4232A">About</a><a style="color:#B4232A">Services</a><a style="color:#B4232A">Contact</a></nav>
   </header>
   <h1 style="font-family:system-ui, sans-serif;color:#1C1917">Welcome to Minimal Brand</h1>
   <p>This is body text in the brand's paragraph style. It shows how long-form copy reads on the page background. <a style="color:#B4232A">This is a text link.</a></p>

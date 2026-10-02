@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping. BKR is maintained by volunteers, so the code favors plain,
+Thanks for helping. BKR is maintained by a small team, so the code favors plain,
 readable JavaScript over clever abstractions.
 
 ## Setup

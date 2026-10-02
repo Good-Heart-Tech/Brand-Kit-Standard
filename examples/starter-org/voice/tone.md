@@ -8,7 +8,7 @@ with the moment.
 | Website and newsletters | Warm, confident | "Your team's tools, set up once and kept up to date." |
 | Product screens | Direct, helpful | "Save changes" not "Submit" |
 | Support replies | Patient, precise | "Here is what happened, and here is the fix." |
-| Funders | Specific, outcome-first | "Saved 40 partner organizations 1,200 staff hours." |
+| Investors and analysts | Specific, outcome-first | "Customers cut onboarding time by 30 percent in the first quarter." |
 | Legal | Formal | No jokes, no slang |
 
 ## Always

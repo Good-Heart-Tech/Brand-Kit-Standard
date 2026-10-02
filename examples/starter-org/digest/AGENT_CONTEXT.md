@@ -15,8 +15,9 @@
 
 # About Acme Labs
 
-Acme Labs builds free, accessible software for community organizations, so
-small teams can spend their time on their mission instead of on IT.
+Acme Labs is a software company that makes workplace tools for small and
+mid-sized businesses. Our products help teams keep their docs, brand, and
+customer messages consistent without hiring a design department.
 
 ## Personality
 
@@ -27,14 +28,15 @@ small teams can spend their time on their mission instead of on IT.
 
 ## Who we talk to
 
-- Staff and volunteers at community organizations (often non-technical)
-- Funders and foundation program officers
-- Volunteer engineers who contribute code
+- Operations and marketing leads at small and mid-sized companies (often non-technical)
+- IT admins who approve and roll out our tools
+- Investors, analysts, and the press
+- Developers who build on our API
 
 ## Positioning
 
-We are the dependable, no-cost option. We do not compete on features; we
-compete on being easy to trust and easy to maintain.
+We are the dependable, easy-to-roll-out option. We do not compete on the
+longest feature list; we compete on being easy to trust and easy to maintain.
 
 ## Voice (excerpt)
 
@@ -48,7 +50,7 @@ with the moment.
 | Website and newsletters | Warm, confident | "Your team's tools, set up once and kept up to date." |
 | Product screens | Direct, helpful | "Save changes" not "Submit" |
 | Support replies | Patient, precise | "Here is what happened, and here is the fix." |
-| Funders | Specific, outcome-first | "Saved 40 partner organizations 1,200 staff hours." |
+| Investors and analysts | Specific, outcome-first | "Customers cut onboarding time by 30 percent in the first quarter." |
 | Legal | Formal | No jokes, no slang |
 
 ## Always
@@ -75,18 +77,18 @@ with the moment.
 
 **Tagline:** Tools that stay on brand.
 
-**One sentence:** Acme Labs builds free, accessible software for community
-organizations.
+**One sentence:** Acme Labs makes workplace software that keeps small and
+mid-sized teams consistent.
 
-**Boilerplate (short):** Acme Labs helps community organizations run
-dependable, consistent technology at no cost.
+**Boilerplate (short):** Acme Labs helps growing companies run dependable,
+consistent tools without a design department.
 
-**Boilerplate (long):** Acme Labs builds and maintains free software for
-community organizations. Our tools share one brand kit, so colors, wording,
+**Boilerplate (long):** Acme Labs builds workplace software for small and
+mid-sized businesses. Our products share one brand kit, so colors, wording,
 and accessibility stay consistent across every website, app, and AI assistant
 a team uses.
 
-**Call to action:** Start free at our website.
+**Call to action:** Start a free trial.
 
 ## Logo rules (excerpt)
 

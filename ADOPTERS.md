@@ -17,4 +17,4 @@ by name; nothing in them is exposed by being listed here.
 2. Open a pull request adding a row above. Link the repository if it is public.
 3. Optional: add the [GitHub Action](README.md#github-action) so the kit stays valid.
 
-Nonprofits working with Good Heart Tech can ask their volunteer engineer to do this for them.
+Need help adding your kit? Open an issue in this repository.

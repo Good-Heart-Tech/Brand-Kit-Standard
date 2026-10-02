@@ -1,7 +1,8 @@
 # About Acme Labs
 
-Acme Labs builds free, accessible software for community organizations, so
-small teams can spend their time on their mission instead of on IT.
+Acme Labs is a software company that makes workplace tools for small and
+mid-sized businesses. Our products help teams keep their docs, brand, and
+customer messages consistent without hiring a design department.
 
 ## Personality
 
@@ -12,11 +13,12 @@ small teams can spend their time on their mission instead of on IT.
 
 ## Who we talk to
 
-- Staff and volunteers at community organizations (often non-technical)
-- Funders and foundation program officers
-- Volunteer engineers who contribute code
+- Operations and marketing leads at small and mid-sized companies (often non-technical)
+- IT admins who approve and roll out our tools
+- Investors, analysts, and the press
+- Developers who build on our API
 
 ## Positioning
 
-We are the dependable, no-cost option. We do not compete on features; we
-compete on being easy to trust and easy to maintain.
+We are the dependable, easy-to-roll-out option. We do not compete on the
+longest feature list; we compete on being easy to trust and easy to maintain.

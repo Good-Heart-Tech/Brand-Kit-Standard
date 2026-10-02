@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.4.3 (2026-10)
+
+### Changed
+
+- **Works for any organization.** Templates, docs, and tool messages no longer assume a nonprofit. Prompts give examples for companies, government agencies, nonprofits, and solo businesses; the start guide, intake worksheet, Canva guide, and brand protection guide are written for all of them.
+- **More examples:** `business-sample` (a retail and wholesale company with a public press kit), `government-sample` (a county with accessibility as a legal requirement and a protected seal), and `solo-sample` (a one-person studio with optional layers off). Acme Labs is now a software company. The README shows company, government, and solo examples side by side.
+- Sharing guardrails also flag pricing, payment terms, and bank details.
+- Spec: restricted marks (seals, certification marks) live outside `assets/logo/` so they never appear in generated pages or bundles.
+
+### Fixed
+
+- Preview screenshots never fake bold or italic (`font-synthesis: none`), the dark panel uses a reversed logo when one exists, and the caption only says "light and dark" when the kit has a dark theme.
+
 ## 0.4.2 (2026-10)
 
 ### Changed

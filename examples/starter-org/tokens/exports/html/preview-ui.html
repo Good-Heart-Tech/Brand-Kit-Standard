@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap">
 <style>
   html, body { margin: 0; }
+  /* Show fonts only at weights that really exist; never let the browser fake bold or italic. */
+  * { font-synthesis: none; }
   body { display: flex; width: 1280px; height: 480px; overflow: hidden; }
   section { box-sizing: border-box; width: 640px; height: 480px; padding: 24px 32px; position: relative; }
   .tag { position: absolute; top: 6px; right: 12px; font: 600 11px system-ui, sans-serif; opacity: .6; text-transform: uppercase; letter-spacing: .08em; }
@@ -28,7 +30,7 @@
   <header style="border-bottom:3px solid #38BDF8">
     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNjAiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCAzNjAgOTYiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iQWNtZSBMYWJzIj4KICA8cmVjdCB4PSI4IiB5PSI4IiB3aWR0aD0iODAiIGhlaWdodD0iODAiIHJ4PSIxOCIgZmlsbD0iIzI1NjNFQiIvPgogIDxjaXJjbGUgY3g9IjQ4IiBjeT0iNDgiIHI9IjIxIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iOSIvPgogIDxjaXJjbGUgY3g9IjQ4IiBjeT0iNDgiIHI9IjYiIGZpbGw9IiMzOEJERjgiLz4KICA8dGV4dCB4PSIxMDgiIHk9IjYyIiBmb250LWZhbWlseT0iSW50ZXIsIHN5c3RlbS11aSwgLWFwcGxlLXN5c3RlbSwgJ1NlZ29lIFVJJywgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI0MCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzBGMTcyQSI+QWNtZSBMYWJzPC90ZXh0Pgo8L3N2Zz4K" alt="" style="height:44px">
     
-    <nav><a style="color:#1D4ED8">About</a><a style="color:#1D4ED8">Programs</a><a style="color:#1D4ED8">Contact</a></nav>
+    <nav><a style="color:#1D4ED8">About</a><a style="color:#1D4ED8">Services</a><a style="color:#1D4ED8">Contact</a></nav>
   </header>
   <h1 style="font-family:Inter, system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif;color:#0F172A">Tools that stay on brand.</h1>
   <p>This is body text in the brand's paragraph style. It shows how long-form copy reads on the page background. <a style="color:#1D4ED8">This is a text link.</a></p>
@@ -44,9 +46,9 @@
 <section style="background:#0F172A;color:#CBD5E1;font-family:Inter, system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif">
   <div class="tag" style="color:#CBD5E1">Dark</div>
   <header style="border-bottom:3px solid #38BDF8">
-    
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMTI4IDEyOCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJBY21lIExhYnMiPgogIDxyZWN0IHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiByeD0iMjgiIGZpbGw9IiNGRkZGRkYiLz4KICA8Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiByPSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjU2M0VCIiBzdHJva2Utd2lkdGg9IjE0Ii8+CiAgPGNpcmNsZSBjeD0iNjQiIGN5PSI2NCIgcj0iOSIgZmlsbD0iIzI1NjNFQiIvPgo8L3N2Zz4K" alt="" style="height:44px">
     <strong style="font-family:Inter, system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif;color:#F8FAFC">Acme Labs</strong>
-    <nav><a style="color:#93C5FD">About</a><a style="color:#93C5FD">Programs</a><a style="color:#93C5FD">Contact</a></nav>
+    <nav><a style="color:#93C5FD">About</a><a style="color:#93C5FD">Services</a><a style="color:#93C5FD">Contact</a></nav>
   </header>
   <h1 style="font-family:Inter, system-ui, -apple-system, &quot;Segoe UI&quot;, sans-serif;color:#F8FAFC">Tools that stay on brand.</h1>
   <p>This is body text in the brand's paragraph style. It shows how long-form copy reads on the page background. <a style="color:#93C5FD">This is a text link.</a></p>

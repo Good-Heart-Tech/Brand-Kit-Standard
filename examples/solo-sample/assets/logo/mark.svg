@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Juniper Lane Studio">
+  <circle cx="64" cy="64" r="62" fill="#2F5D50"/>
+  <circle cx="64" cy="64" r="53" fill="none" stroke="#E8B4A8" stroke-width="2"/>
+  <text x="64" y="80" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-size="50" font-weight="700" letter-spacing="1" fill="#FFFFFF">JL</text>
+</svg>

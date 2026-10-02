@@ -33,7 +33,7 @@
       "productAccent": {
         "value": "#7C3AED",
         "type": "color",
-        "description": "Program-only accent for highlight bands. Not for text or buttons.",
+        "description": "Accent only for {{displayName}}: highlight bands and illustrations. Not for text or buttons.",
         "usage": { "contexts": ["highlight bands", "illustrations"], "avoid": ["body text", "buttons"] }
       }
     }

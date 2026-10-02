@@ -1,8 +1,9 @@
 # Load your brand kit into Canva
 
-Canva is where many nonprofit teams make flyers and social posts. Eligible
-nonprofits can get **Canva for Nonprofits for free** (Canva's premium features,
-including Brand Kit). Apply at canva.com/canva-for-nonprofits.
+Canva is where many teams make social posts, flyers, and presentations.
+Canva's Brand Kit is part of its paid plans (Pro, Teams, and Enterprise).
+Eligible nonprofits and schools can get those features free through Canva for
+Nonprofits and Canva for Education.
 
 You only need two things from your brand kit:
 
@@ -26,7 +27,7 @@ token name as the color name (for example "primary" or "harvest") so everyone
 uses the same words.
 
 Check the readability table on the same page before putting text on a color.
-If a pair is not listed there, ask your volunteer to check it first.
+If a pair is not listed there, ask whoever maintains the kit to check it first.
 
 ## 4. Fonts
 
@@ -45,4 +46,4 @@ If your Canva Brand Kit has a brand voice section, paste a short summary from
 ## 6. Keep it in sync
 
 When the brand kit changes, the brand-at-a-glance page changes too. Ask your
-volunteer to tell you when to update Canva, or check the page every few months.
+kit maintainer to tell you when to update Canva, or check the page every few months.

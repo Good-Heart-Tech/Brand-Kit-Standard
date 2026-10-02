@@ -327,7 +327,7 @@ function renderBlock(kind, rel, kitRoot, manifest, tokens) {
   }
   if (kind === "previews") {
     const shots = [
-      ["ui.png", "The brand in use (light and dark)"],
+      ["ui.png", tokens.themes.dark ? "The brand in use (light and dark)" : "The brand in use"],
       ["type.png", "Type specimen"],
     ].filter(([f]) => fs.existsSync(path.join(kitRoot, "tokens", "exports", "png", f)));
     if (!shots.length) return "_No screenshots yet. Run `bkr preview` (needs Chrome or Edge) to add them._";

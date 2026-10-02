@@ -1,0 +1,35 @@
+{
+  "$schema": "https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/bkr-token.schema.json",
+  "meta": {
+    "brandId": "juniper-lane-studio",
+    "layer": "typography"
+  },
+  "tokens": {
+    "fontFamily": {
+      "heading": {
+        "value": ["Cormorant Garamond", "Georgia", "Times New Roman", "serif"],
+        "type": "fontFamily",
+        "description": "Headings and the wordmark. Cormorant Garamond is free (SIL Open Font License) on Google Fonts."
+      },
+      "body": {
+        "value": ["Karla", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+        "type": "fontFamily",
+        "description": "Paragraphs, captions, and invoices. Karla is free (SIL Open Font License) on Google Fonts."
+      }
+    },
+    "fontWeight": {
+      "regular": { "value": 400, "type": "fontWeight", "description": "Paragraphs and captions." },
+      "bold": { "value": 700, "type": "fontWeight", "description": "Headings, buttons, and totals on invoices." }
+    },
+    "fontSize": {
+      "small": { "value": "0.875rem", "type": "dimension", "description": "Captions and photo credits." },
+      "base": { "value": "1.0625rem", "type": "dimension", "description": "Body text. Karla reads best a little above 16px." },
+      "large": { "value": "1.375rem", "type": "dimension", "description": "Intro paragraphs and pull quotes." },
+      "heading": { "value": "2.25rem", "type": "dimension", "description": "Page and section headings." }
+    },
+    "lineHeight": {
+      "tight": { "value": 1.15, "type": "number", "description": "Headings." },
+      "normal": { "value": 1.6, "type": "number", "description": "Paragraphs." }
+    }
+  }
+}

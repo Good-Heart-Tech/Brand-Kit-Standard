@@ -10,8 +10,8 @@ Some things **do** make a scammer's job easier, so keep them private:
 | Keep private | Why |
 |--------------|-----|
 | Email and signature templates | Ready-made pieces for fake emails |
-| Login, donation, or payment page designs | Exactly what phishing pages copy |
-| Donation and fundraising wording | Makes fake donation appeals sound real |
+| Login, checkout, payment, or donation page designs | Exactly what phishing pages copy |
+| Pricing, payment terms, invoices, or fundraising wording | Makes fake invoices and payment requests sound real |
 | Staff names, titles, emails, phone numbers | Used for "this is your director, buy gift cards" scams |
 | Internal names, vendors, unreleased campaigns | Makes fake requests sound believable |
 | Original design files (AI, PSD, Figma) | Easier to forge invoices and letters |
@@ -33,18 +33,18 @@ DMARC report tools can summarize who is sending as you.
 
 ### 2. Watch for look-alike domains
 
-Scammers register names like `cedarhol1ow.org`. Check a few times a year (the
+Scammers register look-alike names, like `acme-1abs.com` for `acme-labs.com`. Check a few times a year (the
 free tool dnstwist lists likely look-alikes), and consider registering the
 cheapest obvious typos of your name.
 
 ### 3. Multi-factor authentication everywhere
 
-Email, social media, your website, and your donation platform. Most takeovers
+Email, social media, your website, and any payment, billing, or donation tools. Most takeovers
 start with a stolen password.
 
 ### 4. Tell people what you will never ask for
 
-Put it on your website, donation receipts, and in staff onboarding:
+Put it on your website, invoices, receipts, and in staff onboarding:
 "We will never ask you for gift cards, wire transfers, or payment changes by
 email or text."
 
@@ -70,5 +70,5 @@ larger organizations.
 2. Report fake websites to Google Safe Browsing and Microsoft's phishing report page.
 3. Report the domain to its registrar's abuse contact (find it with a WHOIS lookup).
 4. Report fake social accounts through each platform's impersonation form.
-5. Warn staff, volunteers, and donors if it is spreading.
+5. Warn staff and the people you serve (customers, clients, members, residents) if it is spreading.
 6. Tell your IT partner so they can check your email settings.

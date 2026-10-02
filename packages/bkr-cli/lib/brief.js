@@ -101,7 +101,7 @@ export function buildBrandAtAGlance(kitRoot, manifest, tokens) {
   const fontRows = fonts
     .map(
       ({ path: p, token }) =>
-        `<div class="font"><p style="font-family:${esc(toCssValue(token))}">The quick brown fox helps the community food bank.</p><small><strong>${esc(p)}</strong>: ${esc(toCssValue(token))}</small></div>`
+        `<div class="font"><p style="font-family:${esc(toCssValue(token))}">The quick brown fox jumps over the lazy dog. 0123456789</p><small><strong>${esc(p)}</strong>: ${esc(toCssValue(token))}</small></div>`
     )
     .join("\n");
 
