@@ -49,5 +49,15 @@ validation:
       background: palette.harvest
       use: large headings on harvest bands
       min: 3
+  avoidPairs:
+    - foreground: palette.harvest
+      background: palette.surface
+      reason: Harvest orange is too light for text on the page
+    - foreground: palette.onPrimary
+      background: palette.harvest
+      reason: White labels on harvest are too faint
+    - foreground: palette.primary
+      background: palette.ink
+      reason: Green on near-black is hard to read
 contacts:
   security: https://cedarhollowpantry.example/contact

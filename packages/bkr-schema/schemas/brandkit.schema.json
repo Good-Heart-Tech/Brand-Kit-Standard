@@ -87,6 +87,21 @@
         }
       }
     },
+    "preview": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Optional. Which color token plays each part on the generated sample page. Inferred from contrastPairs and common names when left out.",
+      "properties": {
+        "surface": { "type": "string" },
+        "text": { "type": "string" },
+        "heading": { "type": "string" },
+        "link": { "type": "string" },
+        "buttonBg": { "type": "string" },
+        "buttonText": { "type": "string" },
+        "card": { "type": "string" },
+        "accent": { "type": "string" }
+      }
+    },
     "publication": {
       "type": "object",
       "additionalProperties": false,
@@ -128,6 +143,20 @@
               "background": { "type": "string", "description": "Token path, for example palette.surface" },
               "use": { "type": "string" },
               "min": { "type": "number", "minimum": 1, "maximum": 21 }
+            }
+          }
+        },
+        "avoidPairs": {
+          "type": "array",
+          "description": "Color combinations people should not use. Shown as the Don't column next to contrastPairs.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["foreground", "background", "reason"],
+            "properties": {
+              "foreground": { "type": "string" },
+              "background": { "type": "string" },
+              "reason": { "type": "string", "minLength": 1 }
             }
           }
         }

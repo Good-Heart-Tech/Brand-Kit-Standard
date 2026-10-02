@@ -35,6 +35,13 @@ validation:
     - foreground: palette.link
       background: palette.surface
       use: links
+  avoidPairs:
+    - foreground: palette.productAccent
+      background: palette.ink
+      reason: Purple on near-black is hard to read
+    - foreground: palette.productAccent
+      background: palette.primary
+      reason: Two brand colors fighting; never text on primary
 contacts:
   brand: docs@acme-labs.example
   legal: legal@acme-labs.example

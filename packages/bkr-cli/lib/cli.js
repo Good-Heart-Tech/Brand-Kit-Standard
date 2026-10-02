@@ -1,5 +1,7 @@
 import path from "node:path";
-import { resolveKitPath } from "./fs-kit.js";
+import { readManifest, resolveKitPath } from "./fs-kit.js";
+import { loadTokens } from "./tokens.js";
+import { takePreviews } from "./preview.js";
 import { validateKit } from "./validate.js";
 import { ALL_TARGETS, exportKit, importLegacyGhtColors } from "./export.js";
 import { buildDigest } from "./digest.js";
@@ -17,6 +19,7 @@ Usage:
   bkr export [dir] [--all] [--dtcg] [--css] [--tailwind] [--html] [--agent]
   bkr digest [dir] [--max-bytes N]
   bkr publish [dir] [--dry-run] [--out <dir>]
+  bkr preview [dir]            (screenshots to tokens/exports/png/, needs Chrome or Edge)
   bkr upgrade [dir]
   bkr import legacy-ght-colors <dir> <path-to-colors.json>
 
@@ -101,6 +104,16 @@ export async function runCli(argv) {
     }
     printResult(dryRun ? "publish (dry run)" : "publish", result);
     if (!result.ok) process.exitCode = 1;
+    return;
+  }
+
+  if (cmd === "preview") {
+    const kit = resolveKitPath(dirArg(args));
+    exportKit(kit, ["all"]);
+    const { browser, written } = takePreviews(kit, readManifest(kit), loadTokens(kit));
+    exportKit(kit, ["docs"]); // fill <!-- bkr:previews --> now that the PNGs exist
+    console.log(`preview: ${written.length} screenshot(s) with ${browser}`);
+    for (const w of written) console.log(`  ${w}`);
     return;
   }
 

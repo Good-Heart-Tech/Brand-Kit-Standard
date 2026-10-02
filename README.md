@@ -30,7 +30,9 @@ generated from the nonprofit example's tokens:
 
 ![Example palette](examples/nonprofit-sample/tokens/exports/svg/palette.svg)
 
-![Example contrast checks](examples/nonprofit-sample/tokens/exports/svg/contrast.svg)
+![Example: the brand in use](examples/nonprofit-sample/tokens/exports/png/ui.png)
+
+![Example do and don't](examples/nonprofit-sample/tokens/exports/svg/do-dont.svg)
 
 | Example | What it shows |
 |---------|---------------|
@@ -70,7 +72,8 @@ npx @goodheart/bkr-cli init ./my-brand --brand-id my-brand --display-name "My Br
 | `bkr export [dir] --all` | DTCG, CSS, Tailwind v3/v4, brand-at-a-glance page, agent UI brief |
 | `bkr digest [dir]` | Regenerate `AGENTS.md` and `digest/AGENT_CONTEXT.md` |
 | `bkr publish [dir] [--dry-run]` | Bundle only the files `publication` allows (refuses for private kits) |
-| `bkr upgrade [dir]` | Move a 0.1 kit to 0.2 |
+| `bkr preview [dir]` | Screenshot the brand in use and the type specimen to PNG (needs Chrome or Edge) |
+| `bkr upgrade [dir]` | Bring an older kit up to the current spec |
 | `bkr import legacy-ght-colors <dir> <colors.json>` | Convert a legacy GHT colors file |
 
 After editing a kit: `bkr export --all && bkr digest && bkr validate`.
@@ -103,7 +106,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.3.0
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.4.0
         with:
           path: .
           strict: "true"

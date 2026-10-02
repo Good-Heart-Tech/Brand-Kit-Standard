@@ -23,5 +23,9 @@ validation:
     - foreground: palette.background
       background: palette.primary
       use: button labels
+  avoidPairs:
+    - foreground: palette.primary
+      background: palette.text
+      reason: Red on near-black is hard to read
 contacts:
   security: security@minimal.example

@@ -47,6 +47,16 @@ validation:
     - foreground: palette.ink
       background: palette.subtle
       use: text on callout panels
+  avoidPairs:
+    - foreground: palette.accent
+      background: palette.surface
+      reason: Too light to read as text
+    - foreground: palette.onPrimary
+      background: palette.accent
+      reason: White labels disappear on accent
+    - foreground: palette.primary
+      background: palette.ink
+      reason: Blue on near-black is hard to read
 contacts:
   brand: brand@acme-labs.example
   legal: legal@acme-labs.example

@@ -16,7 +16,8 @@ import {
 import { checkTokenValue, evaluateContrast, loadTokens, toPosix } from "./tokens.js";
 import { computeSourceHash, readStoredHash } from "./export.js";
 import { collectPublication } from "./publication.js";
-import { checkMarkdownBlocks } from "./visuals.js";
+import { checkMarkdownBlocks, evaluateAvoid } from "./visuals.js";
+import { previewStatus } from "./preview.js";
 
 const PROFILE_PATHS = {
   identity: ["identity/about.md", "identity/naming.md"],
@@ -137,7 +138,13 @@ export async function validateKit(kitRoot, options = {}) {
         );
       }
       for (const rel of md.stale) {
-        warnings.push(`${rel}: bkr:palette/contrast/logos block is out of date: run \`bkr export --all\``);
+        warnings.push(`${rel}: a bkr: markdown block is out of date: run \`bkr export --all\``);
+      }
+      for (const r of evaluateAvoid(manifest, tokens)) {
+        if (r.error) errors.push(`validation.avoidPairs: ${r.foreground} on ${r.background}: ${r.error}`);
+      }
+      if (previewStatus(kitRoot, manifest, tokens) === "stale") {
+        warnings.push("tokens/exports/png/ screenshots are older than the brand: run `bkr preview`");
       }
     }
 

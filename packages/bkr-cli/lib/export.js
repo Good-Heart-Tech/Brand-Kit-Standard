@@ -21,6 +21,7 @@ import {
 } from "./tokens.js";
 import { buildBrandAtAGlance, buildUiBrief, logoDataUri } from "./brief.js";
 import { updateMarkdownBlocks, writeSvgExports } from "./visuals.js";
+import { buildPreviewType, buildPreviewUi } from "./preview.js";
 
 // Bump when export output changes shape so existing kits are flagged as stale.
 const EXPORT_FORMAT = "bkr-export-3";
@@ -223,6 +224,19 @@ export function exportKit(kitRoot, targets) {
     const out = path.join(exportsDir, "html", "brand-at-a-glance.html");
     writeText(out, buildBrandAtAGlance(kitRoot, manifest, tokens));
     results.push(out);
+
+    // Pages that `bkr preview` screenshots to PNG (PNGs render on GitHub; HTML does not).
+    const ui = path.join(exportsDir, "html", "preview-ui.html");
+    writeText(ui, buildPreviewUi(kitRoot, manifest, tokens));
+    results.push(ui);
+    const type = path.join(exportsDir, "html", "preview-type.html");
+    const typeHtml = buildPreviewType(manifest, tokens);
+    if (typeHtml) {
+      writeText(type, typeHtml);
+      results.push(type);
+    } else if (pathExists(type)) {
+      fs.rmSync(type);
+    }
   }
 
   if (want("agent")) {

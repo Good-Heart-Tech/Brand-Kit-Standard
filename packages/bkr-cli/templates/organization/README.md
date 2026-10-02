@@ -37,3 +37,7 @@ bkr export --all
 bkr digest
 bkr validate
 ```
+
+## The brand in use
+
+<!-- bkr:previews -->

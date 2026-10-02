@@ -84,6 +84,14 @@ export function upgradeKit(kitRoot) {
       changes.push("README.md now shows the palette image");
     }
   }
+  // Screenshots of the brand in use (0.4)
+  if (pathExists(readme)) {
+    const text = fs.readFileSync(readme, "utf8");
+    if (!/<!--\s*bkr:previews\s*-->/.test(text)) {
+      writeText(readme, `${text.replace(/\s*$/, "")}\n\n## The brand in use\n\n<!-- bkr:previews -->\n`);
+      changes.push("README.md: added a bkr:previews block (run `bkr preview` to fill it with screenshots)");
+    }
+  }
   for (const [rel, kind, heading] of [
     ["visual/palette.md", "palette", "All colors"],
     ["visual/accessibility.md", "contrast", "Checked text and background pairs"],

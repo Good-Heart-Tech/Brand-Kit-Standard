@@ -12,7 +12,7 @@ function readHead(filePath, maxChars = 2000) {
     // Normalize Windows line endings first so the cut point is the same on every OS.
     .replace(/\r\n/g, "\n")
     // Generated image tables are for people on GitHub; agents use the UI brief instead.
-    .replace(/<!--\s*bkr:(palette|contrast|logos)\s*-->[\s\S]*?<!--\s*\/bkr:\1\s*-->\n?/g, "")
+    .replace(/<!--\s*bkr:(palette|contrast|logos|previews)\s*-->[\s\S]*?<!--\s*\/bkr:\1\s*-->\n?/g, "")
     .replace(/<!--[\s\S]*?-->\n?/g, "")
     .trim();
   return raw.length > maxChars ? `${raw.slice(0, maxChars)}\n…` : raw;

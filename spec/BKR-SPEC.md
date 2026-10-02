@@ -187,7 +187,22 @@ current values, so the prose can never fall behind the tokens:
 |-------|----------|
 | `<!-- bkr:palette -->` | The palette image, then a table: color chip, token, hex, theme values (with chips), CSS variable, use |
 | `<!-- bkr:contrast -->` | A table with an "Aa" sample image of each text and background pair, its ratio, the required ratio, and Pass or Fail |
-| `<!-- bkr:logos -->` | Every logo file shown as an image with its path |
+| `<!-- bkr:logos -->` | Every logo shown on the lightest and darkest brand colors side by side (markdown cannot set a background color, so reversed and white logos would otherwise be invisible). Logos over 200 KB are shown directly |
+| `<!-- bkr:previews -->` | The `bkr preview` screenshots (section 7.2), or a note to run it |
+
+When `validation.avoidPairs` is set, the contrast block also shows a Do and
+Don't image (`tokens/exports/svg/do-dont.svg`) and an Avoid table:
+
+```yaml
+validation:
+  avoidPairs:
+    - foreground: palette.harvest
+      background: palette.surface
+      reason: Harvest orange is too light for text on the page
+```
+
+Every avoid pair needs a `reason`. Its tokens must exist; it does not have to
+fail contrast (some combinations are off-brand rather than unreadable).
 
 Write only the opening marker; export adds the content and the closing
 `<!-- /bkr:... -->` marker. Do not edit inside a block. Validation warns when a
@@ -198,6 +213,37 @@ Generated blocks are left out of the agent digest.
 Hand-made palette art (for example a painted swatch sheet) is welcome in
 `assets/` and may sit alongside the generated palette in the README; the
 generated image remains the exact reference.
+
+### 7.2 The brand in use (screenshots)
+
+`bkr export` writes two pages from the tokens:
+
+- `tokens/exports/html/preview-ui.html`: a sample page (header, heading, body
+  text, link, primary and secondary buttons, card) in light and, when a `dark`
+  theme exists, dark side by side
+- `tokens/exports/html/preview-type.html`: every font family, weight, and size
+
+`bkr preview` screenshots them with a locally installed Chrome, Edge, or
+Chromium (or `BKR_BROWSER`) into `tokens/exports/png/ui.png` and `type.png`.
+Fonts load from Google Fonts during the screenshot, so the PNGs show the real
+typefaces; GitHub shows PNGs in markdown. Kits SHOULD commit these screenshots
+and show them in the README with `<!-- bkr:previews -->`.
+
+Which token plays which part is inferred from `validation.contrastPairs` uses
+("body text", "headings", "links", "label on a button", "card") and common
+names, and can be set explicitly:
+
+```yaml
+preview:
+  surface: palette.paper
+  text: palette.ink
+  buttonBg: palette.honey
+  buttonText: palette.ink
+```
+
+Screenshots are not rebuilt in CI. `tokens/exports/png/.bkr-preview-hash`
+records which pages they came from, and `bkr validate` warns when the brand has
+changed since (run `bkr preview` again).
 
 ## 8. Agent contract
 

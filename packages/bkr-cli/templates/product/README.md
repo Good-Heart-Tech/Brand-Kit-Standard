@@ -24,3 +24,7 @@ bkr export --all
 bkr digest
 bkr validate --parent ../parent-kit
 ```
+
+## The brand in use
+
+<!-- bkr:previews -->

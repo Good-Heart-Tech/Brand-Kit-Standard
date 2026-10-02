@@ -295,10 +295,10 @@ test("export writes GitHub-visible SVGs and fills markdown blocks", async () => 
   // Blocks go stale when tokens change, and export fixes them.
   editJson(path.join(dir, "tokens/colors.bkr.json"), (d) => (d.tokens.palette.accent.value = "#0EA5E9"));
   let r = await validateKit(dir);
-  assert.ok(hasMsg(r.warnings, /visual\/palette\.md: bkr:palette/));
+  assert.ok(hasMsg(r.warnings, /visual\/palette\.md: a bkr: markdown block/));
   exportKit(dir, ["all"]);
   r = await validateKit(dir);
-  assert.ok(!hasMsg(r.warnings, /bkr:palette/));
+  assert.ok(!hasMsg(r.warnings, /markdown block/));
   assert.match(fs.readFileSync(path.join(dir, "visual/palette.md"), "utf8"), /`#0EA5E9`/);
 });
 
@@ -308,6 +308,50 @@ test("a README without a color visual is flagged", async () => {
   fs.writeFileSync(readme, fs.readFileSync(readme, "utf8").replace("![Colors](tokens/exports/svg/palette.svg)", ""));
   const r = await validateKit(dir);
   assert.ok(hasMsg(r.warnings, /README\.md does not show the colors/));
+});
+
+test("logos are shown on light and dark panels in markdown", () => {
+  const dir = newKit();
+  assert.ok(fs.existsSync(path.join(dir, "tokens/exports/svg/logos/mark-svg.svg")));
+  const logo = fs.readFileSync(path.join(dir, "visual/logo.md"), "utf8");
+  assert.match(logo, /svg\/logos\/mark-svg\.svg/);
+  assert.match(fs.readFileSync(path.join(dir, "tokens/exports/svg/logos/mark-svg.svg"), "utf8"), /data:image\/svg\+xml;base64/);
+});
+
+test("avoid pairs produce a do and don't sheet and an Avoid table", async () => {
+  const dir = newKit();
+  assert.ok(fs.existsSync(path.join(dir, "tokens/exports/svg/do-dont.svg")));
+  const a11y = fs.readFileSync(path.join(dir, "visual/accessibility.md"), "utf8");
+  assert.match(a11y, /do-dont\.svg/);
+  assert.match(a11y, /Too light to read as text/);
+  editManifest(dir, (m) => m.validation.avoidPairs.push({ foreground: "palette.nope", background: "palette.surface", reason: "x" }));
+  const r = await validateKit(dir);
+  assert.ok(hasMsg(r.errors, /avoidPairs: palette\.nope/));
+});
+
+test("preview pages are generated and stale screenshots are flagged", async () => {
+  const dir = newKit();
+  const ui = fs.readFileSync(path.join(dir, "tokens/exports/html/preview-ui.html"), "utf8");
+  assert.match(ui, /bkr-shot" content="ui 1280 480"/); // light and dark side by side
+  assert.ok(fs.existsSync(path.join(dir, "tokens/exports/html/preview-type.html")));
+  assert.match(fs.readFileSync(path.join(dir, "README.md"), "utf8"), /Run `bkr preview`/);
+
+  fs.mkdirSync(path.join(dir, "tokens/exports/png"), { recursive: true });
+  fs.writeFileSync(path.join(dir, "tokens/exports/png/.bkr-preview-hash"), "sha256:old\n");
+  const r = await validateKit(dir);
+  assert.ok(hasMsg(r.warnings, /bkr preview/));
+});
+
+test("preview roles prefer 'label on a button' pairs over CTA text pairs", async () => {
+  const { resolveRoles } = await import("../lib/preview.js");
+  const { loadTokens } = await import("../lib/tokens.js");
+  const dir = newKit();
+  editManifest(dir, (m) => {
+    m.validation.contrastPairs.unshift({ foreground: "palette.primary", background: "palette.ink", use: "CTA text on dark" });
+  });
+  const roles = resolveRoles(readManifest(dir), loadTokens(dir));
+  assert.equal(roles.buttonBg, "palette.primary");
+  assert.equal(roles.buttonText, "palette.onPrimary");
 });
 
 // --- Upgrade --------------------------------------------------------------------------

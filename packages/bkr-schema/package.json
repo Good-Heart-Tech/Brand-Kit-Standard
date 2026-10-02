@@ -1,6 +1,6 @@
 {
   "name": "@goodheart/bkr-schema",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "JSON Schema for BKR brandkit manifests and token files",
   "license": "MIT",
   "author": "Good Heart Tech",

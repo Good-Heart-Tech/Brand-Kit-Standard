@@ -76,6 +76,10 @@ export function initKit(targetDir, options = {}) {
         { foreground: "palette.onPrimary", background: "palette.primary", use: "button labels" },
         { foreground: "palette.link", background: "palette.surface", use: "links" },
       ],
+      avoidPairs: [
+        { foreground: "palette.accent", background: "palette.surface", reason: "Too light to read as text" },
+        { foreground: "palette.surface", background: "palette.accent", reason: "White on accent is too faint for labels" },
+      ],
     },
   };
   if (options.securityContact) {
@@ -88,6 +92,10 @@ export function initKit(targetDir, options = {}) {
     manifest.validation.contrastPairs = [
       { foreground: "palette.ink", background: "palette.surface", use: "headings and body text" },
       { foreground: "palette.onPrimary", background: "palette.primary", use: "button labels" },
+    ];
+    manifest.validation.avoidPairs = [
+      { foreground: "palette.productAccent", background: "palette.ink", reason: "Accent on near-black is hard to read" },
+      { foreground: "palette.productAccent", background: "palette.primary", reason: "Never put the accent on the parent primary" },
     ];
   }
 

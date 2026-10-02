@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.4.0 (2026-10)
+
+### Added
+
+- **`bkr preview`**: screenshots a generated sample page (light and dark side by side) and a type specimen with a local Chrome or Edge, using the real web fonts. The PNGs render on GitHub. `<!-- bkr:previews -->` shows them in markdown.
+- **Logos on light and dark**: `bkr:logos` shows each logo on the lightest and darkest brand colors, so reversed and white logos are visible.
+- **Do and Don't**: `validation.avoidPairs` (with a `reason`) adds a do-and-don't image and an Avoid table to the contrast block.
+- Optional `preview` roles in `brandkit.yaml` to choose which colors the sample page uses.
+- `bkr upgrade` adds the README "brand in use" section.
+
+### Changed
+
+- `bkr validate` errors on avoid pairs that name unknown tokens and warns when screenshots are older than the brand.
+
 ## 0.3.0 (2026-10)
 
 ### Added
