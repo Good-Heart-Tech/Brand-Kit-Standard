@@ -15,7 +15,7 @@ import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { ensureDir, listFiles, pathExists, sha256, writeText } from "./fs-kit.js";
-import { luminance, toCssValue, toPosix } from "./tokens.js";
+import { contrastRatio, luminance, toCssValue, toPosix } from "./tokens.js";
 
 export const PNG_DIR = "tokens/exports/png";
 const PREVIEW_HASH = path.join(PNG_DIR, ".bkr-preview-hash");
@@ -72,7 +72,10 @@ export function resolveRoles(manifest, tokens) {
     pairs.find((p) => /button/i.test(p.use || "")) ||
     fromUse(/cta/i);
   if (button) Object.assign(roles, { buttonText: button.foreground, buttonBg: button.background });
-  const card = pairs.find((p) => ROLE_USES.card.test(p.use || "") && p.background !== roles.surface);
+  // A card pair is one where body or heading text sits on the card color.
+  const card =
+    pairs.find((p) => ROLE_USES.card.test(p.use || "") && p.background !== roles.surface && [roles.text, roles.heading].includes(p.foreground)) ||
+    pairs.find((p) => ROLE_USES.card.test(p.use || "") && p.background !== roles.surface && !/white|cream|on dark|dusk|charcoal/i.test(p.use || ""));
   if (card) roles.card = card.background;
 
   for (const [role, names] of Object.entries(ROLE_NAMES)) {
@@ -95,10 +98,39 @@ export function resolveRoles(manifest, tokens) {
 }
 
 function valuesFor(tokens, roles, theme) {
-  const base = new Map(tokens.base.map((t) => [t.path, t.token.value]));
+  const base = new Map(tokens.base.filter((t) => t.token.type === "color").map((t) => [t.path, t.token.value]));
   const over = new Map((theme ? tokens.themes[theme] : []).map((t) => [t.path, t.token.value]));
-  const out = {};
-  for (const [role, p] of Object.entries(roles)) out[role] = (p && (over.get(p) || base.get(p))) || "#000000";
+  const v = {};
+  for (const [role, p] of Object.entries(roles)) v[role] = (p && (over.get(p) || base.get(p))) || "#000000";
+
+  // Never draw text on a color it cannot be read on: fall back to the brand color
+  // (from this theme) with the best contrast. The page then shows only real, readable pairs.
+  const palette = [...new Set([...base.keys()].map((p) => over.get(p) || base.get(p)))];
+  const readable = (fg, bg, min) => {
+    if (contrastRatio(fg, bg) >= min) return fg;
+    return palette.reduce((best, c) => (contrastRatio(c, bg) > contrastRatio(best, bg) ? c : best), fg);
+  };
+  v.text = readable(v.text, v.surface, 4.5);
+  v.heading = readable(v.heading, v.surface, 3);
+  v.link = readable(v.link, v.surface, 4.5);
+  v.buttonText = readable(v.buttonText, v.buttonBg, 4.5);
+  if (contrastRatio(v.text, v.card) < 4.5) v.card = v.surface;
+  v.cardHeading = readable(v.heading, v.card, 3);
+  return v;
+}
+
+// Paths that change in a theme (app.*, ui.*, colorway.*) describe roles better
+// than fixed pigments, so prefer them when choosing role tokens.
+function themedFirst(tokens, roles) {
+  const themed = new Set(Object.values(tokens.themes).flat().map((t) => t.path));
+  if (!themed.size) return roles;
+  const colors = tokens.base.filter((t) => t.token.type === "color");
+  const out = { ...roles };
+  for (const [role, names] of Object.entries(ROLE_NAMES)) {
+    if (themed.has(out[role])) continue;
+    const alt = colors.find((c) => themed.has(c.path) && names.includes(c.name));
+    if (alt && ["surface", "text", "heading", "link", "card"].includes(role)) out[role] = alt.path;
+  }
   return out;
 }
 
@@ -166,14 +198,14 @@ function panel(label, v, f, logo, name, line) {
     <span class="btn ghost" style="border-color:${v.link};color:${v.link}">Secondary</span>
   </div>
   <div class="card" style="background:${v.card};color:${v.text};${v.card.toLowerCase() === v.surface.toLowerCase() ? `border:1px solid ${v.link}` : ""}">
-    <h2 style="font-family:${esc(f.heading)};color:${v.heading}">A card or callout</h2>
+    <h2 style="font-family:${esc(f.heading)};color:${v.cardHeading}">A card or callout</h2>
     <p>Cards sit on a raised surface. Text inside them keeps its contrast.</p>
   </div>
 </section>`;
 }
 
 export function buildPreviewUi(kitRoot, manifest, tokens) {
-  const roles = resolveRoles(manifest, tokens);
+  const roles = themedFirst(tokens, resolveRoles(manifest, tokens));
   const f = fonts(tokens);
   const logo = firstLogo(kitRoot);
   const name = manifest.brand.displayName;

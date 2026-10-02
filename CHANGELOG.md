@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1 (2026-10)
+
+### Fixed
+
+- The `bkr preview` sample page never draws text on a color it cannot be read on. It prefers theme-aware tokens (such as `app.*`, `ui.*`, `colorway.*`) and falls back to the most readable brand color, so dark-mode headings and dark cards stay legible.
+
 ## 0.4.0 (2026-10)
 
 ### Added
