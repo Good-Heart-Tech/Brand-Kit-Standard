@@ -1,9 +1,11 @@
+# yaml-language-server: $schema=https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/brandkit.schema.json
+# Reference organization kit (fictional). Every BKR 0.2 feature is used here.
 schema: ght.brandkit/v1
-specVersion: 0.1.0
+specVersion: 0.2.0
 brand:
   id: acme-labs
   displayName: Acme Labs
-  status: draft
+  status: active
 role: organization
 profiles:
   core: true
@@ -12,14 +14,40 @@ profiles:
   visual: true
   copy: true
   tokens: true
-  partnerPublic: false
+  security: true
 consumption:
   cssVariables: tokens/exports/css/variables.css
   agentDigest: digest/AGENT_CONTEXT.md
   tailwindTheme: tokens/exports/tailwind/theme.cjs
+# Partner sharing: only these paths go into `bkr publish` bundles for sponsors and partners.
+publication:
+  visibility: partner
+  includedPaths:
+    - assets/logo/
+    - tokens/exports/css/variables.css
+    - tokens/exports/dtcg/
+    - tokens/exports/html/brand-at-a-glance.html
+    - visual/logo.md
 validation:
   rulesPack: "@goodheart/bkr-rules-ght"
   minContrastRatio: 4.5
+  contrastPairs:
+    - foreground: palette.body
+      background: palette.surface
+      use: body text
+    - foreground: palette.ink
+      background: palette.surface
+      use: headings
+    - foreground: palette.onPrimary
+      background: palette.primary
+      use: button labels
+    - foreground: palette.link
+      background: palette.surface
+      use: links
+    - foreground: palette.ink
+      background: palette.subtle
+      use: text on callout panels
 contacts:
-  brand: brand@example.org
-  legal: legal@example.org
+  brand: brand@acme-labs.example
+  legal: legal@acme-labs.example
+  security: security@acme-labs.example

@@ -1,8 +1,8 @@
 # Approved messaging
 
-**Tagline:** Tools that stay on brand.
+**Tagline:** Write it down once.
 
-**Boilerplate (short):** Acme Docs helps teams ship consistent experiences.
+**One sentence:** Acme Docs from Acme Labs is a free knowledge base that helps
+community organizations keep their know-how in one place.
 
-**Boilerplate (long):** Acme Docs provides a single brand kit repository
-for humans, CI, and AI agents—so colors, voice, and copy do not drift across apps.
+**Call to action:** Create your first page.

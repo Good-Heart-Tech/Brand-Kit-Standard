@@ -1,5 +1,5 @@
 {
-  "$schema": "https://goodheart.tech/schemas/bkr-token/v1",
+  "$schema": "https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/bkr-token.schema.json",
   "meta": {
     "brandId": "{{brandId}}",
     "layer": "color"
@@ -10,13 +10,19 @@
         "value": "#2563EB",
         "type": "color",
         "inheritsFrom": "palette.primary",
-        "description": "Locked to parent org primary — do not change without parent kit update."
+        "description": "Locked to the parent primary. Change it in the parent kit, not here."
+      },
+      "onPrimary": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "inheritsFrom": "palette.onPrimary",
+        "description": "Button labels on primary."
       },
       "ink": {
         "value": "#0F172A",
         "type": "color",
         "inheritsFrom": "palette.ink",
-        "description": "Headings and high-contrast text."
+        "description": "Headings and text."
       },
       "surface": {
         "value": "#FFFFFF",
@@ -27,7 +33,8 @@
       "productAccent": {
         "value": "#7C3AED",
         "type": "color",
-        "description": "Product-only accent for marketing hero bands — not for org-wide CTAs."
+        "description": "Program-only accent for highlight bands. Not for text or buttons.",
+        "usage": { "contexts": ["highlight bands", "illustrations"], "avoid": ["body text", "buttons"] }
       }
     }
   }

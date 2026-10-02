@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Cedar Hollow Community Pantry">
+  <circle cx="64" cy="64" r="62" fill="#2F6B3A"/>
+  <path d="M64 18 L92 56 H78 L100 84 H28 L50 56 H36 Z" fill="#FFFDF8"/>
+  <rect x="58" y="84" width="12" height="18" rx="2" fill="#E8902E"/>
+</svg>

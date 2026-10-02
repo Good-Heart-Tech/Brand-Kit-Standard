@@ -1,10 +1,16 @@
 # Naming
 
-- **Legal name:** {{displayName}}
-- **Short name:** {{displayName}} (same in prose)
-- **Product names:** Title Case (`Example Docs`), never `EXAMPLE DOCS` in UI
+- **Program name:** {{displayName}}
+- **First mention:** "{{displayName}}, a program of {{parentBrandId}}"
+- **After that:** {{displayName}}
+
+> TODO(bkr): Confirm the exact program name and how to credit the parent
+> organization.
 
 ## Do not
 
-- Abbreviate the org name unless defined in `copy/messaging.md`
-- Use “Inc.” in product UI chrome
+- Shorten the program name unless the short form is listed here
+- Drop the parent organization from press releases and grant reports
+
+This file can include internal or draft names, so it is never shared outside
+the organization.

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/bkr-token.schema.json",
+  "meta": {
+    "brandId": "acme-labs",
+    "layer": "theme"
+  },
+  "tokens": {
+    "palette": {
+      "surface": { "value": "#0F172A", "type": "color", "description": "Dark page background." },
+      "subtle": { "value": "#1E293B", "type": "color", "description": "Dark callout panels." },
+      "ink": { "value": "#F8FAFC", "type": "color", "description": "Headings on dark." },
+      "body": { "value": "#CBD5E1", "type": "color", "description": "Body text on dark." },
+      "primary": { "value": "#1D4ED8", "type": "color", "description": "Primary on dark; keeps white labels readable." },
+      "link": { "value": "#93C5FD", "type": "color", "description": "Links on dark." }
+    }
+  }
+}

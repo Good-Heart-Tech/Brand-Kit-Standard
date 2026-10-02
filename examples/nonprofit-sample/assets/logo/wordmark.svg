@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="112" viewBox="0 0 440 112" role="img" aria-label="Cedar Hollow Community Pantry">
+  <circle cx="56" cy="56" r="48" fill="#2F6B3A"/>
+  <path d="M56 20 L78 50 H67 L84 72 H28 L45 50 H34 Z" fill="#FFFDF8"/>
+  <rect x="51" y="72" width="10" height="14" rx="2" fill="#E8902E"/>
+  <text x="122" y="52" font-family="'Atkinson Hyperlegible', Verdana, sans-serif" font-size="34" font-weight="700" fill="#1F2A24">Cedar Hollow</text>
+  <text x="122" y="86" font-family="'Atkinson Hyperlegible', Verdana, sans-serif" font-size="22" fill="#2F6B3A">Community Pantry</text>
+</svg>

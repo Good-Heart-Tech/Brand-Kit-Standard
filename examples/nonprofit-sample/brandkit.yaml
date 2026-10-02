@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/brandkit.schema.json
+# Realistic nonprofit example (fictional organization) with a public press kit.
+schema: ght.brandkit/v1
+specVersion: 0.2.0
+brand:
+  id: cedar-hollow-pantry
+  displayName: Cedar Hollow Community Pantry
+  status: active
+role: organization
+profiles:
+  core: true
+  identity: true
+  voice: true
+  visual: true
+  copy: true
+  tokens: true
+  security: true
+consumption:
+  cssVariables: tokens/exports/css/variables.css
+  agentDigest: digest/AGENT_CONTEXT.md
+  tailwindTheme: tokens/exports/tailwind/theme.cjs
+# Public press kit: logos, colors, and press boilerplate only.
+# Donation wording, staff contacts, and email templates stay private on purpose.
+publication:
+  visibility: public
+  includedPaths:
+    - assets/logo/
+    - tokens/exports/html/brand-at-a-glance.html
+    - tokens/exports/css/variables.css
+    - visual/logo.md
+    - copy/press-kit.md
+validation:
+  rulesPack: "@goodheart/bkr-rules-ght"
+  minContrastRatio: 4.5
+  contrastPairs:
+    - foreground: palette.body
+      background: palette.surface
+      use: body text
+    - foreground: palette.ink
+      background: palette.surface
+      use: headings
+    - foreground: palette.onPrimary
+      background: palette.primary
+      use: buttons and banners
+    - foreground: palette.link
+      background: palette.surface
+      use: links
+    - foreground: palette.ink
+      background: palette.harvest
+      use: large headings on harvest bands
+      min: 3
+contacts:
+  brand: hello@cedarhollowpantry.example
+  legal: board@cedarhollowpantry.example
+  security: security@cedarhollowpantry.example

@@ -1,8 +1,8 @@
 # Accessibility
 
-- Target WCAG 2.2 AA for text and controls (4.5:1 normal text)
-- Primary buttons: verify contrast for label on `primary`
-- Do not convey state by color alone
-
-Run manual checks when introducing new pairings; token changes require export
-refresh and spot-check in `examples/swatches.html`.
+- Meet WCAG 2.2 AA: text needs a 4.5:1 contrast ratio with its background
+  (3:1 for large text and buttons).
+- `bkr validate` checks every color pair listed in `brandkit.yaml` under
+  `validation.contrastPairs`. Add a pair whenever you put text on a new color.
+- Do not use color alone to show meaning (add an icon or a word).
+- Give every image meaningful alt text.

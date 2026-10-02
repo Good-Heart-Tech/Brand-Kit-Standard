@@ -1,5 +1,5 @@
 {
-  "$schema": "https://goodheart.tech/schemas/bkr-token/v1",
+  "$schema": "https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/bkr-token.schema.json",
   "meta": {
     "brandId": "{{brandId}}",
     "layer": "color"
@@ -9,7 +9,18 @@
       "primary": {
         "value": "#2563EB",
         "type": "color",
-        "description": "Primary brand blue for CTAs and links."
+        "description": "Main brand color for buttons and links.",
+        "usage": { "contexts": ["buttons", "links"], "avoid": ["large background fills"] }
+      },
+      "onPrimary": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Text and icons on primary (button labels)."
+      },
+      "link": {
+        "value": "#2563EB",
+        "type": "color",
+        "description": "Text links on the page background."
       },
       "ink": {
         "value": "#0F172A",
@@ -19,7 +30,7 @@
       "body": {
         "value": "#334155",
         "type": "color",
-        "description": "Body copy on light backgrounds."
+        "description": "Body text on light backgrounds."
       },
       "surface": {
         "value": "#FFFFFF",
@@ -29,7 +40,8 @@
       "accent": {
         "value": "#38BDF8",
         "type": "color",
-        "description": "Secondary accent; not for body text on white."
+        "description": "Highlights and illustrations.",
+        "usage": { "contexts": ["illustrations", "highlights"], "avoid": ["text on white"] }
       }
     }
   }

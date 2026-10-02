@@ -1,8 +1,10 @@
 # Approved messaging
 
-**Tagline:** Tools that stay on brand.
+> TODO(bkr): Replace these with approved wording for {{displayName}}.
 
-**Boilerplate (short):** {{displayName}} helps teams ship consistent experiences.
+**Tagline:** Your program's short, memorable line.
 
-**Boilerplate (long):** {{displayName}} provides a single brand kit repository
-for humans, CI, and AI agents—so colors, voice, and copy do not drift across apps.
+**One-sentence description:** {{displayName}}, a program of {{parentBrandId}},
+helps ...
+
+**Call to action:** Sign up, volunteer, or donate to {{displayName}}.

@@ -1,9 +1,13 @@
 # Legal
 
-- The {{displayName}} name and mark are trademarks of the organization.
-- Do not imply endorsement when using partner co-branding.
-- External use of assets requires written approval unless `profiles/partnerPublic`
-  is enabled and paths are listed in `brandkit.yaml`.
+- The {{displayName}} name and logo are trademarks of the organization.
+- Do not imply endorsement or partnership without written approval.
+- Files may leave the organization only when `publication.visibility` in
+  `brandkit.yaml` allows it, and only the paths listed there.
+- Font files: note the license for each font before sharing it.
 
-Tooling in consumer repos may be MIT-licensed; assets in this kit are not
-automatically MIT unless explicitly stated here.
+If you see a website, email, or social account pretending to be
+{{displayName}}, report it to {{securityContact}}.
+
+Tooling that reads this kit may be MIT licensed; the brand assets in this kit
+are not, unless stated here.

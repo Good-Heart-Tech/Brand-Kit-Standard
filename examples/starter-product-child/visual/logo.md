@@ -1,17 +1,18 @@
 # Logo
 
-Primary mark: `assets/logo/mark.svg`
+Product mark: `assets/logo/mark.svg`. It reuses the Acme Labs ring with the
+Docs accent in the center.
 
 ## Clear space
 
-Maintain padding equal to 12% of mark width on all sides.
+Leave empty space around the mark equal to at least 12% of its width.
 
 ## Colorways
 
-- Default: full-color mark on white
-- Dark bar: mark on `ink` background with white core (use SVG as-is)
+- Default: full color on `surface`
+- Next to the Acme Labs logo: use the Acme Labs wordmark first, Docs mark second
 
 ## Do not
 
-- Stretch, rotate, or add drop shadows
-- Recolor the outer ring without brand approval
+- Stretch, rotate, or add shadows
+- Use the Docs mark for Acme Labs as a whole

@@ -1,0 +1,64 @@
+# Reusable GitHub Action: validate a BKR brand kit in any repository.
+#
+#   - uses: actions/checkout@v4
+#   - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.2.0
+#     with:
+#       path: .
+#
+# Product kits: check out the parent kit first (actions/checkout with `path:`), then set parent-path.
+name: BKR validate
+description: Validate a Brand Kit Repository (BKR) and check that generated exports are committed.
+author: Good Heart Tech
+branding:
+  icon: check-circle
+  color: blue
+
+inputs:
+  path:
+    description: Folder containing brandkit.yaml
+    default: "."
+  strict:
+    description: Treat warnings as failures ("true" or "false")
+    default: "true"
+  parent-path:
+    description: Local path to a checkout of the parent kit (product kits)
+    default: ""
+  check-exports:
+    description: Regenerate exports and digest, then fail if they differ from what is committed
+    default: "true"
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: "20"
+    - name: Install BKR CLI
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: npm ci --no-audit --no-fund --omit=dev
+    - name: Check generated files are current
+      if: inputs.check-exports == 'true'
+      shell: bash
+      env:
+        BKR: ${{ github.action_path }}/packages/bkr-cli/bin/bkr.js
+        KIT_PATH: ${{ inputs.path }}
+      run: |
+        node "$BKR" export "$KIT_PATH" --all
+        node "$BKR" digest "$KIT_PATH"
+        if ! git diff --exit-code -- "$KIT_PATH"; then
+          echo "::error::Generated files are out of date. Run 'bkr export --all' and 'bkr digest', then commit."
+          exit 1
+        fi
+    - name: Validate
+      shell: bash
+      env:
+        BKR: ${{ github.action_path }}/packages/bkr-cli/bin/bkr.js
+        KIT_PATH: ${{ inputs.path }}
+        STRICT: ${{ inputs.strict }}
+        PARENT_PATH: ${{ inputs.parent-path }}
+      run: |
+        args=(validate "$KIT_PATH")
+        if [ "$STRICT" = "true" ]; then args+=(--strict); fi
+        if [ -n "$PARENT_PATH" ]; then args+=(--parent "$PARENT_PATH"); fi
+        node "$BKR" "${args[@]}"

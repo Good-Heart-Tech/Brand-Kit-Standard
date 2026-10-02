@@ -1,14 +1,18 @@
 # About {{displayName}}
 
-{{displayName}} builds dependable tools for teams who care about clarity and access.
+> TODO(bkr): In two or three sentences, say what {{displayName}} is, who it
+> serves, and how it relates to {{parentBrandId}}.
+
+{{displayName}} is a program of {{parentBrandId}} that ...
 
 ## Personality
 
-- Calm, competent, human
-- Plain language over buzzwords
-- Evidence before hype
+Same as the parent brand, plus:
 
-## Positioning
+> TODO(bkr): List one or two traits that are special to this program, or delete
+> this section.
 
-We serve organizations that need brand-consistent product surfaces without a
-parallel “marketing palette” forked in every repo.
+## Who we talk to
+
+- People this program serves
+- Program partners and funders

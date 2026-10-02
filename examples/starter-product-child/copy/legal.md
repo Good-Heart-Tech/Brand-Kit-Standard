@@ -1,9 +1,7 @@
 # Legal
 
-- The Acme Docs name and mark are trademarks of the organization.
-- Do not imply endorsement when using partner co-branding.
-- External use of assets requires written approval unless `profiles/partnerPublic`
-  is enabled and paths are listed in `brandkit.yaml`.
+- Acme Docs and the Acme Labs name and logo are trademarks of Acme Labs, Inc.
+- This kit is private; files do not leave the organization.
 
-Tooling in consumer repos may be MIT-licensed; assets in this kit are not
-automatically MIT unless explicitly stated here.
+If you see a website, email, or social account pretending to be Acme Docs,
+report it to security@acme-labs.example.

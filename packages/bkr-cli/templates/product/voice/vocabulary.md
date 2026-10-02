@@ -2,16 +2,14 @@
 
 ## Prefer
 
-- “team” over “resource”
-- “sign in” over “log in” (unless OAuth provider copy differs)
-- “email” over “e-mail”
+- "neighbors" or "people we serve" over "the needy"
+- "volunteer" over "resource"
+- "email" over "e-mail"
 
 ## Avoid
 
-- “synergy”, “disrupt”, “best-in-class”
-- “users” when “people” or “admins” is clearer
+- Jargon and acronyms without explanation
+- Words that shame or label people
+- Guilt in fundraising appeals
 
-## Inclusive language
-
-- Gender-neutral defaults
-- Avoid idioms that do not translate
+> TODO(bkr): Add words your organization always uses, and words it never uses.

@@ -1,14 +1,17 @@
 # About Acme Docs
 
-Acme Docs builds dependable tools for teams who care about clarity and access.
+Acme Docs is the Acme Labs knowledge base tool. It helps community
+organizations write down how things work, so knowledge does not walk out the
+door when a volunteer moves on.
 
 ## Personality
 
-- Calm, competent, human
-- Plain language over buzzwords
-- Evidence before hype
+Same as Acme Labs, plus:
 
-## Positioning
+- Organized and patient
+- Encouraging to first-time writers
 
-We serve organizations that need brand-consistent product surfaces without a
-parallel “marketing palette” forked in every repo.
+## Who we talk to
+
+- Office managers and volunteer coordinators
+- Executive directors handing off responsibilities

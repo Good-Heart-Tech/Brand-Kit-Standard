@@ -1,0 +1,68 @@
+# Publishes the JSON Schemas (so $schema URLs resolve) and the example brand pages.
+# One-time setup: Settings > Pages > Build and deployment > Source: GitHub Actions.
+name: pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "packages/bkr-schema/schemas/**"
+      - "examples/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build site
+        shell: bash
+        run: |
+          mkdir -p _site/schemas/v1 _site/examples
+          cp packages/bkr-schema/schemas/*.json _site/schemas/v1/
+          items=""
+          for kit in examples/*/; do
+            name=$(basename "$kit")
+            page="$kit/tokens/exports/html/brand-at-a-glance.html"
+            if [ -f "$page" ]; then
+              cp "$page" "_site/examples/$name.html"
+              items="$items<li><a href=\"examples/$name.html\">$name</a></li>"
+            fi
+          done
+          cat > _site/index.html <<HTML
+          <!DOCTYPE html>
+          <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Brand Kit Standard (BKR)</title>
+          <style>body{font-family:system-ui,sans-serif;max-width:720px;margin:0 auto;padding:24px 16px;line-height:1.5}</style></head>
+          <body>
+          <h1>Brand Kit Standard (BKR)</h1>
+          <p>An open standard for brand kits that people, websites, and AI assistants can all read.
+          Source and docs: <a href="https://github.com/Good-Heart-Tech/Brand-Kit-Standard">GitHub</a>.</p>
+          <h2>Schemas</h2>
+          <ul>
+            <li><a href="schemas/v1/brandkit.schema.json">brandkit.schema.json</a> (brandkit.yaml)</li>
+            <li><a href="schemas/v1/bkr-token.schema.json">bkr-token.schema.json</a> (tokens/*.bkr.json)</li>
+          </ul>
+          <h2>Example brand pages</h2>
+          <ul>$items</ul>
+          </body></html>
+          HTML
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1/bkr-token.schema.json",
+  "meta": {
+    "brandId": "minimal-brand",
+    "layer": "color"
+  },
+  "tokens": {
+    "palette": {
+      "primary": { "value": "#B4232A", "type": "color", "description": "Brand red for buttons and the logo." },
+      "text": { "value": "#1C1917", "type": "color", "description": "All text." },
+      "background": { "value": "#FFFFFF", "type": "color", "description": "Page background and button labels." }
+    }
+  }
+}

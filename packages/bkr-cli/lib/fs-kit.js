@@ -1,9 +1,22 @@
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import YAML from "yaml";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
+
+// Spec versions this CLI understands. 0.1 kits still validate but get an upgrade hint.
+export const CURRENT_SPEC_VERSION = "0.2.0";
+export const SUPPORTED_SPEC = /^0\.(1|2)\.\d+$/;
+
+// Public schema URLs (served by GitHub Pages from packages/bkr-schema/schemas).
+export const SCHEMA_BASE = "https://good-heart-tech.github.io/Brand-Kit-Standard/schemas/v1";
+export const MANIFEST_SCHEMA_URL = `${SCHEMA_BASE}/brandkit.schema.json`;
+export const TOKEN_SCHEMA_URL = `${SCHEMA_BASE}/bkr-token.schema.json`;
+export const LEGACY_TOKEN_SCHEMA_URL = "https://goodheart.tech/schemas/bkr-token/v1";
 
 export function resolveKitPath(inputPath) {
   return path.resolve(process.cwd(), inputPath || ".");
@@ -18,10 +31,11 @@ export function readManifest(kitRoot) {
   return YAML.parse(raw);
 }
 
+// The first-line comment lets VS Code (YAML extension) autocomplete and check the manifest.
 export function writeManifest(kitRoot, manifest) {
   const yamlPath = path.join(kitRoot, "brandkit.yaml");
   const doc = YAML.stringify(manifest, { lineWidth: 0 });
-  fs.writeFileSync(yamlPath, doc, "utf8");
+  fs.writeFileSync(yamlPath, `# yaml-language-server: $schema=${MANIFEST_SCHEMA_URL}\n${doc}`, "utf8");
 }
 
 export function pathExists(p) {
@@ -60,31 +74,70 @@ export function listBkrTokenFiles(kitRoot) {
       out.push(fp);
     }
   });
-  return out;
+  return out.sort();
 }
 
+// Lists every file under dir (recursively), sorted, skipping dotfiles.
+export function listFiles(dir) {
+  if (!pathExists(dir)) return [];
+  const out = [];
+  walk(dir, (fp) => {
+    if (!path.basename(fp).startsWith(".")) out.push(fp);
+  });
+  return out.sort();
+}
+
+const SKIP_DIRS = new Set(["node_modules", "dist"]);
+
 function walk(dir, onFile) {
-  for (const name of fs.readdirSync(dir)) {
+  for (const name of fs.readdirSync(dir).sort()) {
     const fp = path.join(dir, name);
     const st = fs.statSync(fp);
-    if (st.isDirectory()) walk(fp, onFile);
-    else onFile(fp);
+    if (st.isDirectory()) {
+      if (!name.startsWith(".") && !SKIP_DIRS.has(name)) walk(fp, onFile);
+    } else onFile(fp);
   }
 }
 
 export function schemaPath(name) {
-  return path.join(__dirname, "..", "..", "bkr-schema", "schemas", name);
+  // Resolve through the package so this works in the monorepo and when installed from npm.
+  const key = name === "brandkit.schema.json" ? "brandkit" : "token";
+  return require.resolve(`@goodheart/bkr-schema/${key}`);
 }
 
 export function templatesDir() {
   return path.join(__dirname, "..", "templates");
 }
 
-export function hashStableString(s) {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) {
-    h ^= s.charCodeAt(i);
-    h = Math.imul(h, 16777619);
+export function sha256(s) {
+  return crypto.createHash("sha256").update(s).digest("hex");
+}
+
+// Copies a template folder, filling {{placeholders}}. Files named "gitignore" become
+// ".gitignore" (npm strips real .gitignore files from published packages).
+export function copyTemplateTree(srcDir, destDir, vars, { overwrite = true } = {}) {
+  const written = [];
+  for (const name of fs.readdirSync(srcDir).sort()) {
+    const src = path.join(srcDir, name);
+    const destName = name === "gitignore" ? ".gitignore" : name;
+    const dest = path.join(destDir, destName);
+    const st = fs.statSync(src);
+    if (st.isDirectory()) {
+      ensureDir(dest);
+      written.push(...copyTemplateTree(src, dest, vars, { overwrite }));
+    } else {
+      if (!overwrite && pathExists(dest)) continue;
+      writeText(dest, fillTemplate(fs.readFileSync(src, "utf8"), vars));
+      written.push(dest);
+    }
   }
-  return (h >>> 0).toString(16).padStart(8, "0");
+  return written;
+}
+
+export function fillTemplate(text, vars) {
+  let out = text;
+  for (const [key, val] of Object.entries(vars)) {
+    out = out.replaceAll(`{{${key}}}`, val ?? "");
+  }
+  return out;
 }

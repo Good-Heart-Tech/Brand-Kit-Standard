@@ -1,16 +1,18 @@
-# Palette usage
+# Colors
 
-Normative hex values live in `tokens/colors.bkr.json`. Regenerate CSS with
-`bkr export --css`.
+The official values live in `tokens/colors.bkr.json`. Open
+`tokens/exports/html/brand-at-a-glance.html` to see them.
 
 ## Defaults
 
-- Page: `surface`
+- Page background: `surface`
 - Headings: `ink`
-- Body: `body`
-- Primary actions: white label on `primary`
+- Body text: `body`
+- Buttons: `onPrimary` label on `primary`
+- Links: `link` on `surface`
+- Highlights and illustrations: `accent`
 
 ## Do not
 
 - Fill large backgrounds with `primary`
-- Use `accent` for small text on white
+- Use `accent` for text on white (it is too light to read)

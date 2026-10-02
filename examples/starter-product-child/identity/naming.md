@@ -1,10 +1,13 @@
 # Naming
 
-- **Legal name:** Acme Docs
-- **Short name:** Acme Docs (same in prose)
-- **Product names:** Title Case (`Example Docs`), never `EXAMPLE DOCS` in UI
+- **Product name:** Acme Docs
+- **First mention:** "Acme Docs from Acme Labs"
+- **After that:** Docs
 
 ## Do not
 
-- Abbreviate the org name unless defined in `copy/messaging.md`
-- Use “Inc.” in product UI chrome
+- Write "AcmeDocs" or "Acme docs"
+- Drop "Acme" in headlines or app store listings
+
+This file can include internal or draft names, so it is never shared outside
+the organization.
