@@ -321,6 +321,18 @@ test("every example kit passes strict validation", async () => {
   }
 });
 
+test("digest output is the same for CRLF and LF source files", () => {
+  const dir = newKit();
+  const about = path.join(dir, "identity/about.md");
+  const lf = `${"Line of about text.\n".repeat(200)}`;
+  fs.writeFileSync(about, lf);
+  buildDigest(dir);
+  const fromLf = fs.readFileSync(path.join(dir, "digest/AGENT_CONTEXT.md"), "utf8");
+  fs.writeFileSync(about, lf.replace(/\n/g, "\r\n"));
+  buildDigest(dir);
+  assert.equal(fs.readFileSync(path.join(dir, "digest/AGENT_CONTEXT.md"), "utf8"), fromLf);
+});
+
 test("digest stays under its size cap", () => {
   const dir = newKit();
   const { bytes } = buildDigest(dir, { maxBytes: 1500 });

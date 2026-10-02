@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2 (2026-10)
+
+### Fixed
+
+- `bkr digest` normalizes Windows line endings before trimming excerpts, so a digest generated on Windows matches CI on Linux (the GitHub Action's "generated files are current" check failed for kits edited on Windows).
+
 ## 0.2.1 (2026-10)
 
 ### Changed

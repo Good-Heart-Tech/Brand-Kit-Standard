@@ -9,6 +9,8 @@ function readHead(filePath, maxChars = 2000) {
   if (!pathExists(filePath)) return "";
   const raw = fs
     .readFileSync(filePath, "utf8")
+    // Normalize Windows line endings first so the cut point is the same on every OS.
+    .replace(/\r\n/g, "\n")
     .replace(/<!--[\s\S]*?-->\n?/g, "")
     .trim();
   return raw.length > maxChars ? `${raw.slice(0, maxChars)}\n…` : raw;

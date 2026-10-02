@@ -96,7 +96,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.2.1
+      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.2.2
         with:
           path: .
           strict: "true"
