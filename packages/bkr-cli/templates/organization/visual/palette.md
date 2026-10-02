@@ -16,3 +16,7 @@ The official values live in `tokens/colors.bkr.json`. Open
 
 - Fill large backgrounds with `primary`
 - Use `accent` for text on white (it is too light to read)
+
+## All colors
+
+<!-- bkr:palette -->

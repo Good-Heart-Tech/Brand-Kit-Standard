@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.0 (2026-10)
+
+### Added
+
+- **Colors you can see on GitHub.** `bkr export` writes `tokens/exports/svg/`: a palette swatch sheet (`palette.svg`, plus one per theme), a contrast sheet (`contrast.svg`), a small color chip per token, and an "Aa" sample per contrast pair. GitHub renders these inside markdown, unlike `.html` files.
+- **Self-updating markdown blocks:** `<!-- bkr:palette -->`, `<!-- bkr:contrast -->`, and `<!-- bkr:logos -->` in any `.md` file are filled with chip tables, contrast samples, and logo images on every export.
+- Templates and examples show the palette at the top of `README.md` and use the blocks in `visual/palette.md`, `visual/accessibility.md`, and `visual/logo.md`.
+
+### Changed
+
+- `bkr validate` warns when `README.md` does not show the palette image, and when a `bkr:` block is out of date. Kits upgrading from 0.2 need to add the README image (see spec section 7.1).
+- The agent digest leaves out generated image blocks.
+
 ## 0.2.2 (2026-10)
 
 ### Fixed

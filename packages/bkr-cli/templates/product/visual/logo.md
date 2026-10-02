@@ -18,3 +18,7 @@ Leave empty space around the logo equal to at least 12% of its width.
 
 - Stretch, rotate, or add shadows
 - Combine the program mark with partner logos without approval
+
+## Logo files
+
+<!-- bkr:logos -->

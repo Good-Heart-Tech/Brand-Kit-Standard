@@ -152,6 +152,8 @@ input always gives byte-identical output) and MUST NOT be edited by hand.
 | `tailwind` | `tokens/exports/tailwind/theme.cjs` (v3), `theme.css` (v4 `@theme inline`) | v4 values point at the CSS variables, so themes switch automatically |
 | `html` | `tokens/exports/html/brand-at-a-glance.html` | Page for non-technical staff; logos up to 200 KB are embedded, larger ones are linked |
 | `agent` | `tokens/exports/agent/ui-brief.md` | Compact design brief for AI agents |
+| `svg` | `tokens/exports/svg/palette.svg`, `palette-<theme>.svg`, `contrast.svg`, `chips/*.svg`, `pairs/*.svg` | Images that render inside markdown on GitHub (section 7.1) |
+| `docs` | `<!-- bkr:... -->` blocks in the kit's `.md` files | Tables of chips, hex values, and contrast samples (section 7.1) |
 
 CSS variable names are `--<prefix>-<group>-<name>` in kebab-case. The prefix
 defaults to `brand.id` without hyphens and MAY be set with `consumption.cssPrefix`.
@@ -165,6 +167,37 @@ keys, and other dimension groups go under `spacing` as `<group>-<name>`;
 `tokens/exports/.bkr-export-hash` stores a SHA-256 of everything exports are
 built from (manifest, token files, logo files, export format version). It is
 written only by a full export. `bkr validate` warns when it does not match.
+
+### 7.1 Human-visible colors
+
+People cannot see a color by reading a hex code, and GitHub shows `.html` files
+as source code, so the brand-at-a-glance page is not enough on its own. Every
+kit with the `visual` profile MUST show its colors as images in `README.md`:
+
+```markdown
+![Colors](tokens/exports/svg/palette.svg)
+```
+
+(or a `<!-- bkr:palette -->` block). `bkr validate` warns when it is missing.
+
+Any `.md` file in the kit MAY contain these blocks. `bkr export` fills them with
+current values, so the prose can never fall behind the tokens:
+
+| Block | Fills in |
+|-------|----------|
+| `<!-- bkr:palette -->` | The palette image, then a table: color chip, token, hex, theme values (with chips), CSS variable, use |
+| `<!-- bkr:contrast -->` | A table with an "Aa" sample image of each text and background pair, its ratio, the required ratio, and Pass or Fail |
+| `<!-- bkr:logos -->` | Every logo file shown as an image with its path |
+
+Write only the opening marker; export adds the content and the closing
+`<!-- /bkr:... -->` marker. Do not edit inside a block. Validation warns when a
+block is out of date. Templates put `bkr:palette` in `visual/palette.md`,
+`bkr:contrast` in `visual/accessibility.md`, and `bkr:logos` in `visual/logo.md`.
+Generated blocks are left out of the agent digest.
+
+Hand-made palette art (for example a painted swatch sheet) is welcome in
+`assets/` and may sit alongside the generated palette in the README; the
+generated image remains the exact reference.
 
 ## 8. Agent contract
 
@@ -190,7 +223,8 @@ security contact.
 5. Check theme overrides, duplicate token paths, and `meta.brandId`
 6. Check every `validation.contrastPairs` entry in the base palette and in every theme
 7. Warn when narrative mentions tokens that do not exist
-8. Warn when exports are stale (hash mismatch)
+8. Warn when exports are stale (hash mismatch), when a `bkr:` markdown block is
+   out of date, or when `README.md` does not show the palette image
 9. Check sharing rules and guardrails (section 11)
 10. Check the parent kit when a local parent is available (section 5)
 11. Warn about (or, for active kits, fail on) unfinished `TODO(bkr)` sections

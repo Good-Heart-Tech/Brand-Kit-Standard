@@ -6,3 +6,7 @@
   `validation.contrastPairs`. Add a pair whenever you put text on a new color.
 - Do not use color alone to show meaning (add an icon or a word).
 - Give every image meaningful alt text.
+
+## Checked text and background pairs
+
+<!-- bkr:contrast -->

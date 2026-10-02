@@ -1,5 +1,7 @@
 # Acme Labs brand kit (reference example)
 
+![Colors](tokens/exports/svg/palette.svg)
+
 Acme Labs is a **fictional** organization. This kit is the complete reference
 for BKR 0.2: every profile, a dark theme, typography, spacing, contrast checks,
 a full logo set, and partner sharing.

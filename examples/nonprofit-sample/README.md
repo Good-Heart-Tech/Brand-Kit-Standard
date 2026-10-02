@@ -1,5 +1,7 @@
 # Cedar Hollow Community Pantry brand kit (nonprofit example)
 
+![Colors](tokens/exports/svg/palette.svg)
+
 Cedar Hollow Community Pantry is a **fictional** food pantry. This kit shows
 what a finished BKR kit looks like for a small nonprofit with no in-house
 designer: plain-language voice, donor and volunteer wording, an accessible

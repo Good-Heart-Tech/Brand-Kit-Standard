@@ -1,5 +1,7 @@
 # {{displayName}} brand kit
 
+![Colors](tokens/exports/svg/palette.svg)
+
 This folder is the single source of truth for how **{{displayName}}** looks and
 sounds: colors, fonts, logos, voice, and approved wording. It follows the
 [Brand Kit Repository (BKR)](https://github.com/Good-Heart-Tech/Brand-Kit-Standard)
