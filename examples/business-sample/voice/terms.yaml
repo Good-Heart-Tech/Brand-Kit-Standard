@@ -1,0 +1,34 @@
+# Word rules for Ridgeline Coffee Roasters. Read by people, AI tools, and `bkr check-copy`.
+# Each entry: use (the right word), avoid (words to replace), optional topic and
+# reason. caseSensitive: true is for names that must be spelled exactly.
+# Legal limits on sourcing and health claims live in copy/claims.md, not here.
+terms:
+  - use: Ridgeline Coffee Roasters
+    avoid: [RCR]
+    caseSensitive: true
+    topic: our name
+    reason: Full name on first mention, then "Ridgeline"
+  - use: fresh-roasted
+    avoid: [premium, gourmet]
+    reason: Say what makes it good, with a roast date
+  - use: tasting notes
+    avoid: [flavor profile]
+  - use: brew guide
+    avoid: [instructions]
+    topic: product pages and email
+  - use: espresso
+    avoid: [expresso]
+    reason: Common misspelling
+  - use: cold brew
+    avoid: [cold-brew]
+    reason: Two words, no hyphen
+  - use: pour-over
+    avoid: [pour over, pourover]
+    reason: One hyphenated word
+  - avoid: [real coffee, proper espresso, doing it wrong]
+    reason: Snob words make people feel silly about how they drink coffee
+  - avoid: [best coffee in the world, life-changing, artisanal]
+    reason: Hype people do not trust
+  - avoid: [ethically sourced, sourced from around the world]
+    topic: sourcing
+    reason: Vague; name the farm or co-op instead

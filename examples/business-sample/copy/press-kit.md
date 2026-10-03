@@ -6,7 +6,7 @@ neighborhood cafes, ships fresh coffee nationwide through its online shop, and
 supplies local restaurants, offices, and grocers.
 
 **Name:** Ridgeline Coffee Roasters on first mention, then "Ridgeline."
-Please do not shorten it to "RCR."
+Please do not shorten it to initials.
 
 **Cafes:** Ridgeline Downtown and Ridgeline North End.
 

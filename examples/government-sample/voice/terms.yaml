@@ -1,0 +1,51 @@
+# Word rules for Brightwater County. Read by people, AI tools, and `bkr check-copy`.
+# Plain-language swaps from the federal plain language guidelines, plus our name rules.
+# Each entry: use (the right word), avoid (words to replace), optional topic and reason.
+terms:
+  - use: Brightwater County
+    avoid: [BWC]
+    caseSensitive: true
+    topic: our name
+    reason: Residents should never have to decode initials
+  - use: County
+    avoid: [Co.]
+    caseSensitive: true
+    topic: our name
+    reason: Never abbreviate County in headings or signs
+  - use: residents
+    avoid: [citizens]
+    reason: Not everyone we serve is a citizen; say "residents" or "people"
+  - use: people with disabilities
+    avoid: [the disabled, the handicapped, handicapped]
+    reason: People-first language
+  - use: use
+    avoid: [utilize, utilise, utilization]
+    topic: plain language
+  - use: apply
+    avoid: [submit an application]
+    topic: plain language
+  - use: pay
+    avoid: [remit]
+    topic: plain language
+  - use: you must
+    avoid: [applicants shall]
+    topic: plain language
+  - use: help
+    avoid: [assistance]
+    topic: plain language
+  - use: about
+    avoid: [approximately]
+    topic: plain language
+  - use: start
+    avoid: [commence]
+    topic: plain language
+  - use: after
+    avoid: [subsequent to]
+    topic: plain language
+  - use: county office
+    avoid: [facility]
+    topic: plain language
+  - avoid: [click here]
+    reason: Link text says where it goes, for example "Find your polling place"
+  - avoid: [exciting, world-class, act now]
+    reason: Marketing language does not belong in public information

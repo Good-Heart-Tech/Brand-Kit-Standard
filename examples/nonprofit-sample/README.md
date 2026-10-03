@@ -20,10 +20,11 @@ free font, and a public press kit.
 | What | File |
 |------|------|
 | Settings and sharing | `brandkit.yaml` |
-| Who we are | `identity/` |
-| How we sound | `voice/` |
+| Who we are, programs, audiences, approved facts | `identity/` |
+| How we sound, word rules, sensitive topics | `voice/` (`voice/terms.yaml` is checked by `bkr check-copy`) |
 | Internal wording (donation asks, volunteer recruiting) | `copy/messaging.md` |
 | Public press boilerplate | `copy/press-kit.md` |
+| Donation tax wording and how gifts are used (internal) | `copy/claims.md` |
 | Colors, fonts, logo rules | `visual/`, `assets/logo/`, `tokens/` |
 
 ## The brand in use

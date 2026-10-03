@@ -7,6 +7,11 @@ brand:
   displayName: Cedar Hollow Community Pantry
   status: active
 role: organization
+organization:
+  type: nonprofit
+  industry: community food pantry
+  founded: 2009
+  website: https://cedarhollowpantry.example
 profiles:
   core: true
   identity: true

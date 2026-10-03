@@ -7,6 +7,11 @@ brand:
   displayName: Ridgeline Coffee Roasters
   status: active
 role: organization
+organization:
+  type: company
+  industry: specialty coffee (roasting, cafes, online shop, and wholesale)
+  founded: 2014
+  website: https://ridgelinecoffee.example
 profiles:
   core: true
   identity: true

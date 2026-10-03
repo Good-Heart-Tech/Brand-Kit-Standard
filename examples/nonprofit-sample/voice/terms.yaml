@@ -1,0 +1,25 @@
+# Word rules for Cedar Hollow Community Pantry. Read by people, AI tools, and `bkr check-copy`.
+# Each entry: use (the right word), avoid (words to replace), optional topic and
+# reason. caseSensitive: true is for names that must be spelled exactly.
+terms:
+  - use: Cedar Hollow Community Pantry
+    avoid: [CHCP]
+    caseSensitive: true
+    topic: our name
+    reason: Full name on first mention, then "the Pantry"
+  - use: neighbors
+    avoid: [clients, recipients, the needy]
+    reason: The people we serve are our neighbors
+  - use: groceries
+    avoid: [food assistance]
+    reason: Plain words people use every day
+  - use: volunteers
+    avoid: [resource, resources]
+    reason: People are not resources
+  - use: pantry hours
+    avoid: [distribution schedule]
+  - avoid: [handout, charity case, less fortunate]
+    reason: Words that shame or talk down to people
+  - avoid: [imagine a child going hungry]
+    topic: donation appeals
+    reason: No guilt in donation appeals

@@ -1,0 +1,33 @@
+# Word rules for Acme Labs. Read by people, AI tools, and `bkr check-copy`.
+# Each entry: use (the right word), avoid (words to replace), optional topic and
+# reason. caseSensitive: true is for names that must be spelled exactly.
+terms:
+  - use: Acme Labs
+    avoid: [ACME, Acme labs, AcmeLabs]
+    caseSensitive: true
+    topic: our name
+    reason: Spell our name exactly, and never write "Acme" alone
+  - use: Acme Docs
+    avoid: [AcmeDocs, Acme docs]
+    caseSensitive: true
+    topic: product names
+    reason: Product names are Title Case with a space
+  - use: sign in
+    avoid: [log in, login to]
+    topic: product and support
+    reason: Matches the words in our products
+  - use: email
+    avoid: [e-mail]
+    reason: Modern spelling
+  - use: team
+    avoid: [resource]
+    reason: People are not resources
+  - use: people
+    avoid: [users]
+    topic: customer-facing copy
+    reason: Say "people" or "staff" to customers; API docs may say users
+  - avoid: [synergy, disrupt, disruptive, best-in-class, world-class, revolutionary]
+    reason: Hype words people do not trust
+  - avoid: [simply, just]
+    topic: instructions
+    reason: It makes people feel bad when the step is not simple

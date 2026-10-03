@@ -36,11 +36,14 @@ it is a for-profit retail and wholesale business.
 | What | File |
 |------|------|
 | Settings, sharing, and contrast pairs | `brandkit.yaml` |
-| Who we are | `identity/about.md`, `identity/naming.md` (internal) |
-| How we sound | `voice/tone.md`, `voice/vocabulary.md` |
+| Who we are | `identity/about.md`, `identity/naming.md` (internal), `identity/mission.md` |
+| What we offer, who we talk to, approved facts (internal) | `identity/offerings.md`, `identity/audiences.md`, `identity/facts.md` |
+| How we sound | `voice/tone.md`, `voice/vocabulary.md`, `voice/style.md` |
+| Word rules and sensitive topics | `voice/terms.yaml` (checked by `bkr check-copy`), `voice/topics.md` |
 | Internal wording (prices, product copy, wholesale pitch and terms) | `copy/messaging.md` |
 | Public press boilerplate | `copy/press-kit.md` |
-| Trademarks, sourcing claims, font licenses | `copy/legal.md` |
+| Trademarks, font licenses | `copy/legal.md` |
+| Food and sourcing claims, disclaimers, approvals (internal) | `copy/claims.md` |
 | Colors, fonts, logo rules | `visual/` |
 | Logos | `assets/logo/` (mark, reversed mark, wordmark, reversed wordmark, favicon) |
 | Official values | `tokens/colors.bkr.json`, `tokens/typography.bkr.json`, `tokens/themes/dark.bkr.json` |

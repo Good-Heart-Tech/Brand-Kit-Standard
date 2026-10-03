@@ -36,7 +36,8 @@ you always talk to me. (The full bio and services are in `copy/messaging.md`.)
 | What | File |
 |------|------|
 | Settings (name, sharing, contrast pairs) | `brandkit.yaml` |
-| How I sound | `voice/tone.md`, `voice/vocabulary.md` |
+| How I sound | `voice/tone.md`, `voice/vocabulary.md`, `voice/style.md` |
+| Word rules | `voice/terms.yaml` (checked by `bkr check-copy`) |
 | Bio, services, and image licensing | `copy/messaging.md`, `copy/legal.md` |
 | Colors, fonts, logo rules | `visual/` |
 | Logos | `assets/logo/` (monogram, reversed, wordmark, favicon) |

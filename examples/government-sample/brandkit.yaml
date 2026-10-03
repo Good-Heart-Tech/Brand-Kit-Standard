@@ -8,6 +8,12 @@ brand:
   displayName: Brightwater County
   status: active
 role: organization
+organization:
+  type: government
+  industry: county government services
+  location: Brightwater Valley
+  serviceArea: Brightwater County (about 180,000 residents)
+  website: https://brightwatercounty.example
 profiles:
   core: true
   identity: true

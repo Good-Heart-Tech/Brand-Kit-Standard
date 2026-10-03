@@ -1,0 +1,25 @@
+# Word rules for Acme Docs. Read by people, AI tools, and `bkr check-copy`.
+# The Acme Labs kit has the company-wide rules; these are the product additions.
+terms:
+  - use: Acme Docs
+    avoid: [AcmeDocs, Acme docs, ACME Docs]
+    caseSensitive: true
+    topic: product name
+    reason: Spell the product name exactly; "Docs" alone only after first mention
+  - use: Acme Labs
+    avoid: [ACME, Acme labs, AcmeLabs]
+    caseSensitive: true
+    topic: company name
+  - use: page
+    avoid: [article]
+    topic: product
+    reason: Matches the words in the product
+  - use: knowledge base
+    avoid: [wiki]
+    reason: Wiki sounds technical to many of our readers
+  - use: sign in
+    avoid: [log in, login to]
+    topic: product and support
+  - avoid: [simply, just]
+    topic: instructions
+    reason: It makes people feel bad when the step is not simple

@@ -17,9 +17,11 @@ a full logo set, and partner sharing.
 | What | File |
 |------|------|
 | Settings (name, sharing, contacts, contrast pairs) | `brandkit.yaml` |
-| Who we are | `identity/about.md`, `identity/naming.md` |
-| How we sound | `voice/tone.md`, `voice/vocabulary.md` |
-| Approved wording and legal | `copy/messaging.md`, `copy/legal.md` |
+| Who we are | `identity/about.md`, `identity/naming.md`, `identity/mission.md` |
+| What we offer, who we talk to, approved facts | `identity/offerings.md`, `identity/audiences.md`, `identity/facts.md` |
+| How we sound | `voice/tone.md`, `voice/vocabulary.md`, `voice/style.md` |
+| Word rules and sensitive topics | `voice/terms.yaml` (checked by `bkr check-copy`), `voice/topics.md` |
+| Approved wording, legal, and claims | `copy/messaging.md`, `copy/legal.md`, `copy/claims.md` |
 | Colors, type, logo rules | `visual/` |
 | Logos | `assets/logo/` (mark, mono, reversed, wordmark, favicon) |
 | Official values | `tokens/colors.bkr.json`, `tokens/typography.bkr.json`, `tokens/spacing.bkr.json`, `tokens/themes/dark.bkr.json` |

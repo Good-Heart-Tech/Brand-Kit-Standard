@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/brandkit.schema.json
-# Reference organization kit (fictional). Every BKR 0.2 feature is used here.
+# Reference organization kit (fictional). Every BKR feature is used here, including organization context and word rules.
 schema: ght.brandkit/v1
 specVersion: 0.2.0
 brand:
@@ -7,6 +7,12 @@ brand:
   displayName: Acme Labs
   status: active
 role: organization
+organization:
+  type: company
+  industry: workplace software for small and mid-sized businesses
+  location: Denver, Colorado
+  founded: 2017
+  website: https://acme-labs.example
 profiles:
   core: true
   identity: true

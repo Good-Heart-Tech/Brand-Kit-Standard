@@ -8,6 +8,10 @@ brand:
   displayName: Juniper Lane Studio
   status: active
 role: organization
+organization:
+  type: solo
+  industry: photography and design for small businesses
+  website: https://juniperlane.example
 profiles:
   core: true
   identity: false

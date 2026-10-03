@@ -39,9 +39,12 @@ trusted, readable by everyone, and hard to fake.
 | What | File |
 |------|------|
 | Settings (name, sharing, contacts, contrast pairs) | `brandkit.yaml` |
-| Who we are, department naming | `identity/about.md`, `identity/naming.md` |
-| How we sound | `voice/tone.md`, `voice/vocabulary.md` |
+| Who we are, department naming | `identity/about.md`, `identity/naming.md`, `identity/mission.md` |
+| Services, who we talk to, approved facts | `identity/offerings.md`, `identity/audiences.md`, `identity/facts.md` |
+| How we sound | `voice/tone.md`, `voice/vocabulary.md`, `voice/style.md` |
+| Word rules and sensitive topics | `voice/terms.yaml` (checked by `bkr check-copy`), `voice/topics.md` |
 | Approved wording, seal rules, public records | `copy/messaging.md`, `copy/legal.md` |
+| Public notice and accessibility statements, approvals | `copy/claims.md` |
 | Colors, type, logo, and accessibility rules | `visual/` |
 | Logos (shared with partners) | `assets/logo/` (mark, reversed, wordmark, favicon) |
 | County seal (county departments only) | `assets/seal/county-seal.svg` |
