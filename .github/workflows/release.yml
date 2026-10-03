@@ -26,12 +26,12 @@ jobs:
       - run: npm test
       - run: npm run validate
       # Order matters: the CLI depends on the schema and rules packages.
-      - run: npm publish --workspace packages/bkr-schema --provenance --access public
+      - run: npm publish --workspace packages/obks-schema --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm publish --workspace packages/bkr-rules-ght --provenance --access public
+      - run: npm publish --workspace packages/obks-rules-ght --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm publish --workspace packages/bkr-cli --provenance --access public
+      - run: npm publish --workspace packages/obks-cli --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

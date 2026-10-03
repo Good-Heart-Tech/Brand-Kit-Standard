@@ -4,9 +4,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { exportKit } from "../packages/bkr-cli/lib/export.js";
-import { buildDigest } from "../packages/bkr-cli/lib/digest.js";
-import { validateKit } from "../packages/bkr-cli/lib/validate.js";
+import { exportKit } from "../packages/obks-cli/lib/export.js";
+import { buildDigest } from "../packages/obks-cli/lib/digest.js";
+import { validateKit } from "../packages/obks-cli/lib/validate.js";
 
 const examplesDir = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "examples");
 const write = !process.argv.includes("--no-write");

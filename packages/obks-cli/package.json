@@ -1,0 +1,53 @@
+{
+  "name": "@goodheart/obks-cli",
+  "version": "0.6.0",
+  "description": "CLI for the Open Brand Kit Standard (OBKS): validate brand kits, export design tokens, build agent digests, check copy, and publish shareable bundles",
+  "license": "MIT",
+  "author": "Good Heart Tech",
+  "homepage": "https://github.com/Good-Heart-Tech/Open-Brand-Kit-Standard#readme",
+  "bugs": {
+    "url": "https://github.com/Good-Heart-Tech/Open-Brand-Kit-Standard/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Good-Heart-Tech/Open-Brand-Kit-Standard.git",
+    "directory": "packages/obks-cli"
+  },
+  "keywords": [
+    "open-brand-kit-standard",
+    "obks",
+    "brand",
+    "brand-kit",
+    "design-tokens",
+    "dtcg",
+    "tailwind",
+    "brand-guidelines",
+    "ai-agents"
+  ],
+  "type": "module",
+  "bin": {
+    "obks": "./bin/obks.js",
+    "bkr": "./bin/obks.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "templates"
+  ],
+  "scripts": {
+    "test": "node --test test/obks.test.js"
+  },
+  "dependencies": {
+    "@goodheart/obks-rules-ght": "0.6.0",
+    "@goodheart/obks-schema": "0.6.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "yaml": "^2.8.0"
+  }
+}

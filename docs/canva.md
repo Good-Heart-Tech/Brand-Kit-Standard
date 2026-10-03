@@ -31,7 +31,7 @@ If a pair is not listed there, ask whoever maintains the kit to check it first.
 
 ## 4. Fonts
 
-Look in `tokens/typography.bkr.json` or the Typography section of the
+Look in `tokens/typography.obks.json` or the Typography section of the
 brand-at-a-glance page. Many free fonts (like Inter or Atkinson Hyperlegible)
 are already in Canva's font list. Set them for headings and body text.
 

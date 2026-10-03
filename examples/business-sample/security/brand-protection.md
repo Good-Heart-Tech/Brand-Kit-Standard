@@ -94,4 +94,4 @@ Our colors and logo are already on our website, our bags, and grocery shelves.
 Sharing them in the press kit does not make impersonation easier. We do **not**
 share pricing, wholesale terms, invoice or receipt designs, checkout or login
 page designs, email templates, staff contact lists, or internal names.
-`bkr validate` warns if any of those are marked for sharing in `brandkit.yaml`.
+`obks validate` warns if any of those are marked for sharing in `brandkit.yaml`.

@@ -1,6 +1,6 @@
 # Agent context (generated)
 
-> Regenerate with `bkr digest`. Normative values live in `tokens/*.bkr.json` and `tokens/exports/`.
+> Regenerate with `obks digest`. Normative values live in `tokens/*.obks.json` and `tokens/exports/`.
 
 ## Brand
 
@@ -11,7 +11,7 @@
 - **Organization type:** solo
 - **Industry:** photography and design for small businesses
 - **Website:** https://juniperlane.example
-- **Sharing:** Partner: only paths in `publication.includedPaths` may go to partners. Build them with `bkr publish`.
+- **Sharing:** Partner: only paths in `publication.includedPaths` may go to partners. Build them with `obks publish`.
 - **Report impersonation:** https://juniperlane.example/contact
 
 ## Word rules (follow exactly)

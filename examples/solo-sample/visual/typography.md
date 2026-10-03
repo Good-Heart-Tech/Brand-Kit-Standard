@@ -1,6 +1,6 @@
 # Typography
 
-Fonts live in `tokens/typography.bkr.json`.
+Fonts live in `tokens/typography.obks.json`.
 
 | Use | Font | Weight | Size |
 |-----|------|--------|------|

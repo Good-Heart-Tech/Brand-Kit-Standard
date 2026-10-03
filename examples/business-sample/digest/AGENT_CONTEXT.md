@@ -1,6 +1,6 @@
 # Agent context (generated)
 
-> Regenerate with `bkr digest`. Normative values live in `tokens/*.bkr.json` and `tokens/exports/`.
+> Regenerate with `obks digest`. Normative values live in `tokens/*.obks.json` and `tokens/exports/`.
 
 ## Brand
 
@@ -12,7 +12,7 @@
 - **Industry:** specialty coffee (roasting, cafes, online shop, and wholesale)
 - **Founded:** 2014
 - **Website:** https://ridgelinecoffee.example
-- **Sharing:** Public: only paths in `publication.includedPaths` may be shared publicly. Build them with `bkr publish`.
+- **Sharing:** Public: only paths in `publication.includedPaths` may be shared publicly. Build them with `obks publish`.
 - **Report impersonation:** https://ridgelinecoffee.example/contact
 
 ## Mission, vision, and values
@@ -40,7 +40,7 @@ Last reviewed: 2026-10-02
 
 People and AI tools may state these facts as written. Anything not listed here
 needs a source before it is published. Update the date above whenever you
-review this page; `bkr validate` warns when it is more than a year old.
+review this page; `obks validate` warns when it is more than a year old.
 
 | Fact | Source or owner |
 |------|-----------------|

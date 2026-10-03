@@ -3,7 +3,7 @@
 We use **Public Sans** for everything. It is free under the SIL Open Font
 License, it is on Google Fonts and in Canva, and many government websites use
 it because it is clear at every size. Fonts live in
-`tokens/typography.bkr.json`.
+`tokens/typography.obks.json`.
 
 | Use | Font | Weight | Size |
 |-----|------|--------|------|

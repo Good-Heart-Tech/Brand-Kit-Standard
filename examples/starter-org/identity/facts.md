@@ -4,7 +4,7 @@ Last reviewed: 2026-10-02
 
 People and AI tools may state these facts as written. Anything not listed here
 needs a source before it is published. Update the date above whenever you
-review this page; `bkr validate` warns when it is more than a year old.
+review this page; `obks validate` warns when it is more than a year old.
 
 | Fact | Source or owner |
 |------|-----------------|

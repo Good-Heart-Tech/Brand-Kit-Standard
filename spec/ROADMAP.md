@@ -1,4 +1,4 @@
-# BKR roadmap (steward backlog)
+# OBKS roadmap (steward backlog)
 
 ## Done in 0.2
 
@@ -7,11 +7,11 @@
 - Narrative vs token drift warnings
 - Typography, spacing, motion, and theme tokens; DTCG 2025.10 value shapes
 - Tailwind v4 export, self-contained brand-at-a-glance page, agent UI brief
-- `publication.visibility` (private / partner / public), `bkr publish`, impersonation guardrails
+- `publication.visibility` (private / partner / public), `obks publish`, impersonation guardrails
 - `security` profile with a brand protection checklist
 - Parent kit checks with a local path
 - Pluggable rule packs (npm or local path)
-- `bkr upgrade` for 0.1 kits
+- `obks upgrade` for 0.1 kits
 - Schemas served from jsDelivr (no hosting to set up), reusable GitHub Action, npm release workflow
 - Plain-language guide, intake worksheet, Canva guide, exports guide
 
@@ -30,10 +30,10 @@ Next:
 
 - Fetch a parent kit by Git ref (no local checkout needed)
 - PNG and favicon `.ico` generation from SVG logos
-- `bkr check-domain`: report SPF, DKIM, DMARC, and BIMI status for `contacts` domains
+- `obks check-domain`: report SPF, DKIM, DMARC, and BIMI status for `contacts` domains
 - Multiple languages for `copy/` (for example `copy/es/`)
 
 ## Deferred until someone needs it
 
-- Figma variables sync bot (design to BKR pull request)
+- Figma variables sync bot (design to OBKS pull request)
 - Campaign kit templates

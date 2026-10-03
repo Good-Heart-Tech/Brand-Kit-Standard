@@ -42,8 +42,8 @@ jobs:
       - name: Scaffold a new kit and validate it
         shell: bash
         run: |
-          node packages/bkr-cli/bin/bkr.js init "$RUNNER_TEMP/new-kit" --brand-id ci-check --display-name "CI Check"
-          node packages/bkr-cli/bin/bkr.js validate "$RUNNER_TEMP/new-kit"
+          node packages/obks-cli/bin/obks.js init "$RUNNER_TEMP/new-kit" --brand-id ci-check --display-name "CI Check"
+          node packages/obks-cli/bin/obks.js validate "$RUNNER_TEMP/new-kit"
 
   # Runs the reusable action from this repo against an example, so the action keeps working.
   action:

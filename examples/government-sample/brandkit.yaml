@@ -1,7 +1,7 @@
-# yaml-language-server: $schema=https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Brand-Kit-Standard@main/packages/bkr-schema/schemas/brandkit.schema.json
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Open-Brand-Kit-Standard@main/packages/obks-schema/schemas/brandkit.schema.json
 # Public agency example (fictional county government). Accessibility is a legal
 # requirement here, and the county seal is a protected mark kept out of the partner bundle.
-schema: ght.brandkit/v1
+schema: obks/v1
 specVersion: 0.2.0
 brand:
   id: brightwater-county
@@ -39,7 +39,7 @@ publication:
     - tokens/exports/css/variables.css
     - visual/logo.md
 validation:
-  rulesPack: "@goodheart/bkr-rules-ght"
+  rulesPack: "@goodheart/obks-rules-ght"
   minContrastRatio: 4.5
   contrastPairs:
     - foreground: palette.body

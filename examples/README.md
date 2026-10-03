@@ -1,6 +1,6 @@
-# Example BKR kits
+# Example OBKS kits
 
-All organizations here are **fictional**. Every kit passes `bkr validate --strict`
+All organizations here are **fictional**. Every kit passes `obks validate --strict`
 in CI.
 
 | Kit | Role | Brand id | Sharing | Shows |

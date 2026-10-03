@@ -1,0 +1,30 @@
+# {{displayName}} brand kit (product or sub-brand)
+
+![Colors](tokens/exports/svg/palette.svg)
+
+Child brand kit for **{{displayName}}**, part of the **{{parentBrandId}}** brand
+family. It follows the [Open Brand Kit Standard (OBKS)](https://github.com/Good-Heart-Tech/Open-Brand-Kit-Standard)
+standard, spec 0.2.
+
+The parent kit owns the main colors and logo. This kit only adds what is
+different about {{displayName}}, such as its name, tagline, or one accent
+color.
+
+## Start here
+
+- **See the brand:** open `tokens/exports/html/brand-at-a-glance.html` in any browser.
+- **Finish the kit:** search for `TODO(obks)` and replace each one.
+- **Parent colors:** tokens marked `inheritsFrom` must match the parent kit. Check
+  with `obks validate --parent ../path-to-parent-kit`.
+
+## Commands
+
+```bash
+obks export --all
+obks digest
+obks validate --parent ../parent-kit
+```
+
+## The brand in use
+
+<!-- obks:previews -->

@@ -43,8 +43,8 @@ there are no wrong answers. Your technical helper turns your answers into the ki
 
 ### 3. Your technical helper sets up the kit
 
-They run `bkr init`, fill in each `TODO(bkr)` section from your worksheet,
-take the screenshots with `bkr preview`, and check that everything passes.
+They run `obks init`, fill in each `TODO(obks)` section from your worksheet,
+take the screenshots with `obks preview`, and check that everything passes.
 Then they send you the link to the kit's README.
 
 ### 4. Review the brand

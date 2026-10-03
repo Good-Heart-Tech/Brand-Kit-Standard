@@ -5,7 +5,7 @@ Last reviewed: 2026-10-02
 People and AI tools may state these facts as written. Anything not listed here
 needs a source before it is published. Company facts (founding year, location)
 live in the Acme Labs kit. Update the date above whenever you review this page;
-`bkr validate` warns when it is more than a year old.
+`obks validate` warns when it is more than a year old.
 
 | Fact | Source or owner |
 |------|-----------------|

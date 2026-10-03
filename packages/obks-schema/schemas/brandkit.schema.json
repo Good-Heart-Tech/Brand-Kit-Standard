@@ -1,0 +1,378 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Open-Brand-Kit-Standard@main/packages/obks-schema/schemas/brandkit.schema.json",
+  "title": "Open Brand Kit Standard (OBKS) manifest",
+  "description": "brandkit.yaml for an Open Brand Kit Standard (OBKS) kit. See spec/OBKS-SPEC.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "specVersion",
+    "brand",
+    "role",
+    "profiles",
+    "consumption"
+  ],
+  "properties": {
+    "schema": {
+      "enum": [
+        "obks/v1",
+        "ght.brandkit/v1"
+      ],
+      "description": "Contract id. New kits use obks/v1; ght.brandkit/v1 is the pre-rename id and is still accepted."
+    },
+    "specVersion": {
+      "type": "string",
+      "pattern": "^0\\.[0-9]+\\.[0-9]+$",
+      "description": "Spec version this kit follows, for example 0.2.0."
+    },
+    "brand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "displayName",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{1,62}[a-z0-9]$",
+          "description": "Lowercase, hyphenated id, for example good-heart-tech."
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "active",
+            "deprecated"
+          ]
+        }
+      }
+    },
+    "role": {
+      "enum": [
+        "organization",
+        "product",
+        "campaign"
+      ]
+    },
+    "organization": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Optional facts about the organization behind the brand. Gives people and AI tools context; rule packs may use type and industry.",
+      "properties": {
+        "type": {
+          "enum": [
+            "company",
+            "government",
+            "nonprofit",
+            "education",
+            "solo",
+            "other"
+          ],
+          "description": "What kind of organization this is."
+        },
+        "industry": {
+          "type": "string",
+          "minLength": 1,
+          "description": "In your own words, for example specialty coffee or managed IT services."
+        },
+        "location": {
+          "type": "string",
+          "description": "Where you are based."
+        },
+        "serviceArea": {
+          "type": "string",
+          "description": "Where you serve customers or residents."
+        },
+        "founded": {
+          "type": [
+            "integer",
+            "string"
+          ],
+          "description": "Year founded."
+        },
+        "website": {
+          "type": "string",
+          "pattern": "^https://",
+          "description": "Main public website."
+        }
+      }
+    },
+    "hierarchy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "parent"
+      ],
+      "properties": {
+        "parent": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "repository",
+            "ref",
+            "brandId"
+          ],
+          "properties": {
+            "repository": {
+              "type": "string",
+              "pattern": "^https://github\\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+            },
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "brandId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Optional local path to a checkout of the parent kit, used by obks validate to check inherited tokens."
+            }
+          }
+        }
+      }
+    },
+    "profiles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "core"
+      ],
+      "properties": {
+        "core": {
+          "const": true
+        },
+        "identity": {
+          "type": "boolean"
+        },
+        "voice": {
+          "type": "boolean"
+        },
+        "visual": {
+          "type": "boolean"
+        },
+        "copy": {
+          "type": "boolean"
+        },
+        "tokens": {
+          "type": "boolean"
+        },
+        "security": {
+          "type": "boolean"
+        },
+        "partnerPublic": {
+          "type": "boolean",
+          "deprecated": true,
+          "description": "Deprecated in 0.2. Use publication.visibility."
+        }
+      }
+    },
+    "consumption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cssVariables",
+        "agentDigest"
+      ],
+      "properties": {
+        "cssVariables": {
+          "type": "string",
+          "minLength": 1
+        },
+        "agentDigest": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tailwindTheme": {
+          "type": "string"
+        },
+        "cssPrefix": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "description": "Prefix for CSS variables. Defaults to brand.id without hyphens."
+        }
+      }
+    },
+    "preview": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Optional. Which color token plays each part on the generated sample page. Inferred from contrastPairs and common names when left out.",
+      "properties": {
+        "surface": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "heading": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string"
+        },
+        "buttonBg": {
+          "type": "string"
+        },
+        "buttonText": {
+          "type": "string"
+        },
+        "card": {
+          "type": "string"
+        },
+        "accent": {
+          "type": "string"
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "visibility": {
+          "enum": [
+            "private",
+            "partner",
+            "public"
+          ],
+          "default": "private",
+          "description": "What may leave the organization. private: nothing. partner: includedPaths for approved partners. public: includedPaths for anyone."
+        },
+        "includedPaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Files or folders that obks publish may bundle when visibility is partner or public."
+        },
+        "allowExternalMirror": {
+          "type": "boolean",
+          "deprecated": true,
+          "description": "Deprecated in 0.2. Use visibility: public."
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rulesPack": {
+          "type": "string",
+          "description": "npm package name or local path (./rules/index.js) exporting validate()."
+        },
+        "minContrastRatio": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 21
+        },
+        "contrastPairs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "foreground",
+              "background"
+            ],
+            "properties": {
+              "foreground": {
+                "type": "string",
+                "description": "Token path, for example palette.body"
+              },
+              "background": {
+                "type": "string",
+                "description": "Token path, for example palette.surface"
+              },
+              "use": {
+                "type": "string"
+              },
+              "min": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 21
+              }
+            }
+          }
+        },
+        "avoidPairs": {
+          "type": "array",
+          "description": "Color combinations people should not use. Shown as the Don't column next to contrastPairs.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "foreground",
+              "background",
+              "reason"
+            ],
+            "properties": {
+              "foreground": {
+                "type": "string"
+              },
+              "background": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "contacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "brand": {
+          "type": "string",
+          "format": "email"
+        },
+        "legal": {
+          "type": "string",
+          "format": "email"
+        },
+        "security": {
+          "type": "string",
+          "anyOf": [
+            {
+              "format": "uri",
+              "pattern": "^https://"
+            },
+            {
+              "format": "email"
+            }
+          ],
+          "description": "Optional. Where people report impersonation. Prefer a URL (website contact page or /.well-known/security.txt) so no email address is stored in the kit."
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "role": {
+            "const": "product"
+          }
+        },
+        "required": [
+          "role"
+        ]
+      },
+      "then": {
+        "required": [
+          "hierarchy"
+        ]
+      }
+    }
+  ]
+}

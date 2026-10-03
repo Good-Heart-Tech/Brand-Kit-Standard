@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Open-Brand-Kit-Standard@main/packages/obks-schema/schemas/obks-terms.schema.json",
+  "title": "OBKS terms (voice/terms.yaml)",
+  "description": "Words to use and avoid. Read by people, AI agents (through the digest), and obks check-copy.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["terms"],
+  "properties": {
+    "terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "anyOf": [{ "required": ["use"] }, { "required": ["avoid"] }],
+        "properties": {
+          "use": { "type": "string", "minLength": 1, "description": "The word or phrase to use." },
+          "avoid": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "minItems": 1,
+            "description": "Words or phrases to replace with `use` (or to never use, when `use` is empty)."
+          },
+          "topic": { "type": "string", "description": "Optional: when this applies, for example pricing, product names, or support." },
+          "reason": { "type": "string", "description": "Why. Short reasons make rules easier to follow." },
+          "caseSensitive": { "type": "boolean", "description": "Match capitalization exactly (for names like a product spelling)." }
+        }
+      }
+    }
+  }
+}

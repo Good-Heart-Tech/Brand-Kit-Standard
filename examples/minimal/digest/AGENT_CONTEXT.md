@@ -1,6 +1,6 @@
 # Agent context (generated)
 
-> Regenerate with `bkr digest`. Normative values live in `tokens/*.bkr.json` and `tokens/exports/`.
+> Regenerate with `obks digest`. Normative values live in `tokens/*.obks.json` and `tokens/exports/`.
 
 ## Brand
 

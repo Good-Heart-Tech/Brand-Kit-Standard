@@ -1,6 +1,6 @@
 # Agent context (generated)
 
-> Regenerate with `bkr digest`. Normative values live in `tokens/*.bkr.json` and `tokens/exports/`.
+> Regenerate with `obks digest`. Normative values live in `tokens/*.obks.json` and `tokens/exports/`.
 
 ## Brand
 
@@ -8,7 +8,7 @@
 - **Name:** Acme Docs
 - **Status:** active
 - **Role:** product
-- **Parent kit:** https://github.com/Good-Heart-Tech/Brand-Kit-Standard @ main
+- **Parent kit:** https://github.com/Good-Heart-Tech/Open-Brand-Kit-Standard @ main
 - **Sharing:** Private: do not send files from this kit outside the organization.
 - **Report impersonation:** security@acme-labs.example
 
@@ -19,7 +19,7 @@ Last reviewed: 2026-10-02
 People and AI tools may state these facts as written. Anything not listed here
 needs a source before it is published. Company facts (founding year, location)
 live in the Acme Labs kit. Update the date above whenever you review this page;
-`bkr validate` warns when it is more than a year old.
+`obks validate` warns when it is more than a year old.
 
 | Fact | Source or owner |
 |------|-----------------|

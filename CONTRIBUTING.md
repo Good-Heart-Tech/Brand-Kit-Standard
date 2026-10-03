@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping. BKR is maintained by a small team, so the code favors plain,
+Thanks for helping. OBKS is maintained by a small team, so the code favors plain,
 readable JavaScript over clever abstractions.
 
 ## Setup
@@ -15,10 +15,10 @@ npm run examples
 
 | Path | What |
 |------|------|
-| `packages/bkr-cli/lib/` | One file per concern: `validate.js`, `export.js`, `brief.js` (HTML page and agent brief), `publication.js` (sharing rules), `publish.js`, `upgrade.js`, `digest.js`, `init.js`, `tokens.js` (token loading and color math), `fs-kit.js` |
-| `packages/bkr-cli/templates/` | What `bkr init` copies. `gitignore` becomes `.gitignore`. |
-| `packages/bkr-cli/test/` | `node:test` tests |
-| `packages/bkr-schema/schemas/` | JSON Schemas (editors fetch them from jsDelivr, which serves this repo directly) |
+| `packages/obks-cli/lib/` | One file per concern: `validate.js`, `export.js`, `brief.js` (HTML page and agent brief), `publication.js` (sharing rules), `publish.js`, `upgrade.js`, `digest.js`, `init.js`, `tokens.js` (token loading and color math), `fs-kit.js` |
+| `packages/obks-cli/templates/` | What `obks init` copies. `gitignore` becomes `.gitignore`. |
+| `packages/obks-cli/test/` | `node:test` tests |
+| `packages/obks-schema/schemas/` | JSON Schemas (editors fetch them from jsDelivr, which serves this repo directly) |
 | `examples/` | Kits validated in CI; regenerate with `npm run examples` |
 | `spec/` | The specification, migration guide, roadmap |
 | `docs/` | Plain-language guides |
@@ -26,7 +26,7 @@ npm run examples
 ## Rules of thumb
 
 - **Exports must be deterministic.** No timestamps or random values in generated files.
-- **Change the spec and the code together.** If you add a check, document it in `spec/BKR-SPEC.md` section 9 and add a test.
+- **Change the spec and the code together.** If you add a check, document it in `spec/OBKS-SPEC.md` section 9 and add a test.
 - **Examples must pass `--strict`.** CI regenerates them and fails if the committed output differs.
 - **Write for non-technical readers** in templates and `docs/`: short sentences, no jargon, no em dashes.
 - **Breaking output changes** (variable names, file locations) go in `CHANGELOG.md` and `spec/MIGRATION.md`, and bump `EXPORT_FORMAT` in `export.js`.

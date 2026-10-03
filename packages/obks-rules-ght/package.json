@@ -1,0 +1,30 @@
+{
+  "name": "@goodheart/obks-rules-ght",
+  "version": "0.6.0",
+  "description": "Optional Open Brand Kit Standard (OBKS) rule pack for Good Heart Tech and Honey House kit families",
+  "license": "MIT",
+  "author": "Good Heart Tech",
+  "homepage": "https://github.com/Good-Heart-Tech/Open-Brand-Kit-Standard#readme",
+  "bugs": {
+    "url": "https://github.com/Good-Heart-Tech/Open-Brand-Kit-Standard/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Good-Heart-Tech/Open-Brand-Kit-Standard.git",
+    "directory": "packages/obks-rules-ght"
+  },
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js"
+  ]
+}

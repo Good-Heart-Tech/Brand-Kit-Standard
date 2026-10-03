@@ -1,0 +1,20 @@
+# Word rules for {{displayName}}. Read by people, AI tools, and `obks check-copy`.
+# Each entry: use (the right word), avoid (words to replace), optional topic and
+# reason. Use caseSensitive: true for names that must be spelled exactly.
+# Keep it short: past about 75 entries people stop following the list.
+#
+# Add how to write your name, for example:
+#   - use: Acme Labs
+#     avoid: [ACME, Acme labs, AcmeLabs]
+#     caseSensitive: true
+#     reason: Spell our name exactly
+terms:
+  - use: sign in
+    avoid: [log in, login to]
+    topic: product and support
+    reason: One phrase everywhere, matching most apps
+  - use: email
+    avoid: [e-mail]
+    reason: Modern spelling
+  - avoid: [best-in-class, world-class, revolutionary]
+    reason: Hype words people do not trust

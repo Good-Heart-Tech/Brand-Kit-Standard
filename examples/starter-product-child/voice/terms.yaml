@@ -1,4 +1,4 @@
-# Word rules for Acme Docs. Read by people, AI tools, and `bkr check-copy`.
+# Word rules for Acme Docs. Read by people, AI tools, and `obks check-copy`.
 # The Acme Labs kit has the company-wide rules; these are the product additions.
 terms:
   - use: Acme Docs

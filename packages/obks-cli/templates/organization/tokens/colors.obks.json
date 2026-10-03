@@ -1,0 +1,48 @@
+{
+  "$schema": "https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Open-Brand-Kit-Standard@main/packages/obks-schema/schemas/obks-token.schema.json",
+  "meta": {
+    "brandId": "{{brandId}}",
+    "layer": "color"
+  },
+  "tokens": {
+    "palette": {
+      "primary": {
+        "value": "#2563EB",
+        "type": "color",
+        "description": "Main brand color for buttons and links.",
+        "usage": { "contexts": ["buttons", "links"], "avoid": ["large background fills"] }
+      },
+      "onPrimary": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Text and icons on primary (button labels)."
+      },
+      "link": {
+        "value": "#2563EB",
+        "type": "color",
+        "description": "Text links on the page background."
+      },
+      "ink": {
+        "value": "#0F172A",
+        "type": "color",
+        "description": "Headings and high-contrast text."
+      },
+      "body": {
+        "value": "#334155",
+        "type": "color",
+        "description": "Body text on light backgrounds."
+      },
+      "surface": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Page background."
+      },
+      "accent": {
+        "value": "#38BDF8",
+        "type": "color",
+        "description": "Highlights and illustrations.",
+        "usage": { "contexts": ["illustrations", "highlights"], "avoid": ["text on white"] }
+      }
+    }
+  }
+}

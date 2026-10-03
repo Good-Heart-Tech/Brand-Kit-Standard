@@ -1,0 +1,37 @@
+{
+  "name": "@goodheart/obks-schema",
+  "version": "0.6.0",
+  "description": "JSON Schemas for the Open Brand Kit Standard (OBKS): manifests, token files, and word rules",
+  "license": "MIT",
+  "author": "Good Heart Tech",
+  "homepage": "https://github.com/Good-Heart-Tech/Open-Brand-Kit-Standard#readme",
+  "bugs": {
+    "url": "https://github.com/Good-Heart-Tech/Open-Brand-Kit-Standard/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Good-Heart-Tech/Open-Brand-Kit-Standard.git",
+    "directory": "packages/obks-schema"
+  },
+  "keywords": [
+    "brand-kit",
+    "json-schema",
+    "design-tokens"
+  ],
+  "type": "module",
+  "exports": {
+    "./brandkit": "./schemas/brandkit.schema.json",
+    "./token": "./schemas/obks-token.schema.json",
+    "./terms": "./schemas/obks-terms.schema.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "schemas"
+  ]
+}

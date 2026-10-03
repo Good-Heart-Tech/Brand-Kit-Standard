@@ -1,0 +1,56 @@
+{
+  "$schema": "https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Open-Brand-Kit-Standard@main/packages/obks-schema/schemas/obks-token.schema.json",
+  "meta": {
+    "brandId": "acme-docs",
+    "layer": "color"
+  },
+  "tokens": {
+    "palette": {
+      "primary": {
+        "value": "#2563EB",
+        "type": "color",
+        "inheritsFrom": "palette.primary",
+        "description": "Locked to the parent primary. Change it in the parent kit, not here."
+      },
+      "onPrimary": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "inheritsFrom": "palette.onPrimary",
+        "description": "Button labels on primary."
+      },
+      "link": {
+        "value": "#1D4ED8",
+        "type": "color",
+        "inheritsFrom": "palette.link",
+        "description": "Text links."
+      },
+      "ink": {
+        "value": "#0F172A",
+        "type": "color",
+        "inheritsFrom": "palette.ink",
+        "description": "Headings and text."
+      },
+      "surface": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "inheritsFrom": "palette.surface",
+        "description": "Page background."
+      },
+      "productAccent": {
+        "value": "#7C3AED",
+        "type": "color",
+        "description": "Acme Docs highlight color for hero bands and diagrams. Not for text or buttons.",
+        "usage": {
+          "contexts": [
+            "highlight bands",
+            "illustrations"
+          ],
+          "avoid": [
+            "body text",
+            "buttons"
+          ]
+        }
+      }
+    }
+  }
+}

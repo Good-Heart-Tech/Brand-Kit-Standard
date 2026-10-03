@@ -45,5 +45,5 @@ early. Work through this list with your IT partner and check items off as you go
 Our colors and a basic logo are already public on our website. Sharing them with
 partners or the press does not make impersonation easier. We do **not** share
 email or signature templates, donation or login page designs, staff contact
-lists, or internal names. `bkr validate` warns if any of those are marked for
+lists, or internal names. `obks validate` warns if any of those are marked for
 sharing in `brandkit.yaml`.

@@ -1,6 +1,6 @@
 # Agent context (generated)
 
-> Regenerate with `bkr digest`. Normative values live in `tokens/*.bkr.json` and `tokens/exports/`.
+> Regenerate with `obks digest`. Normative values live in `tokens/*.obks.json` and `tokens/exports/`.
 
 ## Brand
 
@@ -13,7 +13,7 @@
 - **Based in:** Denver, Colorado
 - **Founded:** 2017
 - **Website:** https://acme-labs.example
-- **Sharing:** Partner: only paths in `publication.includedPaths` may go to partners. Build them with `bkr publish`.
+- **Sharing:** Partner: only paths in `publication.includedPaths` may go to partners. Build them with `obks publish`.
 - **Report impersonation:** security@acme-labs.example
 
 ## Mission, vision, and values
@@ -41,7 +41,7 @@ Last reviewed: 2026-10-02
 
 People and AI tools may state these facts as written. Anything not listed here
 needs a source before it is published. Update the date above whenever you
-review this page; `bkr validate` warns when it is more than a year old.
+review this page; `obks validate` warns when it is more than a year old.
 
 | Fact | Source or owner |
 |------|-----------------|

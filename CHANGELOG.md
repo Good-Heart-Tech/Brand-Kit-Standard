@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.6.0 (2026-10)
+
+### Changed (renamed)
+
+- **The project is now the Open Brand Kit Standard (OBKS).** One name everywhere: the repository (`Good-Heart-Tech/Open-Brand-Kit-Standard`), the `obks` command (`bkr` still works as an alias), packages `@goodheart/obks-cli`, `obks-schema`, and `obks-rules-ght`, contract id `obks/v1`, token files `*.obks.json`, and markers `TODO(obks)` and `<!-- obks:... -->`.
+- Everything from before the rename keeps working: `ght.brandkit/v1`, `*.bkr.json`, and `bkr:` markers are still read. `obks upgrade` converts a kit, including its action reference and links.
+- The README states the project's goals and how it helps.
+- Entries below this one use the old BKR names as they were at the time.
+
 ## 0.5.0 (2026-10)
 
 ### Added

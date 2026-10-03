@@ -16,7 +16,7 @@ Some things **do** make a scammer's job easier, so keep them private:
 | Internal names, vendors, unreleased campaigns | Makes fake requests sound believable |
 | Original design files (AI, PSD, Figma) | Easier to forge invoices and letters |
 
-When a kit is set to share (`partner` or `public`), `bkr validate` warns if any
+When a kit is set to share (`partner` or `public`), `obks validate` warns if any
 of these are on the list of shared files.
 
 ## What actually stops impersonation

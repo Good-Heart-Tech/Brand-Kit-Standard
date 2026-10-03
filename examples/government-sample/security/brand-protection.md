@@ -75,5 +75,5 @@ Our colors and logo are already public on our website. Sharing them with
 partner agencies, vendors, and the press does not make impersonation easier.
 We do **not** share the county seal, bill and notice templates, payment page
 designs, email or text templates, staff contact lists, or internal naming
-notes. `bkr validate` warns if any of those are marked for sharing in
+notes. `obks validate` warns if any of those are marked for sharing in
 `brandkit.yaml`.

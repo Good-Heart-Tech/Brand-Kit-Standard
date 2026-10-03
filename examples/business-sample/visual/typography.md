@@ -2,7 +2,7 @@
 
 We pair a warm serif for headings with a clean sans for everything else. Both
 are free on Google Fonts under the SIL Open Font License, and both are in
-Canva's font list. Values live in `tokens/typography.bkr.json`.
+Canva's font list. Values live in `tokens/typography.obks.json`.
 
 - **Headings, menu boards, bag labels:** DM Serif Display (`heading` font),
   `regular` weight. It only comes in one weight, so never fake bold it.

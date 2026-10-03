@@ -1,0 +1,31 @@
+{
+  "$schema": "https://cdn.jsdelivr.net/gh/Good-Heart-Tech/Open-Brand-Kit-Standard@main/packages/obks-schema/schemas/obks-token.schema.json",
+  "meta": {
+    "brandId": "{{brandId}}",
+    "layer": "typography"
+  },
+  "tokens": {
+    "fontFamily": {
+      "heading": {
+        "value": ["system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        "type": "fontFamily",
+        "description": "Headings. Replace with your brand font."
+      },
+      "body": {
+        "value": ["system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        "type": "fontFamily",
+        "description": "Paragraphs and UI text."
+      }
+    },
+    "fontWeight": {
+      "regular": { "value": 400, "type": "fontWeight" },
+      "bold": { "value": 700, "type": "fontWeight" }
+    },
+    "fontSize": {
+      "small": { "value": "0.875rem", "type": "dimension" },
+      "base": { "value": "1rem", "type": "dimension" },
+      "large": { "value": "1.25rem", "type": "dimension" },
+      "heading": { "value": "2rem", "type": "dimension" }
+    }
+  }
+}

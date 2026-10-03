@@ -1,6 +1,6 @@
 # Typography
 
-Fonts live in `tokens/typography.bkr.json`.
+Fonts live in `tokens/typography.obks.json`.
 
 - Headings: `heading` font, `bold`, `tight` line height
 - Paragraphs: `body` font, `regular`, `normal` line height

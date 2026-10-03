@@ -11,7 +11,7 @@ protected mark. It shows that a document is an official act of the County.
   property: ordinances, resolutions, certificates, official letters, signed
   notices, badges, and county vehicles and buildings.
 - The seal is **never** given to partners, vendors, or the press, and it is
-  not in the partner bundle (`bkr publish`). Partners and press use the county
+  not in the partner bundle (`obks publish`). Partners and press use the county
   logo instead.
 - The seal lives in `assets/seal/`, not `assets/logo/`, so the generated
   brand-at-a-glance page (which embeds every file in `assets/logo/` and is

@@ -1,6 +1,6 @@
-# Brand Kit Repository (BKR)
+# Open Brand Kit Standard (OBKS)
 
-**BKR** is an open standard and free CLI for brand kits that people, websites,
+**OBKS** is an open standard and free CLI for brand kits that people, websites,
 and AI assistants can all read, so nobody has to guess your colors, invent a
 second logo, or write in the wrong voice.
 
@@ -9,12 +9,36 @@ nonprofits, schools, and one-person businesses. A kit can be a whole
 organization, or a product, department, or sub-brand that inherits from one.
 
 Steward: [Good Heart Tech](https://github.com/Good-Heart-Tech).
-Spec: [`spec/BKR-SPEC.md`](spec/BKR-SPEC.md) (0.2, contract `ght.brandkit/v1`).
+Spec: [`spec/OBKS-SPEC.md`](spec/OBKS-SPEC.md) (contract `obks/v1`).
+Formerly "Brand Kit Repository (BKR)"; old kits still work, and `obks upgrade` converts them.
+
+## Goals
+
+1. **One source of truth.** Colors, fonts, logos, voice, approved wording, and
+   key facts live in one Git folder instead of scattered PDFs and drives.
+2. **Readable by people.** Anyone can see the brand on GitHub: palettes, the
+   brand in use, and do and don't examples, without installing anything.
+3. **Readable by machines and AI.** Websites and apps import generated CSS and
+   design tokens; AI tools get a digest with facts to state, claims to never
+   make, and word rules to follow.
+4. **Safe by default.** Text colors are checked for readability, and kits stay
+   private unless you choose to share parts, with warnings before sharing
+   anything that helps impersonators.
+5. **Free and open.** Any organization can use it, change it, and build on it.
+
+## How it helps
+
+| Without a standard | With OBKS |
+|--------------------|-----------|
+| Each site and slide deck copies hex codes by hand, and they drift | Apps import one generated CSS file; CI flags anything stale |
+| AI writes on-brand-looking text with invented facts | AI follows approved facts, a never-claim list, and word rules |
+| Nobody checks if text is readable | Every text and background pair is checked in light and dark |
+| Brand rules live in one designer's head | Rules, examples, and screenshots live in the kit, with history |
 
 ## For the people who own the brand
 
 A brand kit is one folder with your logo, colors, fonts, how you sound, and
-your approved wording. BKR keeps it organized so that:
+your approved wording. OBKS keeps it organized so that:
 
 - your website, apps, email signatures, slides, and AI tools all use the **same** colors and words
 - anyone browsing the kit on GitHub **sees** the palette, the brand in use, and do and don't examples
@@ -55,30 +79,30 @@ From a clone of this repo (Node 20+):
 ```bash
 npm install
 npm test
-npm run bkr -- init ../my-brand --brand-id my-brand --display-name "My Brand"
+npm run obks -- init ../my-brand --brand-id my-brand --display-name "My Brand"
 ```
 
 Once the packages are on npm:
 
 ```bash
-npx @goodheart/bkr-cli init ./my-brand --brand-id my-brand --display-name "My Brand"
+npx @goodheart/obks-cli init ./my-brand --brand-id my-brand --display-name "My Brand"
 ```
 
 ### Commands
 
 | Command | What it does |
 |---------|--------------|
-| `bkr init <dir>` | Scaffold an `organization` or `product` kit with `TODO(bkr)` prompts |
-| `bkr validate [dir] [--strict] [--parent <dir>]` | Schema, required files, token formats, contrast, stale exports, sharing guardrails, parent tokens, rule pack |
-| `bkr export [dir] --all` | DTCG, CSS, Tailwind v3/v4, brand-at-a-glance page, agent UI brief |
-| `bkr digest [dir]` | Regenerate `AGENTS.md` and `digest/AGENT_CONTEXT.md` |
-| `bkr publish [dir] [--dry-run]` | Bundle only the files `publication` allows (refuses for private kits) |
-| `bkr check-copy <file...> [--kit dir]` | Flag words a draft should avoid, using the kit's `voice/terms.yaml` |
-| `bkr preview [dir]` | Screenshot the brand in use and the type specimen to PNG (needs Chrome or Edge) |
-| `bkr upgrade [dir]` | Bring an older kit up to the current spec |
-| `bkr import legacy-ght-colors <dir> <colors.json>` | Convert a legacy GHT colors file |
+| `obks init <dir>` | Scaffold an `organization` or `product` kit with `TODO(obks)` prompts |
+| `obks validate [dir] [--strict] [--parent <dir>]` | Schema, required files, token formats, contrast, stale exports, sharing guardrails, parent tokens, rule pack |
+| `obks export [dir] --all` | DTCG, CSS, Tailwind v3/v4, brand-at-a-glance page, agent UI brief |
+| `obks digest [dir]` | Regenerate `AGENTS.md` and `digest/AGENT_CONTEXT.md` |
+| `obks publish [dir] [--dry-run]` | Bundle only the files `publication` allows (refuses for private kits) |
+| `obks check-copy <file...> [--kit dir]` | Flag words a draft should avoid, using the kit's `voice/terms.yaml` |
+| `obks preview [dir]` | Screenshot the brand in use and the type specimen to PNG (needs Chrome or Edge) |
+| `obks upgrade [dir]` | Bring an older kit up to the current spec |
+| `obks import legacy-ght-colors <dir> <colors.json>` | Convert a legacy GHT colors file |
 
-After editing a kit: `bkr export --all && bkr digest && bkr validate`.
+After editing a kit: `obks export --all && obks digest && obks validate`.
 
 ### Kit layout
 
@@ -90,7 +114,7 @@ After editing a kit: `bkr export --all && bkr digest && bkr validate`.
 | `voice/` | How you sound: tone, vocabulary, word rules (`terms.yaml`), sensitive topics, style |
 | `copy/`, `visual/` | Approved wording, claims and disclaimers, logo and color rules |
 | `security/brand-protection.md` | Impersonation defenses checklist |
-| `tokens/*.bkr.json`, `tokens/themes/` | Normative values |
+| `tokens/*.obks.json`, `tokens/themes/` | Normative values |
 | `tokens/exports/` | Generated; do not edit |
 | `assets/logo/` | Logos (SVG checked for unsafe content) |
 
@@ -110,7 +134,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Good-Heart-Tech/Brand-Kit-Standard@v0.5.0
+      - uses: Good-Heart-Tech/Open-Brand-Kit-Standard@v0.6.0
         with:
           path: .
           strict: "true"
@@ -122,9 +146,9 @@ Inputs: `path`, `strict`, `parent-path`, `check-exports`. See [`action.yml`](act
 
 | Package | Purpose |
 |---------|---------|
-| [`@goodheart/bkr-cli`](packages/bkr-cli/) | The `bkr` command |
-| [`@goodheart/bkr-schema`](packages/bkr-schema/) | JSON Schemas for the manifest and token files |
-| [`@goodheart/bkr-rules-ght`](packages/bkr-rules-ght/) | Optional Good Heart Tech / Honey House rule pack |
+| [`@goodheart/obks-cli`](packages/obks-cli/) | The `obks` command |
+| [`@goodheart/obks-schema`](packages/obks-schema/) | JSON Schemas for the manifest and token files |
+| [`@goodheart/obks-rules-ght`](packages/obks-rules-ght/) | Optional Good Heart Tech / Honey House rule pack |
 
 ### Repository scripts
 
@@ -133,21 +157,21 @@ Inputs: `path`, `strict`, `parent-path`, `check-exports`. See [`action.yml`](act
 | `npm test` | Unit and integration tests (Node's built-in runner) |
 | `npm run examples` | Regenerate and strictly validate every example |
 | `npm run validate` | Strictly validate every example without writing |
-| `npm run bkr -- <args>` | Run the CLI from this checkout |
+| `npm run obks -- <args>` | Run the CLI from this checkout |
 
 ## Sharing and safety
 
 Kits are **private by default**. `publication.visibility` can be `partner` or
 `public`, and only the paths listed in `publication.includedPaths` are shared.
 Colors and a basic logo are low risk because they are already on your website.
-`bkr validate` warns before you share things that make phishing easier, like
+`obks validate` warns before you share things that make phishing easier, like
 email templates, donation page designs, or staff contact details. The real
 defense is email authentication (DMARC) and watching for look-alike domains;
 see [Protect your brand](docs/protect-your-brand.md).
 
 ## Adopters
 
-See [ADOPTERS.md](ADOPTERS.md). Using BKR? Add your kit with a pull request.
+See [ADOPTERS.md](ADOPTERS.md). Using OBKS? Add your kit with a pull request.
 
 ## Interop
 
