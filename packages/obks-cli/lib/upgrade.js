@@ -44,7 +44,9 @@ const RENAMES = [
   [/packages\/bkr-cli\/bin\/bkr\.js/g, "packages/obks-cli/bin/obks.js"],
   [/packages\/bkr-cli/g, "packages/obks-cli"],
   [/(<path-to>\/|\[)Brand-Kit-Standard\b/g, "$1Open-Brand-Kit-Standard"],
-  [/\bbkr\b/g, "obks"],
+  // Plain mentions only: skip "bkr-token" and "bkr.json" style names, which the
+  // schema-URL and token-file steps below still need to recognize.
+  [/\bbkr\b(?![-.])/g, "obks"],
 ];
 const RENAME_SKIP = /^(tokens\/exports\/|digest\/|AGENTS\.md$|node_modules\/|dist\/|\.git\/|history\/|reference\/)/;
 const RENAME_TEXT = /\.(md|ya?ml|json|mdc|txt)$/i;
