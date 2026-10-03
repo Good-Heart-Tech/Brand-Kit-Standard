@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.1 (2026-10)
+
+### Fixed
+
+- `obks upgrade` also rewrites local CLI paths (`packages/bkr-cli/bin/bkr.js`), `Brand-Kit-Standard` link labels and folder names, and any remaining plain `bkr` mentions in a kit's own files.
+
 ## 0.6.0 (2026-10)
 
 ### Changed (renamed)

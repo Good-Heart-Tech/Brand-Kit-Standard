@@ -134,7 +134,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Good-Heart-Tech/Open-Brand-Kit-Standard@v0.6.0
+      - uses: Good-Heart-Tech/Open-Brand-Kit-Standard@v0.6.1
         with:
           path: .
           strict: "true"

@@ -41,6 +41,10 @@ const RENAMES = [
   [/@goodheart\/bkr-/g, "@goodheart/obks-"],
   [/Good-Heart-Tech\/(?:Open-)?Brand-Kit-Standard@v\d+\.\d+\.\d+/g, `Good-Heart-Tech/Open-Brand-Kit-Standard@v${CLI_VERSION}`],
   [/Good-Heart-Tech\/Brand-Kit-Standard/g, "Good-Heart-Tech/Open-Brand-Kit-Standard"],
+  [/packages\/bkr-cli\/bin\/bkr\.js/g, "packages/obks-cli/bin/obks.js"],
+  [/packages\/bkr-cli/g, "packages/obks-cli"],
+  [/(<path-to>\/|\[)Brand-Kit-Standard\b/g, "$1Open-Brand-Kit-Standard"],
+  [/\bbkr\b/g, "obks"],
 ];
 const RENAME_SKIP = /^(tokens\/exports\/|digest\/|AGENTS\.md$|node_modules\/|dist\/|\.git\/|history\/|reference\/)/;
 const RENAME_TEXT = /\.(md|ya?ml|json|mdc|txt)$/i;
